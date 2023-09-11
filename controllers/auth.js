@@ -6,6 +6,7 @@ exports.authen = async (req, res, next) => {
     else {
         req.session.back = req.originalUrl;
         if (req.session.back === '/cart/addProductCart') req.session.back = '/';
+        if (req.session.back === '/shop/comment') req.session.back = '/shop';
         res.redirect("/users/login");
     }
 }
