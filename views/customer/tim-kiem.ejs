@@ -1,0 +1,359 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+        <div class="col-md-12 phantrang text-left pb-3">
+            <ul>
+                <li><a href="/">Trang chủ</a> / </li>
+                <li>Cửa hàng</li>
+            </ul>
+        </div>
+      
+      <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
+        <div class="side-menu animate-dropdown outer-bottom-xs box_shadow_border_radius">
+          <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> DANH MỤC SẢN PHẨM</div>
+          <nav class="yamm megamenu-horizontal">
+            <ul class="nav">
+              <%categories.forEach((item) => {%>
+              <li class="dropdown menu-item"> <a href="/category/id=<%=item.id%>?page=1"><img class="image-category" src="<%=item.image%>"/> <%= item.name%></a></li>
+              <%})%>
+            </ul>
+          </nav>
+        </div>
+        
+        <div class="style-border sidebar-widget hot-deals wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <h3 class="section-title">LỌC SẢN PHẨM</h3>
+          <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+            <form action="/shop/filter" method="POST">
+              <div class="danhmuc" style="z-index: 100">
+                <div class="dm1">Đối tượng</div>
+                  <div class="row">
+                    <div class="col-md-12 pb-2">
+                      <input type="checkbox" name="object" value="2"> <span>Trẻ em</span>
+                    </div>
+                    <div class="col-md-12 pb-2">
+                      <input type="checkbox" name="object" value="3"> <span>Người trưởng thành</span>
+                    </div>
+                    <div class="col-md-12 pb-2">
+                      <input type="checkbox" name="object" value="4"> <span>Người lớn tuổi</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="danhmuc" style="margin-top: 20px; z-index: 100">
+                  <div class="dm1">Thương hiệu</div>
+                    <div class="list-categories" id="category">
+                      <div class="row">
+                        <%trademark.forEach((item) => {%>
+                          <div class="col-md-6 pb-2">
+                            <input type="checkbox" name="trademark" value="<%=item.trademark%>"> <span><%=item.trademark%></span>
+                          </div>
+                        <%})%>
+                      </div>
+                    </div>
+                  <div class="text-center text-primary pt-2">
+                    <button type="button" id="xemthem">Xem thêm</button>
+                    <button type="button" id="rutgon">Rút gọn</button>
+                  </div>
+                </div>   
+                <div class="khoanggia pt-3">
+                  <div class="kg">Khoảng giá</div>
+                  <div class="row">
+                    <div class="col-md-5">
+                      <input type="text" style="width: 95px" class="input-register" name="price1" placeholder="0">
+                    </div>
+                    <div class="col-md-1">-</div>
+                    <div class="col-md-5">
+                      <input type="text" style="width: 95px; margin-left: -15px" class="input-register" name="price2" placeholder="100.000">
+                    </div>
+                  </div>
+                </div>
+                <div class="button">
+                  <button type="submit" class="form-control btn-primary">Lọc</button>
+                </div>     
+            </form>
+          </div>
+        </div>
+      </div>
+     
+      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp top_responsive box_shadow_border_radius dichuyenlen3">
+          <div class="more-info-tab clearfix ">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3 class="new-product-title pull-left">Cửa hàng</h3>
+                </div>
+                <div class="col-md-3 col-12 hienthidsicon text-right">
+                    <ul>
+                        <li class="tablinks active" data-hienthi="hienthio"><i class="fa fa-th" aria-hidden="true"></i></li>
+                        <li class="tablinks" data-hienthi="hienthids"><i class="fa fa-list" aria-hidden="true"></i></li>
+                    </ul>
+                   
+                </div> 
+                <div class="col-md-7 col-12 top_responsive1">
+                    <span style="margin-left: 30px;">Sắp xếp:</span>
+                    <select onchange="window.location.assign(this.value)">
+                        <option value="/shop?page=1">Thứ tự mặc định</option>
+                        <option value="/shop/newproduct?page=1">Sản phẩm mới nhất</option>
+                        <option value="/shop/price-low-to-high?page=1">Thứ tự theo giá: Từ thấp đến cao</option>
+                        <option value="/shop/price-high-to-low?page=1">Thứ tự theo giá: Từ cao xuống thấp</option>
+                    </select>
+                    <span class="top_responsive1" style="margin-left: 29px; ">Hiển thị:</span>
+                    <select class="top_responsive1" onchange="window.location.assign(this.value)">
+                        <option value="/shop/product?page=1&perPage=10" <%if(perPage==10){%>selected<%}%> >10</option>
+                        <option value="/shop/product?page=1&perPage=15" <%if(perPage==15){%>selected<%}%> >15</option>
+                        <option value="/shop/product?page=1&perPage=20" <%if(perPage==20){%>selected<%}%> >20</option>
+                        <option value="/shop/product?page=1&perPage=25" <%if(perPage==25){%>selected<%}%> >25</option>
+                        <option value="/shop/product?page=1&perPage=30" <%if(perPage==30){%>selected<%}%> >30</option>
+                    </select>
+                </div>     
+            </div>
+          </div>
+          <div class="tab-content outer-top-xs" >
+            <div class="tab-pane tabcontent" id="hienthio">
+              <div class="product-slider">
+                <%if (listProduct.length > 0) {
+                  listProduct.forEach((item) => {%>
+                <div class="product_">
+                    <div class="product-img">
+                      <div class="img">
+                        <a href="/shop/detail/id=<%=item.id%>">
+                          <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                          %>
+                          <img src="<%=image%>"/>
+                          <%if (item.type == null || item.type == "") {%>
+                            <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                          <%} else {%>
+                            <div class="tag sale"><span><%= item.type%></span></div>
+                          <%}%> 
+                        </a>
+                        <div class="button-product">
+                          <% if (item.quantity > 0) {%>
+                            <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                            <%if (user != null) {%>
+                            <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                            <%}%>
+                          <% } else {%>
+                            <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                          <%}%>    
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-information">
+                      <div class="product-cate"><%=item.Category.name%></div>
+                      <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                      <div class="product_rating" style="font-size: 10px;">
+                          <%include danh-gia-sao%>
+                      </div>
+                      <div class="product-money">
+                        <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                      </div>
+                      <div class="product-other">
+                        <div class="product-like">
+                          <%if (user != undefined){
+                            if (favorite.includes(item.id)) {%>
+                            <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                          <%} else {%>
+                            <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                          <%}} else {%>
+                            <a href="/users/login"><i class="far fa-heart"></i></a>
+                          <%}%>
+                        </div>
+                        <div class="product-order">
+                          <%if (products_sold.includes(item.id)) {
+                            productsSold.forEach((item1) => {
+                              if (item.id == item1.product_id) {%>
+                                Đã bán <%= item1.total%>
+                          <%}})} else {%>
+                            Đã bán 0
+                          <%}%>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <%})} else {%>
+                  <p class="pb-3 text-primary font-weight-bold" style="font-size: 20px;">Không tìm thấy sản phẩm "<%=search%>" cần tìm kiếm.</p>
+                <%}%>
+              </div>  
+            </div>           
+          </div>
+          <div class="tab-content outer-top-xs" >
+            <div class="tab-pane tabcontent" id="hienthids">
+              <div class="product-slider mb-3">
+                <%listProduct.forEach((item) => {%>
+                <div class="product">
+                    <div class="product-micro">
+                      <div class="row product-micro-row">
+                        <div class="col col-xs-5">
+                          <div class="product-image">
+                            <div class="image"> 
+                              <a href="/shop/detail/id=<%=item.id%>"> 
+                              <%
+                              for (i = 0; i < item.ImageProducts.length; i++) {
+                                var image = item.ImageProducts[0].image;
+                              }
+                              %>
+                              <img src="<%=image%>"/>
+                              </a> 
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col2 col-xs-7">
+                          <div class="product-info">
+                            <div class="product-info-cate"><%=item.Category.name%></div>
+                            <h3 class="name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0,57)%>...</a></h3>
+                            <div class="product_rating" style="font-size: 10px;">
+                                <%include danh-gia-sao%>
+                            </div>
+                            <div class="product-price"> 
+                              <%if (item.oldPrice > 0) {%>
+                                <span class="price_"><%= item.oldPrice%>đ</span>
+                                <span class="price" style="font-size: 10px"> <del><%= item.price%>đ</del> </span>
+                              <%} else {%>
+                                <span class="price_"><%= item.price%>đ</span>
+                              <%}%>
+                             </div>
+                          </div>
+                          <div class="button-product">
+                            <% if (item.quantity > 0) {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                            <% } else {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                            <%}%>  
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <%})%>
+              </div>  
+            </div>           
+          </div>
+          <div class="col-md-12">
+                        <div class="row">
+                            <% if(pages > 0) { %>
+                                <nav class="mx-auto">
+                                    <ul class="pagination" style="margin-top: auto;">
+                                 
+                                    <% if(current == 1) { %> 
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="/shop?page=1&perPage=<%= perPage%>">First</a>
+                                        </li>
+                                    <% } else { %>
+                                        <li class="page-item">
+                                            <a class="page-link" href="/shop?page=1&perPage=<%= perPage%>">First</a>
+                                        </li>
+                                    <% } %>
+        
+                                <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %> 
+                                    <% if(i !== 1) { %>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#">...</a>
+                                        </li>
+                                    <% } %>
+                                    <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
+                                        <% if(i == current) { %>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="/shop?page=<%= i %>&perPage=<%= perPage%>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                        <% } else { %>
+                                            <li class="page-item">
+                                                <a class="page-link" href="/shop?page=<%= i %>&perPage=<%= perPage%>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                        <% } %>
+                                        <% if (i == Number(current) + 2 && i < pages) { %>
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#">...</a>
+                                            </li>
+                                        <% } %>
+                                <% } %>
+        
+                                <% if(current == pages) { %> 
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Last</a>
+                                    </li>
+                                <% } else { %>
+                                    <li class="page-item">
+                                        <a class="page-link" href="/shop?page=<%= pages %>&perPage=<%= perPage%>">Last</a>
+                                    </li>
+                                <% } %>
+                                </ul>
+                            </nav>
+                        <% } %>
+                        </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 60px;">
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="nhasanxuat">
+          <div class="slider canle">
+            <div class="slide-track">
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<% include footer %>

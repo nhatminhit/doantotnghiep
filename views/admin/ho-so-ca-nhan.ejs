@@ -1,0 +1,102 @@
+<% include header %>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Hồ sơ của tôi</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item">Hồ sơ của tôi</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="detail-order">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="content-block">
+											<div class="font-weight-bold">Ảnh đại diện</div>
+											<form action="/portal/users/uploadAvatar" method="post" enctype="multipart/form-data">
+												<div class="anhdaidientk">
+													<div class="form-group">
+													  <label class="custom-file">
+														<input type="file" name="avatar" id="" placeholder="" class="custom-file-input" aria-describedby="fileHelpId">
+														<span class="custom-file-control">
+															<img src="<%= inforUser.avatar%>" alt="">
+														</span>
+													  </label>
+													</div>
+													<div class="dinhdang mb-3">Định dạng: .jpg, .jpeg, .png</div>
+												</div>
+												<div class="text-center">
+													<button type="submit" class="btn btn-info">Lưu</button>
+												</div>
+											</form>   
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="content-block">
+											<table class="table">
+												<tr>
+													<td style="border: none">Họ và tên</td>
+													<td style="border: none"><%= inforUser.name%></td>
+												</tr>
+												<tr>
+													<td>Tên tài khoản</td>
+													<td><%= inforUser.username%></td>
+												</tr>
+												<tr>
+													<td>Quyền hạn</td>
+													<%if (inforUser.role_id == 1) {%>
+														<td>Quản trị hệ thống</td>
+													<%} else if (inforUser.role_id == 2) {%>
+														<td>Nhân viên</td>
+													<%}%>
+												</tr>
+												<tr>
+													<td>Email</td>
+													<td><%= inforUser.email%></td>
+												</tr>
+												<tr>
+													<td>Ngày sinh</td>
+													<td><%= inforUser.birthday%></td>
+												</tr>
+												<tr>
+													<td>Giới tính</td>
+													<td><%= inforUser.gender%></td>
+												</tr>
+												<tr>
+													<td>Địa chỉ</td>
+													<td><%= inforUser.address%></td>
+												</tr>
+												<tr>
+													<td>Số điện thoại</td>
+													<td><%= inforUser.phone%></td>
+												</tr>
+											</table>
+											<div class="col-md-12 text-center">
+												<a href="/portal/users/updateProfile" class="btn btn-info"><i class="fas fa-edit"></i> Chỉnh sửa thông tin</a>
+												<a href="/portal/users/changePassword" class="btn btn-info"><i class="fas fa-pencil-alt"></i> Thay đổi mật khẩu</a>
+												<a href="/portal" class="btn btn-warning">Trở về</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<% include footer %>

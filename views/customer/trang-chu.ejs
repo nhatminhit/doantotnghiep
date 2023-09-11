@@ -1,0 +1,1817 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="MediaCenter, Template, eCommerce">
+<meta name="robots" content="all">
+<title><%= title%></title>
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="assets\css\bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Customizable CSS -->
+<link rel="stylesheet" href="assets\css\main.css">
+<link rel="stylesheet" href="assets\css\main1.css">
+<link rel="stylesheet" href="assets\css\blue.css">
+<link rel="stylesheet" href="assets\css\owl.carousel.css">
+<link rel="stylesheet" href="assets\css\owl.transitions.css">
+<link rel="stylesheet" href="assets\css\animate.min.css">
+<link rel="stylesheet" href="assets\css\rateit.css">
+<link rel="stylesheet" href="assets\css\bootstrap-select.min.css">
+
+<!-- Icons/Glyphs -->
+<link rel="stylesheet" href="assets\css\font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+
+<!-- Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="cnt-home">
+<header class="header-style-1"> 
+  <div class="top-bar animate-dropdown">
+    <div class="container">
+      <div class="header-top-inner">
+        <div class="cnt-block">
+          <ul class="list-unstyled list-inline">
+            <li class="dropdown dropdown-small"> <a href="#" data-hover="dropdown" data-toggle="dropdown"><span class="value">Tài khoản </span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/users/login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
+                <li><a href="/users/register"><i class="far fa-plus-square"></i> Đăng ký</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="cnt-account cnt-block" style="float: left;">
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="fas fa-phone-volume"></i> 012 345 6789</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i>TP.Hà Nội</a></li>
+          </ul>
+        </div>
+        <div class="cnt-account cnt-block">
+          <ul class="list-unstyled">
+            <li><a href="/order/list"><i class="fas fa-clipboard-check"></i> Đơn hàng của tôi</a></li>
+            <li><a href="/shop/wishlist"><i class="icon fa fa-heart"></i>Sản phẩm yêu thích</a></li>
+            <li><a href="#"><i class="icon fa fa-check"></i>Hỗ trợ</a></li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <div class="main-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
+          <div class="logo"> <a href="home.html"> <img src="..\assets\images\logo.png" alt="logo"> </a> </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder"> 
+          <div class="search-area">
+            <form>
+              <div class="control-group">
+                <ul class="categories-filter animate-dropdown">
+                  <li class="dropdown"> <a data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li class="menu-header">Computer</li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Shoes</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <input class="search-field" placeholder="Search here...">
+                <a class="search-button" href="#"></a> </div>
+            </form>
+          </div>
+         </div>
+        
+        <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
+          <div class="dropdown dropdown-cart"> <a href="#" class="lnk-cart" data-toggle="dropdown">
+            <div class="items-cart-inner">
+              <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
+              <div class="basket-item-count"><span class="count">0</span></div>
+              <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="value">0đ</span> </span> </div>
+            </div>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="cart-item product-summary">
+                  <div class="row">
+                    <div class="col-md-12 text-center" style="font-size: 13px;">Bạn cần đăng nhập để xem giỏ hàng</div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <hr>
+                <div class="clearfix cart-total">
+                  <div class="pull-right"> <span class="text">Tổng tiền:</span><span class='price'>0đ</span> </div>
+                  <div class="clearfix"></div>
+                  <a href="/users/login" class="btn btn-upper btn-primary btn-block m-t-20">Xem giỏ hàng</a> </div>        
+              </li>
+            </ul>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="header-nav animate-dropdown">
+    <div class="container">
+      <div class="yamm navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
+       <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div class="nav-bg-class">
+          <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+            <div class="nav-outer">
+              <ul class="nav navbar-nav">
+                <li class="active dropdown yamm-fw"><a href="/"><i class="fas fa-home"></i> TRANG CHỦ</a> </li>
+                <li class="yamm-fw"> <a href="home.html"><i class="fas fa-id-card-alt"></i> GIỚI THIỆU</a> </li>
+                <li class="dropdown"> <a href="/shop?page=1"><i class="fas fa-store"></i> CỬA HÀNG</a></li>
+                <li class="dropdown yamm mega-menu"> <a href="/cart"><i class="fas fa-shopping-cart"></i> GIỎ HÀNG</a></li>
+                <li class="dropdown yamm mega-menu"> <a href="/users/myaccount"><i class="fas fa-user-circle"></i> TÀI KHOẢN</a></li>
+                <li class="dropdown mega-menu"><a href="/jobs"><i class="fas fa-user-plus"></i> TUYỂN DỤNG</a></li>
+                <li class="dropdown mega-menu"><a href="/news?page=1"><i class="fas fa-newspaper"></i> TIN TỨC</a></li>
+                <li class="dropdown hidden-sm"> <a href="/contact"><i class="far fa-id-badge"></i> LIÊN HỆ </a> </li>             
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div> 
+</header>
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+      <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
+        <div class="side-menu animate-dropdown outer-bottom-xs box_shadow_border_radius">
+          <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> DANH MỤC SẢN PHẨM</div>
+          <nav class="yamm megamenu-horizontal">
+            <ul class="nav">
+              <%categories.forEach((item) => {%>
+              <li class="dropdown menu-item"> <a href="" data-toggle="dropdown"><img class="image-category" src="/images/category/<%=item.image%>"/> <%= item.name%></a>
+                  <ul class="dropdown-menu mega-menu menucon"> 
+                  <%subcategories.forEach((item2) => {
+                    if (item.id == item2.category_id) {%>
+                        <li class="yamm-content">
+                          <div class="row">
+                            <div class="col-sm-12 col-md-4" style="display: inline-block">
+                              <ul class="links list-unstyled">
+                                <li><a href="/category/id=<%= item2.id%>?page=1"><img class="image-category" src="/images/category/<%=item2.image%>"/> <%= item2.namesub%></a></li>
+                              </ul>
+                            </div>
+                            
+                        </li>                 
+                  <%}})%>
+                  </ul>
+              </li>
+              <%})%>
+            </ul>
+          </nav>
+        </div>
+    
+        <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Hot nhất</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (hot.length > 0) {
+              hot.forEach((item) => {%>
+            <div class="product" style="width: 215px;">
+              <div class="product-micro">
+                <div class="row product-micro-row">
+                  <div class="col col-xs-5">
+                    <div class="product-image">
+                      <div class="image" style="width: 120%"> 
+                        <a href="/shop/detail/id=<%=item.id%>"> 
+                          <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                          %>
+                          <img src="<%=image%>"/>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col2 col-xs-7">
+                    <div class="product-info">
+                      <%if(item.SubCategory.namesub.length > 14) {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub.substring(0, 14)%>...</div>
+                      <%} else {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub%></div>
+                      <%}%>
+                      <h3 class="name"><a href="/shop/detail/id=<%=item.id%>"><%=item.name.substring(0,14)%>...</a></h3>
+                      <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                      </div>
+                      <div class="product-price"> 
+                          <%if (item.oldPrice > 0) {%>
+                            <span class="price_"><%= item.oldPrice%>đ</span>
+                            <span class="price" style="font-size: 10px"> <del><%= item.price%>đ</del> </span>
+                          <%} else {%>
+                            <span class="price_"><%= item.price%>đ</span>
+                          <%}%>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <%})} else {%>
+              <p>Không có sản phẩm nào được hiển thị</p>
+            <%}%>        
+          </div>
+        </div>
+        
+        <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Làm đẹp</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (beautify.length > 0) {
+              beautify.forEach((item) => {%>
+            <div class="product" style="width: 215px;">
+              <div class="product-micro">
+                <div class="row product-micro-row">
+                  <div class="col col-xs-5">
+                    <div class="product-image">
+                      <div class="image" style="width: 120%"> 
+                        <a href="/shop/detail/id=<%=item.id%>"> 
+                          <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                          %>
+                          <img src="<%=image%>"/>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col2 col-xs-7">
+                    <div class="product-info">
+                      <%if(item.SubCategory.namesub.length > 14) {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub.substring(0, 14)%>...</div>
+                      <%} else {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub%></div>
+                      <%}%>
+                      <h3 class="name"><a href="/shop/detail/id=<%=item.id%>"><%=item.name.substring(0,14)%>...</a></h3>
+                      <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                        </div>
+                      <div class="product-price"> 
+                          <%if (item.oldPrice > 0) {%>
+                            <span class="price_"><%= item.oldPrice%>đ</span>
+                            <span class="price" style="font-size: 10px"> <del><%= item.price%>đ</del> </span>
+                          <%} else {%>
+                            <span class="price_"><%= item.price%>đ</span>
+                          <%}%>       
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <%})} else {%>
+              <p>Không có sản phẩm nào được hiển thị</p>
+            <%}%>        
+          </div>
+        </div>
+
+        <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Sinh lý</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (physiologic.length > 0) {
+            physiologic.forEach((item) => {%>
+            <div class="product" style="width: 215px;">
+              <div class="product-micro">
+                <div class="row product-micro-row">
+                  <div class="col col-xs-5">
+                    <div class="product-image">
+                      <div class="image" style="width: 120%"> 
+                        <a href="/shop/detail/id=<%=item.id%>"> 
+                          <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                          %>
+                          <img src="<%=image%>"/>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col2 col-xs-7">
+                    <div class="product-info">
+                      <%if(item.SubCategory.namesub.length > 14) {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub.substring(0, 14)%>...</div>
+                      <%} else {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub%></div>
+                      <%}%>
+                      <h3 class="name"><a href="/shop/detail/id=<%=item.id%>"><%=item.name.substring(0,14)%>...</a></h3>
+                      <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                      </div>
+                      <div class="product-price"> 
+                          <%if (item.oldPrice > 0) {%>
+                            <span class="price_"><%= item.oldPrice%>đ</span>
+                            <span class="price" style="font-size: 10px"> <del><%= item.price%>đ</del> </span>
+                          <%} else {%>
+                            <span class="price_"><%= item.price%>đ</span>
+                          <%}%>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <%})} else {%>
+              <p>Không có sản phẩm nào được hiển thị</p>
+            <%}%>        
+          </div>
+        </div>
+
+        <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Thần kinh</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (nerve.length > 0) {
+            nerve.forEach((item) => {%>
+            <div class="product" style="width: 215px;">
+              <div class="product-micro">
+                <div class="row product-micro-row">
+                  <div class="col col-xs-5">
+                    <div class="product-image">
+                      <div class="image" style="width: 120%"> 
+                        <a href="/shop/detail/id=<%=item.id%>"> 
+                          <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                          %>
+                          <img src="<%=image%>"/>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col2 col-xs-7">
+                    <div class="product-info">
+                      <%if(item.SubCategory.namesub.length > 14) {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub.substring(0, 14)%>...</div>
+                      <%} else {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub%></div>
+                      <%}%>
+                      <h3 class="name"><a href="/shop/detail/id=<%=item.id%>"><%=item.name.substring(0,14)%>...</a></h3>
+                      <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                      </div>
+                      <div class="product-price"> 
+                          <%if (item.oldPrice > 0) {%>
+                            <span class="price_"><%= item.oldPrice%>đ</span>
+                            <span class="price" style="font-size: 10px"> <del><%= item.price%>đ</del> </span>
+                          <%} else {%>
+                            <span class="price_"><%= item.price%>đ</span>
+                          <%}%>                 
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <%})} else {%>
+              <p>Không có sản phẩm nào được hiển thị</p>
+            <%}%>        
+          </div>
+        </div>
+
+        <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Vitamin</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (vitamin.length > 0) {
+            vitamin.forEach((item) => {%>
+            <div class="product" style="width: 215px;">
+              <div class="product-micro">
+                <div class="row product-micro-row">
+                  <div class="col col-xs-5">
+                    <div class="product-image">
+                      <div class="image" style="width: 120%"> 
+                        <a href="/shop/detail/id=<%=item.id%>"> 
+                          <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                          %>
+                          <img src="<%=image%>"/> 
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col2 col-xs-7">
+                    <div class="product-info">
+                      <%if(item.SubCategory.namesub.length > 14) {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub.substring(0, 14)%>...</div>
+                      <%} else {%>
+                        <div class="product-info-cate"><%= item.SubCategory.namesub%></div>
+                      <%}%>
+                      <h3 class="name"><a href="/shop/detail/id=<%=item.id%>"><%=item.name.substring(0,14)%>...</a></h3>
+                      <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                      </div>
+                      <div class="product-price"> 
+                          <%if (item.oldPrice > 0) {%>
+                            <span class="price_"><%= item.oldPrice%>đ</span>
+                            <span class="price" style="font-size: 10px"> <del><%= item.price%>đ</del> </span>
+                          <%} else {%>
+                            <span class="price_"><%= item.price%>đ</span>
+                          <%}%>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <%})} else {%>
+              <p>Không có sản phẩm nào được hiển thị</p>
+            <%}%>        
+          </div>
+        </div>
+      
+        <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Tin tức mới nhất </h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (listNewsSort.length > 0) {
+              listNewsSort.forEach((item) => {%>
+            <div class="product khoi-news" style="width: 215px;">
+              <div class="row">
+                <div class="col-md-5 col-5">
+                  <div class="image-news">
+                    <a href="/news/detail/id=<%= item.id%>"><img src="<%= item.image%>"/></a>
+                  </div>
+                </div>
+                <div class="col-md-7 col-7">
+                  <div class="information-news">
+                    <%if (item.title.length < 40) {%>
+                      <div class="news-title"><a href="/news/detail/id=<%= item.id%>"><%= item.title%></a></div>
+                    <% } else {%>
+                      <div class="news-title"><a href="/news/detail/id=<%= item.id%>"><%= item.title.substring(0, 40)%>...</a></div>
+                    <% }%>
+                    <div class="news-infor"><i class="far fa-calendar-alt"></i> <%= item.createTime.substring(0,9)%></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%})} else {%>
+              <span class="text-center">Không có tin tức nào được đăng</span>
+            <%}%>             
+          </div>
+        </div>
+
+        <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small box_shadow_border_radius mt-5">
+          <h3 class="section-title">Đăng ký nhận tin tức</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <p>Nhập email để đón nhận tin tức mới nhất từ chúng tôi</p>
+            <form>
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email">
+              </div>
+              <button type="submit" class="btn btn-warning" style="font-size: 14px;">Đăng ký</button>
+            </form>
+          </div>
+        </div>
+        
+        <!-- <div class="home-banner"> <img src="assets\images\banners\LHS-banner.jpg" alt="Image"> </div> -->
+      </div>
+      
+      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
+        <div id="hero">
+          <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+            <div class="item" style="background-image: url(/avatar/banner1.jpg);">
+              <div class="container-fluid">
+                <div class="caption bg-color vertical-center text-left">
+                  <div class="slider-header fadeInDown-1">Spring 2016</div>
+                  <div class="big-text fadeInDown-1"> Women <span class="highlight">Fashion</span> </div>
+                  <div class="excerpt fadeInDown-2 hidden-xs"> <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</span> </div>
+                  <div class="button-holder fadeInDown-3"> <a href="index.php?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="item" style="background-image: url(/avatar/banner2.jpg);">
+              <div class="container-fluid">
+                <div class="caption bg-color vertical-center text-left">
+                  <div class="slider-header fadeInDown-1">Spring 2016</div>
+                  <div class="big-text fadeInDown-1"> Women <span class="highlight">Fashion</span> </div>
+                  <div class="excerpt fadeInDown-2 hidden-xs"> <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</span> </div>
+                  <div class="button-holder fadeInDown-3"> <a href="index.php?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="item" style="background-image: url(/avatar/banner3.jpg);">
+              <div class="container-fluid">
+                <div class="caption bg-color vertical-center text-left">
+                  <div class="slider-header fadeInDown-1">Spring 2016</div>
+                  <div class="big-text fadeInDown-1"> Women <span class="highlight">Fashion</span> </div>
+                  <div class="excerpt fadeInDown-2 hidden-xs"> <span>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</span> </div>
+                  <div class="button-holder fadeInDown-3"> <a href="index.php?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="information-add box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="delivery">
+                <img src="/assets/images/image/free-shipping-12.png">
+                <div class="delivery-free">Giao hàng miễn phí</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="pay">
+                <img src="/assets/images/image/safe-online-payments-with-3-d-secure-secure-online-payment-icon-1177849.png">
+                <div class="pay_">Thanh toán an toàn</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="shopping">
+                <img src="/assets/images/image/kindpng_7944727.png">
+                <div class="shopping_">Mua hàng tự tin</div>
+              </div>
+            </div>
+          </div>                  
+        </div>
+  
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp box_shadow_border_radius">
+          <div class="more-info-tab clearfix ">
+            <h3 class="new-product-title pull-left">Sản phẩm mới nhất <span class="badge badge-warning">new</span></h3>
+            <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
+              <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li>
+            </ul>
+          </div>
+          <div class="tab-content outer-top-xs">
+            <div class="tab-pane in active" id="all">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4" style="width: 800px">
+                  <%allProduct.forEach((item) => {%>
+                  <div class="item item-carousel">
+                    <div class="product_">
+                      <div class="product-img">
+                        <div class="img">
+                          <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                            <%if (item.type == null) {%>
+                              <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                            <%} else {%>
+                              <div class="tag sale"><span><%= item.type%></span></div>
+                            <%}%> 
+                          </a>
+                          <div class="button-product">
+                            <% if (item.quantity > 0) {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                            <% } else {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                            <%}%>  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-information">
+                        <div class="product-cate"><%=item.SubCategory.namesub%></div>
+                        <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                        <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                        </div>
+                        <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <%})%>
+                </div>  
+              </div>  
+            </div>
+            
+            <div class="tab-pane" id="smartphone">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
+                  <%milk.forEach((item) => {%>
+                  <div class="item item-carousel">
+                    <div class="product_">
+                      <div class="product-img">
+                        <div class="img">
+                          <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                            <%if (item.type == null) {%>
+                              <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                            <%} else {%>
+                              <div class="tag sale"><span><%= item.type%></span></div>
+                            <%}%> 
+                          </a>
+                          <div class="button-product">
+                            <% if (item.quantity > 0) {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                            <% } else {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                            <%}%>  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-information">
+                        <div class="product-cate"><%=item.SubCategory.namesub%></div>
+                        <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                        <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                        </div>
+                        <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <%})%>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="laptop">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
+                  <%eye.forEach((item) => {%>
+                  <div class="item item-carousel">
+                    <div class="product_">
+                      <div class="product-img">
+                        <div class="img">
+                          <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                            <%if (item.type == null) {%>
+                              <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                            <%} else {%>
+                              <div class="tag sale"><span><%= item.type%></span></div>
+                            <%}%> 
+                          </a>
+                          <div class="button-product">
+                            <% if (item.quantity > 0) {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                            <% } else {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                            <%}%>  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-information">
+                        <div class="product-cate"><%=item.SubCategory.namesub%></div>
+                        <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                        <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                        </div>
+                        <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <%})%>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="apple">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
+                  <%if (bloodPressure.length > 0) {%>
+                    <%bloodPressure.forEach((item) => {%>
+                    <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null) {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.SubCategory.namesub%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                          </div>
+                          <div class="product-money">
+                            <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%})%>
+                  <% } else {%>
+                    <p>Không có sản phẩm nào được hiển thị.</p>
+                  <% }%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/banner4.jpg" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <section class="section featured-product wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Sản phẩm giảm giá</h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+              <%allProduct.forEach((item) => {
+                if (item.oldPrice > 0) {
+              %>
+              <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null) {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.SubCategory.namesub%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                          </div>
+                          <div class="product-money">
+                            <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              <%}})%>
+          </div>
+        </section>
+      
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/banner5.jpg" height="195px" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- chạy bên khasch hang: localhost/3000       bên admin: localhost:3000/portal -->
+        
+       
+        <section class="section latest-blog outer-bottom-vs wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Tin tức mới nhất</h3>
+          <div class="blog-slider-container outer-top-xs">
+            <div class="owl-carousel blog-slider custom-carousel" style="height: 420px">
+              <%if (listNews.length > 0) {
+                listNews.forEach((item) => {%>
+              <div class="item">
+                <div class="blog-post">
+                  <div class="blog-post-image">
+                    <div class="image"> <a href="/news/detail/id=<%= item.id%>"><img src="<%= item.image%>" alt=""></a> </div>
+                  </div>
+                  
+                  <div class="blog-post-info text-left">
+                    <h3 class="name pt-3"><a href="/news/detail/id=<%= item.id%>"><%= item.title%></a></h3>
+                    <div class="thongsotin">
+                      <ul>
+                        <li><a href=""><i class="fa fa-user" aria-hidden="true"></i> <%= item.creator%></a></li>
+                        <li><a href=""><i class="far fa-comment"></i> 10 comment</a></li>
+                        <li><a href=""><i class="far fa-calendar-alt"></i> <%= item.createTime%></a></li>
+                      </ul>
+                    </div>
+                    <%if (item.title.length < 45) {%>
+                      <p class="text text-justify"><%= item.content.substring(0, 200)%>...</p>
+                    <%} else {%>
+                      <p class="text text-justify"><%= item.content.substring(0, 150)%>...</p>    
+                    <%}%>
+                    <a href="/news/detail/id=<%= item.id%>" class="lnk btn btn-primary">Đọc thêm &#8594;</a> </div>
+                </div>
+              </div>
+              <%})} else {%>
+                <span class="text-center">Không có tin tức nào được hiển thị</span>
+              <%}%>
+            </div>
+          </div>
+        </section>
+      
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/treem.jpg" width="100%" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section featured-product wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Sản phẩm trẻ em</h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+            <%if (children.length > 0) {%>
+                    <%children.forEach((item) => {%>
+                    <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                              <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null) {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.SubCategory.namesub%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                          </div>
+                          <div class="product-money">
+                            <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%})%>
+                  <% } else {%>
+                    <p>Không có sản phẩm nào được hiển thị.</p>
+                  <% }%>
+          </div>
+        </section>
+
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/truongthanh.jpg" width="100%" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section featured-product wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Sản phẩm người trưởng thành</h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+            <%if (adults.length > 0) {%>
+                    <%adults.forEach((item) => {%>
+                    <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                              <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null) {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.SubCategory.namesub%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                          </div>
+                          <div class="product-money">
+                            <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%})%>
+                  <% } else {%>
+                    <p>Không có sản phẩm nào được hiển thị.</p>
+                  <% }%>  
+          </div>
+        </section>
+
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/nguoilontuoi.jpg" width="100%" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section featured-product wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Sản phẩm người lớn tuổi</h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+               <%if (elder.length > 0) {%>
+                    <%elder.forEach((item) => {%>
+                    <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                              <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null) {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger"><i class="far fa-eye"></i></a>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.SubCategory.namesub%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                          <%var array = [];
+                          for (i = 0; i < averageRatingProduct.length; i++) {
+                              array.push(averageRatingProduct[i].product_id);
+                          }
+                          if(array.includes(item.id)) {
+                            averageRatingProduct.forEach((item1) => {
+                              if (item.id == item1.product_id) {
+                                const rating = Math.ceil(item1.rating);%>
+                                <%if (rating >= 1) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 2) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 3) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}else if (rating >= 4) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%} else if (rating >= 5) {%>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                  <i class="fas fa-star" style="color: #FFD700;"></i>
+                                <%} else {%>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                  <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                <%}%>
+                          <%}})} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                        </div>
+                          <div class="product-money">
+                            <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= item.oldPrice%>đ</div>
+                            <div class="product-giam"><del><%= item.price%>đ</del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= item.price%>đ</div>
+                          <%}%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%})%>
+                  <% } else {%>
+                    <p>Không có sản phẩm nào được hiển thị.</p>
+                  <% }%>  
+          </div>
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="nhasanxuat">
+          <div class="slider canle box_shadow_border_radius">
+            <div class="slide-track">
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<% include footer%>

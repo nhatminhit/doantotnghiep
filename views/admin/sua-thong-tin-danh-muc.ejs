@@ -1,0 +1,56 @@
+<%include header%>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Sửa thông tin danh mục</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item"><a href="/portal/category/list">Danh sách danh mục</a></li>
+											<li class="breadcrumb-item">Sửa thông tin danh mục</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="content-block">
+                                <form action="/portal/category/edit" method="post" enctype="multipart/form-data">
+								<div class="row">
+                                    <form action="" method="" >
+									<div class="col-md-12 pt-3">
+										<label class="font-weight-bold">Tên danh mục <span class="text-danger">*</span></label>
+                                        <input type="text" name="id" value="<%= getCategory.id%>" hidden/>
+										<input type="text" class="type-input" name="name" value="<%= getCategory.name%>" placeholder="Nhập tên danh mục mới..." required/>
+									</div>
+                                    <div class="col-md-12 pt-3">
+										<label class="font-weight-bold">Hình ảnh <span class="text-danger">*</span></label>
+                                        <input type="file" class="type-input" name="image" value="<%= getCategory.image%>" required/>
+									</div>
+                                    <div class="col-md-12 pt-3">
+										<label class="font-weight-bold">Mô tả</label>
+                                        <textarea class="type-input" name="description" value="<%= getCategory.description%>" id="editor" placeholder="Nhập mô tả danh mục..."></textarea>
+									</div>
+                                    <div class="col-md-12 py-3 text-center">
+                                        <button type="submit" class="btn btn-info"><i class="far fa-save"></i> Lưu lại</button>
+                                        <button type="reset" class="btn btn-danger"><i class="far fa-trash-alt"></i> Hủy bỏ</button>
+										<a href="/portal/category/list" class="btn btn-warning"><i class="fas fa-reply"></i> Trở về</a>
+									</div>
+								</div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<%include footer%>

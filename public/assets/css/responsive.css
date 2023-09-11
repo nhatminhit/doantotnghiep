@@ -1,0 +1,205 @@
+@media (max-width: 576px) {
+    /* ========= Chi tiết đơn hàng =========== */
+    .thongtinchungkh .thongtinanh img {
+        width: 13%;
+    }
+
+    a.suahoso {
+        display: flow-root;
+    }
+
+    .bokhoangtrong {
+        margin-top: -60px;
+    }
+
+    a.linktrolai {
+        font-size: 15px;
+    }
+
+    .nutnhanhang {
+        margin-left: -29px;
+    }
+
+    .row.ttdonhang4 {
+        width: 300px;
+        padding: 15px;
+    }
+
+    /* ============== Chi tiết sản phẩm ============= */
+    .owl-item {
+        width: 100px;
+    }
+
+    .chitiet_solieu .danhgia, .chitiet_solieu .luotmua {
+        text-align: left;
+    }
+
+    .thongtinchitietsp .chitiet_giatien {
+        width: 305px;
+    }
+
+    .col-md-9.col-sm-12.congdung {
+        width: 340px;
+        text-align: justify;
+    }
+
+    .chinhsachmuahang ul li {
+        display: block;
+        padding-bottom: 10px;
+    }
+
+    .themorong {
+        width: 345px;
+        margin-left: -13px;
+        margin-top: -5px;
+    }
+
+    li.tablinks.tab1 {
+        margin-bottom: 10px;
+    }
+
+    textarea.motakh {
+        width: 277px;
+    }
+
+    .noidung_binhluan {
+        width: 228px;
+        font-size: 12px;
+    }
+
+    .formdanhgia {
+        margin-bottom: 12px;
+    }
+
+    .themorong1 {
+        width: 334px;
+    }
+
+    .product_ {
+        margin-left: 50px;
+    }
+
+    /* =============== Chi tiết tin tức ============== */
+
+    .morong_responsive {
+        width: 347px;
+        margin-left: -8px;
+        margin-top: -12px;
+    }
+
+    .mottinchuan .anhtin img {
+        width: 312px;
+    }
+
+    .trichdan {
+        width: 300px;
+    }
+
+    textarea.motakh.chieurong, input.chieurong {
+        width: 308px;
+    }
+
+    button.btn.btn-success.nutbl {
+       margin-bottom: 10px;
+    }
+
+    .morong_responsive2 {
+        height: 595px;
+    }
+
+    /* ================= Chi tiết tin tức ================= */
+    .khoituyendung {
+        margin-left: 154px;
+    }
+
+    /* ================== Cửa hàng ================ */
+    .top_responsive {
+        margin-top: -35px;
+    }
+
+    .top_responsive1 {
+        margin-top: 10px;
+    }
+
+    /* ================== Đăng ký ================= */
+    .khungdangkytaikhoan {
+        width: 90%;
+        height: 50%;
+    }
+
+    /* ================== Đăng nhập ================== */
+    .khungdangnhap {
+        width: 90%;
+        height: 42%;
+    }
+
+    /* ================== Đơn hàng =================== */
+    span.tongtien {
+        /* padding-top: 105px; */
+        margin-top: 9px;
+        display: block;
+    }
+
+    .nutnhanhang1 {
+        margin-left: -6px;
+    }
+
+    .top_responsive2 {
+        margin-top: -52px;
+    }
+
+    /* ================ Giỏ hàng ================*/
+    .magiamgia .form-group input {
+        margin-left: 10px;
+    }
+
+    .nutcapnhat1 {
+        margin-left: 10px;
+    }
+
+    /* ================ Giới thiệu tài khoản ============= */
+    a.button_home {
+        margin-left: 87px;
+    }
+
+    /* ================ Hồ sơ cá nhân ==================== */
+    input.tenkh.them_tenkh, input.email, input.sodt {
+        width: 193px;
+    }
+
+    select#ngay, select#thang, select#nam {
+        width: 58px;
+    }
+
+    input.tenkh.lhe, textarea.motakh.lhe {
+        width: 294px;
+    }
+
+    /* ================ Thanh toán ====================== */
+    input.email.input_thanhtoan, input.tenkh.input_thanhtoan, input.sodt.input_thanhtoan, input.diachi.input_thanhtoan, select.thanhpho.input_thanhtoan, select.quanhuyen.input_thanhtoan, textarea.motakh.input_thanhtoan {
+        width: 323px;
+    }
+
+    .nenthanhtoan {
+        border-radius: none;
+        width: 325px;
+    }
+
+    button.btn.btn-primary.my-3.nutthanhtoan {
+        margin-left: 115px;
+    }
+
+    /* ================ Thay đổi mật khẩu =============== */
+    input.tenkh.them_tenkh1 {
+        width: 165px;
+    }
+
+    .keothe {
+        height: 250px;
+    }
+
+    /* ================ Thông báo trạng thái ============ */
+    .ttthanhcong {
+        width: 365px;
+    }
+}

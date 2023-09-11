@@ -1,0 +1,59 @@
+<% include header %>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Sửa thông tin nhà cung cấp</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item"><a href="/portal/producer/list">Danh sách nhà cung cấp</a></li>
+											<li class="breadcrumb-item">Sửa thông tin nhà cung cấp</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="content-block">
+                                <form action="/portal/producer/edit" method="post" enctype="multipart/form-data">
+									<div class="row">
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Tên nhà cung cấp <span class="text-danger">*</span></label>
+											<input type="text" name="id" value="<%= getProducer.id%>" hidden/>
+											<input type="text" class="type-input" name="name" value="<%= getProducer.name%>" placeholder="Nhập tên nhà cung cấp mới..." required/>
+											<span class="text-danger pt-1"><%= error%></span>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Hình ảnh </label>
+											<input type="file" class="type-input" name="image"/>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Mô tả</label>
+											<textarea class="type-input" name="description" id="editor" placeholder="Nhập mô tả nhà cung cấp..."></textarea>
+											<script>
+												document.getElementById('editor').innerText = '<%- getProducer.description%>';
+											</script>
+										</div>
+										<div class="col-md-12 py-3 text-center">
+											<button type="submit" class="btn btn-info"><i class="far fa-save"></i> Lưu lại</button>
+											<button type="reset" class="btn btn-danger"><i class="far fa-trash-alt"></i> Hủy bỏ</button>
+											<a href="/portal/producer/list" class="btn btn-warning"><i class="fas fa-reply"></i> Trở về</a>
+										</div>
+									</div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<% include footer %>

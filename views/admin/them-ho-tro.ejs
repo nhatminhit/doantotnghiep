@@ -1,0 +1,51 @@
+<%include header%>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Thêm mới hỗ trợ</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item">Thêm mới hỗ trợ</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="content-block">
+                                <form action="/portal/support/add" method="post">
+									<div class="row">
+										<div class="col-md-9 font-italic">
+											(<span class="text-danger">*</span>) Bắt buộc phải điền đầy đủ thông tin công việc.
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Tiêu đề <span class="text-danger">*</span></label>
+											<input type="text" class="type-input" name="title" placeholder="Nhập tiêu đề" required/>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Nội dung hướng dẫn <span class="text-danger">*</span></label>
+											<textarea class="type-input" name="content" id="editor" placeholder="Nhập nội dung hướng dẫn"></textarea>
+										</div>
+										<div class="col-md-12 py-3 text-center">
+											<button type="submit" class="btn btn-info"><i class="far fa-save"></i> Lưu lại</button>
+											<button type="reset" class="btn btn-danger"><i class="far fa-trash-alt"></i> Hủy bỏ</button>
+											<a href="/portal/support/list" class="btn btn-warning"><i class="fas fa-reply"></i> Trở về</a>
+										</div>
+									</div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% include footer%>

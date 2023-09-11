@@ -1,0 +1,293 @@
+<%include header%>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Chi tiết đơn hàng</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item"><a href="/portal/order/list">Danh sách đơn hàng</a></li>
+											<li class="breadcrumb-item active">Chi tiết đơn hàng</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="detail-order">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="information-order">
+													<div class="title">Thông tin đơn hàng</div>
+													<div class="row pt-3">
+														<div class="col-md-5">Mã đơn hàng</div>
+														<div class="col-md-7"><%= detailOrder.id%></div>
+														<div class="col-md-5 pt-1">Ngày tạo</div>
+														<div class="col-md-7 pt-1"><%= detailOrder.createTime%></div>
+														<div class="col-md-5 pt-1">Hình thức thanh toán</div>
+														<div class="col-md-7 pt-1">
+															<%if (detailOrder.payments == "cash") {%>
+																Tiền mặt
+															<%} else {%>
+																<%= detailOrder.payments%>
+															<%}%>
+														</div>
+														<div class="col-md-5 pt-1">Trạng thái đơn hàng</div>
+														<div class="col-md-7 pt-1">
+															<%if (detailOrder.status == "Chờ xác nhận") {%>
+																<a href="/portal/order/status/id=<%= detailOrder.id%>" class="btn btn-primary">Xác nhận đơn hàng</a>
+															<%} else if (detailOrder.status == "Mua hàng trực tiếp") {%>
+																<span class="badge text-white" style="background-color: teal"><%= detailOrder.status%></span>
+															<%} else {%>
+																<span class="badge bg-success text-white"><%= detailOrder.status%></span>
+																<a href="" data-toggle="modal" data-target="#myModal1"> <i class="far fa-edit"></i> Cập nhật trạng thái</a>
+																<div class="modal fade" id="myModal1">
+																	<div class="modal-dialog modal-dialog-centered modal-md">
+																		<div class="modal-content">
+																			<div class="modal-header">
+																				<h4 class="modal-title">Cập nhật trạng thái đơn hàng</h4>
+																				<button type="button" class="close" data-dismiss="modal">&times;</button>
+																			</div>
+																			<form action="/portal/order/status" method="post">
+																				<div class="modal-body">
+																					<p>Mã đơn hàng: <span class="text-primary font-weight-bold"><%= detailOrder.id%></span></p>
+																					<input type="text" name="id" value="<%= detailOrder.id%>" hidden/>
+																					<input type="text" name="page" value="detail" hidden/>
+																					<ul class="statusDelivery">
+																						<li><input type="radio" name="statusDelivery" value="Chờ xác nhận" class="pr-3" <%if (detailOrder.status == "Chờ xác nhận") {%>checked <%}%> /> Chờ xác nhận</li>
+																						<li><input type="radio" name="statusDelivery" value="Đã xác nhận" class="pr-3" <%if (detailOrder.status == "Đã xác nhận") {%>checked <%}%> /> Đã xác nhận</li>
+																						<li><input type="radio" name="statusDelivery" value="Đang giao hàng" <%if (detailOrder.status == "Đang giao hàng") {%>checked <%}%>/> Đang giao hàng</li>
+																						<li><input type="radio" name="statusDelivery" value="Đã giao hàng" <%if (detailOrder.status == "Đã giao hàng") {%>checked <%}%>/> Giao hàng thành công</li>
+																						<li><input type="radio" name="statusDelivery" value="Đã hủy" <%if (detailOrder.status == "Đã hủy") {%>checked <%}%> /> Hủy đơn hàng</li>
+																					</ul>
+																				</div>
+																				<div class="modal-footer text-center">
+																					<button type="submit" class="btn btn-info">Cập nhật</button>
+																					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+																				</div>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+															<%}%>
+														</div>
+														<div class="col-md-5 pt-1">Thanh toán</div>
+														<div class="col-md-7 pt-1">
+															<%if (detailOrder.statusPayment == "Chưa thanh toán") {%>
+																<a href="" class="badge bg-warning text-white" data-toggle="modal" data-target="#myModal3">Chưa thanh toán</a>
+															<%} else if (detailOrder.statusPayment == "Đã thanh toán") {%>
+																<a href="" class="badge bg-success text-white" data-toggle="modal" data-target="#myModal3">Đã thanh toán</a>
+															<%} else if (detailOrder.statusPayment == "Đã hoàn tiền") {%>
+																<a href="" class="badge bg-danger text-white" data-toggle="modal" data-target="#myModal3">Đã hoàn tiền</a>
+															<%}%>
+															<div class="modal fade" id="myModal3">
+																<div class="modal-dialog modal-dialog-centered modal-md">
+																	<div class="modal-content">
+																		<div class="modal-header">
+																			<h4 class="modal-title">Cập nhật trạng thái thanh toán đơn hàng</h4>
+																			<button type="button" class="close" data-dismiss="modal">&times;</button>
+																		</div>
+																		<form action="/portal/order/statuspayment" method="post">
+																			<div class="modal-body">
+																				<p>Mã đơn hàng: <span class="text-primary font-weight-bold"><%= detailOrder.id%></span></p>
+																				<input type="text" name="id" value="<%= detailOrder.id%>" hidden/>
+																				<input type="text" name="page" value="detail" hidden />
+																				<ul class="statusDelivery">
+																					<li><input type="radio" name="statusPayment" value="Chưa thanh toán" class="pr-3" <%if (detailOrder.statusPayment == "Chưa thanh toán") {%>checked <%}%> /> Chưa thanh toán</li>
+																					<li><input type="radio" name="statusPayment" value="Đã thanh toán" class="pr-3" <%if (detailOrder.statusPayment == "Đã thanh toán") {%>checked <%}%> /> Đã thanh toán</li>
+																					<li><input type="radio" name="statusPayment" value="Đã thanh toán" <%if (detailOrder.statusPayment == "Đã hoàn tiền") {%>checked <%}%>/> Đã hoàn tiền</li>
+																				</ul>
+																			</div>
+																			<div class="modal-footer text-center">
+																				<button type="submit" class="btn btn-info">Cập nhật</button>
+																				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+																			</div>
+																		</form>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<%if (detailOrder.status != "Mua hàng trực tiếp") {%>
+														<div class="col-md-5 pt-1">Đơn vị vận chuyển</div>
+														<div class="col-md-7 pt-1">
+															<%if (detailOrder.ship == null) {%>
+																<a href="" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i> Tạo ĐVVC mới</a>
+															<%} else {%>
+																<%= detailOrder.ship%><br>
+															<%}%>
+														</div>
+														<div class="col-md-5 pt-1">Mã vận chuyển</div>
+														<div class="col-md-7 pt-1">
+															<%if (detailOrder.ship != null) {%>
+																<%= detailOrder.shipCode%>
+															<%} else {%>
+																Đang cập nhật...
+															<%}%>
+														</div>
+
+														<%if (detailOrder.ship != null) {%>
+															<div class="col-md-5 pt-1">Trạng thái vận chuyển</div>
+															<div class="col-md-7 pt-1">
+																<a href="" data-toggle="modal" data-target="#myModal2"> <i class="fa fa-eye"></i> Xem vận chuyển đơn hàng</a>
+															</div>
+														<%}%>
+														<%}%>
+														<div class="col-md-5 pt-1">Ghi chú đơn hàng</div>
+														<div class="col-md-7 pt-1"><%= detailOrder.note%></div>
+														<div class="modal fade" id="myModal2">
+															<div class="modal-dialog modal-dialog-centered modal-md">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h4 class="modal-title">Cập nhật trạng thái giao hàng</h4>
+																		<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	</div>
+																	<div class="modal-body ">
+																		<p class="text-left">Mã đơn hàng: <span class="text-primary font-weight-bold"><%= detailOrder.id%></span></p>
+																			<%if (detailOrder.ship == null) {%>
+																				<form action="/portal/order/ship" method="post">
+																					<input type="text" name="id" value="<%= detailOrder.id%>" hidden/> 
+																					<input type="text" name="page" value="detail" hidden/>
+																					<label class="font-weight-bold text-left">Đơn vị vận chuyển: </label>
+																					<input type="text" class="type-input" name="nameShip" placeholder="Nhập đơn vị vận chuyển" required />
+																					<label class="font-weight-bold text-left pt-2">Mã vận chuyển: </label>
+																					<input type="text" class="type-input" name="shipCode" placeholder="Nhập mã vận chuyển" required />
+																					<div class="text-center">
+																						<button type="submit" class="btn btn-info mt-3">Cập nhật</button>
+																					</div>
+																				</form>
+																			<%} else {%>
+																				<form action="/portal/order/ship/status" method="post">
+																					<input type="text" name="id" value="<%= detailOrder.id%>" hidden/> 
+																					<input type="text" name="page" value="detail" hidden/>
+																					<select name="statusShip" class="type-select">
+																						<option value="0">Chọn trạng thái giao hàng</option>
+																						<option value="Đơn hàng đã được đặt thành công">Đơn hàng đã được đặt thành công</option>
+																						<option value="Đơn hàng đang được chuẩn bị">Đơn hàng đang được chuẩn bị</option>
+																						<option value="Đơn hàng đã được giao cho nhà vận chuyển">Đơn hàng đã được giao cho nhà vận chuyển</option>
+																						<option value="Đang giao hàng">Đang giao hàng</option>
+																						<option value="Đơn hàng đã được giao thành công">Đơn hàng đã được giao thành công</option>
+																					</select>
+																					<div class="text-center">
+																						<button type="submit" class="btn btn-info my-3">Cập nhật</button>
+																					</div>
+																				</form>
+																				<table class="table table-bordered">
+																					<thead>
+																						<tr>
+																							<th>Thời gian</th>
+																							<th>Trạng thái</th>
+																							<th>Xóa</th>
+																						</tr>
+																					</thead>
+																					<tbody>
+																						<%if (listTransport.length > 0) {
+																							listTransport.forEach((item) => {%>
+																							<tr>
+																								<td><%= item.createTime%></td>
+																								<td><%= item.status%></td>
+																								<td><a href="/portal/order/deleteTransport/id=<%= item.id%>?orderId=<%= detailOrder.id%>&status=edit"><i class="far fa-trash-alt"></i></a></td>
+																							</tr>
+																						<%})} else {%>
+																							<tr>
+																								<td colspan="3">Không có dữ liệu</td>
+																							</tr>
+																						<%}%>
+																					</tbody>
+																				</table>
+																			<%}%>
+																		</div>
+																		<div class="modal-footer text-center">
+																			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+																		</div>	
+																	</div>
+																</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12 pt-3">
+												<div class="information-order">
+													<div class="title">Thông tin khách hàng</div>
+													<div class="row pt-3">
+														<div class="col-md-5">Mã khách hàng</div>
+														<div class="col-md-7"><%= detailOrder.User.id%></div>
+														<div class="col-md-5 pt-1">Tên khách hàng</div>
+														<div class="col-md-7 pt-1"><%= detailOrder.User.name%></div>
+														<div class="col-md-5 pt-1">Điện thoại</div>
+														<div class="col-md-7 pt-1"><%= detailOrder.User.phone%></div>
+														<div class="col-md-5 pt-1">Email</div>
+														<div class="col-md-7 pt-1"><%= detailOrder.User.email%></div>
+														<div class="col-md-5 pt-1">Địa chỉ nhận hàng</div>
+														<div class="col-md-7 pt-1"><%= detailOrder.User.address%></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="col-md-12">
+											<div class="information-order-next">
+												<div class="title">Chi tiết đơn hàng</div>
+												<%if (getDetailOrder.length > 0) {
+													getDetailOrder.forEach((item) => {%>
+												<div class="row pt-3">
+													<div class="col-md-2">
+														<%
+															for (i = 0; i < item.Product.ImageProducts.length; i++) {
+															var image = item.Product.ImageProducts[0].image;
+															}
+														%>
+														<img src="<%= image%>" width="60px" alt="<%= image%>"/>
+													</div>
+													<div class="col-md-7">
+														<%= item.Product.name%><br>
+														<span class="font-weight-bold">Số lượng: </span><%= item.quantity%>
+													</div>
+													<div class="col-md-3 pt-1 my-auto">
+														<%if (item.Product.oldPrice > 0) {%>
+															<%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.oldPrice)%><br>
+															<del class="text-danger"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.price)%></del>
+														<%} else {%>
+															<%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.price)%>
+														<%}%>
+													</div>
+												</div>
+												<%})} else {%>
+													<div class="row pt-3">
+														<div class="col-md-12 text-center">
+															Không có sản phẩm nào.
+														</div>
+													</div>
+												<%}%>
+												<hr>
+												<div class="row">
+													<div class="col-md-8 pt-2">Tổng giá trị sản phẩm</div>
+													<div class="col-md-4 text-right pt-2"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailOrder.totalMoney - detailOrder.shipFee)%></div>
+													<div class="col-md-8 pt-2">Phí vận chuyển</div>
+													<div class="col-md-4 text-right pt-2"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailOrder.shipFee)%></div>
+													<div class="col-md-8 font-weight-bold pt-2">Tổng tiền thanh toán</div>
+													<div class="col-md-4 text-right pt-2"><h4 class="text-danger"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailOrder.totalMoney)%></h4></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<% include footer %>

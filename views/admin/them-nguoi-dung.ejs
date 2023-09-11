@@ -1,0 +1,86 @@
+<% include header %>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Thêm nới người dùng</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item"><a href="/portal/users/list">Danh sách người dùng</a></li>
+											<li class="breadcrumb-item">Thêm mới người dùng</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="content-block">
+                                <form action="/portal/users/add" method="post">
+								<div class="row">
+									<div class="col-md-4 pt-3">
+										<label class="font-weight-bold">Họ tên <span class="text-danger">*</span></label>
+                                        <input type="text" class="type-input" name="name" placeholder="Nhập họ tên..." required/>
+									</div>
+                                    <div class="col-md-4 pt-3">
+										<label class="font-weight-bold">Tên tài khoản <span class="text-danger">*</span></label>
+                                        <input type="text" class="type-input" name="username" placeholder="Nhập tên tài khoản..." required/>
+									</div>
+                                    <div class="col-md-4 pt-3">
+										<label class="font-weight-bold">Email <span class="text-danger">*</span></label>
+                                        <input type="text" class="type-input" name="email" placeholder="Nhập email..." required/>
+									</div>
+                                    <div class="col-md-4 pt-3">
+										<label class="font-weight-bold">Mật khẩu <span class="text-danger">*</span></label>
+                                        <input type="text" class="type-input" name="password" placeholder="Nhập mật khẩu..." required/>
+									</div>
+                                    <div class="col-md-4 pt-3">
+										<label class="font-weight-bold">Số điện thoại <span class="text-danger">*</span></label>
+                                        <input type="text" class="type-input" name="phone" placeholder="Nhập SĐT..." required/>
+									</div>
+									<div class="col-md-4 pt-3">
+										<label class="font-weight-bold">Ngày sinh</label>
+                                        <input type="text" class="type-input" name="birthday" placeholder="Nhập ngày sinh..."/>
+									</div>
+                                    <div class="col-md-4 pt-3">
+										<label class="font-weight-bold">Giới tính</label>
+                                        <select class="type-select" name="gender" >
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                            <option value="Khác">Khác</option>
+                                        </select>
+									</div>
+                                    <div class="col-md-4 pt-3">
+										<label class="font-weight-bold">Quyền <span class="text-danger">*</span></label>
+                                        <select class="type-select" name="role" required>
+                                            <option value="1">Admin</option>
+                                            <!-- <option value="2">Nhân viên</option> -->
+                                            <option value="3">Khách hàng</option>
+                                        </select>
+									</div>
+                                    <div class="col-md-8 pt-3">
+										<label class="font-weight-bold">Địa chỉ</label>
+                                        <input type="text" class="type-input" name="address" placeholder="Nhập địa chỉ..."/>
+									</div>
+                                    <div class="col-md-12 py-3 text-center">
+                                        <button type="submit" class="btn btn-info"><i class="far fa-save"></i> Lưu lại</button>
+                                        <button type="reset" class="btn btn-danger"><i class="far fa-trash-alt"></i> Hủy bỏ</button>
+										<a href="/portal/users/list" class="btn btn-warning"><i class="fas fa-reply"></i> Trở về</a>
+                                    </div>
+								</div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%include footer%>

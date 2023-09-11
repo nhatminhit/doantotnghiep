@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title><%= title%></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="Flash Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
+	<meta name="keywords"
+		content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, Flash Able, Flash Able bootstrap admin template">
+	<meta name="author" content="Codedthemes" />
+
+	<!-- Favicon icon -->
+	<link rel="icon" href="https://nhathuoclongchau.com.vn/favicon.ico" type="image/x-icon">
+	<!-- fontawesome icon -->
+	<link rel="stylesheet" href="/admin/fonts/fontawesome/css/fontawesome-all.min.css">
+	<!-- animation css -->
+	<link rel="stylesheet" href="/admin/plugins/animation/css/animate.min.css">
+
+	<!-- vendor css -->
+	<link rel="stylesheet" href="/admin/css/style.css">
+    <link rel="stylesheet" href="/admin/css/main.css">
+	<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body id="body">
+	<!-- <div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
+	</div> -->
+	
+	<nav class="pcoded-navbar menupos-fixed menu-light brand-blue ">
+		<div class="navbar-wrapper ">
+			<div class="navbar-brand header-logo">
+				<a href="/portal" class="b-brand">
+					<img src="/logo_nen.png" alt="" class="logo images" style="width: 180px;">
+					<img src="../assets/images/logo-icon.svg" alt="" class="logo-thumb images">
+				</a>
+				<a class="mobile-menu text-primary" id="mobile-collapse" href="#!"><i class="fas fa-bars"></i></a>
+			</div>
+			<div class="navbar-content scroll-div">
+				<ul class="nav pcoded-inner-navbar">
+					<li class="nav-item">
+						<a href="/portal" class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/" class="nav-link"><span class="pcoded-micon"><i class="fas fa-store"></i></span><span class="pcoded-mtext">Cửa hàng</span></a>
+					</li>
+					<!-- <li class="nav-item pcoded-hasmenu">
+						<a href="/portal/introduce" class="nav-link"><span class="pcoded-micon"><i class="fas fa-cog"></i></span><span class="pcoded-mtext">Hệ thống</span></a>
+					</li> -->
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="far fa-user"></i></span><span class="pcoded-mtext">Quản lý người dùng</span></a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="/portal/users/list?page=1" class="">Danh sách người dùng</a></li>
+							<li class=""><a href="/portal/users/add" class="">Thêm người dùng mới</a></li>
+						</ul>
+					</li>
+                    <li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="far fa-list-alt"></i></span><span class="pcoded-mtext">Quản lý danh mục</span></a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="/portal/category/list?page=1" class="">Danh sách danh mục</a></li>
+							<li class=""><a href="/portal/category/add" class="">Thêm mới danh mục</a></li>
+						</ul>
+					</li>
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="far fa-building"></i></span><span class="pcoded-mtext">Quản lý nhà cung cấp</span></a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="/portal/producer/list" class="">Danh sách nhà cung cấp</a></li>
+							<li class=""><a href="/portal/producer/add" class="">Thêm mới nhà cung cấp</a></li>
+						</ul>
+					</li>
+                    <li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Quản lý sản phẩm</span></a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="/portal/product/list?page=1" class="">Danh sách sản phẩm</a></li>
+							<li class=""><a href="/portal/product/add" class="">Thêm mới sản phẩm</a></li>
+						</ul>
+					</li>
+                    <li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="fas fa-clipboard-list"></i></span><span class="pcoded-mtext">Quản lý đơn hàng</span></a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="/portal/order/list" class="">Danh sách đơn hàng</a></li>
+							<li class=""><a href="/portal/order/add" class="">Thêm mới đơn hàng</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a href="https://sandbox.vnpayment.vn/merchantv2/Users/Login.htm" class="nav-link"><span class="pcoded-micon"><i class="fas fa-university"></i></span><span class="pcoded-mtext">Quản lý giao dịch</span></a>
+					</li>
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="far fa-newspaper"></i></span><span class="pcoded-mtext">Quản lý tin tức</span></a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="/portal/news/list" class="">Danh sách tin tức</a></li>
+							<li class=""><a href="/portal/news/add" class="">Thêm tin tức</a></li>
+						</ul>
+					</li>
+                    <li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="far fa-comment-dots"></i></span><span class="pcoded-mtext">Quản lý đánh giá sản phẩm</span></a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="/portal/feedback/product/list?page=1" class="">Danh sách đánh giá</a></li>
+							<li class=""><a href="/portal/feedback/product/list?page=1&status=1" class="">Chờ trả lời</a></li>
+							<li class=""><a href="/portal/feedback/product/list?page=1&status=2" class="">Đã trả lời</a></li>
+						</ul>
+					</li>
+                    <li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link"><span class="pcoded-micon"><i class="far fa-comment-dots"></i></span><span class="pcoded-mtext">Quản lý bình luận tin tức</span></a>
+						<ul class="pcoded-submenu">
+							<li class=""><a href="/portal/comment/news/list?page=1" class="">Danh sách bình luận</a></li>
+							<li class=""><a href="/portal/comment/news/list?page=1&status=1" class="">Chờ trả lời</a></li>
+							<li class=""><a href="/portal/comment/news/list?page=1&status=2" class="">Đã trả lời</a></li>
+						</ul>
+					</li>
+                    <li class="nav-item">
+						<a href="/portal/contact/list" class="nav-link"><span class="pcoded-micon"><i class="far fa-address-book"></i></span><span class="pcoded-mtext">Quản lý liên hệ</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/portal/support/list" class="nav-link"><span class="pcoded-micon"><i class="fas fa-question-circle"></i></span>Hỗ trợ</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed">
+		<div class="m-header">
+			<a class="mobile-menu" id="mobile-collapse1" href="#!"><span></span></a>
+			<a href="index.html" class="b-brand">
+				<img src="../assets/images/logo.svg" alt="" class="logo images">
+				<img src="../assets/images/logo-icon.svg" alt="" class="logo-thumb images">
+			</a>
+		</div>
+		<a class="mobile-menu" id="mobile-header" href="#!">
+			<i class="feather icon-more-horizontal"></i>
+		</a>
+		<div class="collapse navbar-collapse">
+			<a href="#!" class="mob-toggler"></a>
+			<ul class="navbar-nav ml-auto">
+				<li>
+					<div class="dropdown drp-user">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<ul class="user-information">
+								<li>
+									<img src="<%=user.avatar%>" class="user-information-avatar" alt="">
+								</li>
+								<li><%=user.name%></li>
+								<li><i class="fas fa-chevron-down fa-xs"></i></li>
+							</ul>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right profile-notification">
+							<ul class="pro-body">
+								<li><a href="/portal/users/profile" class="dropdown-item"><i class="far fa-user"></i></i> Hồ sơ của tôi</a></li>
+								<li><a href="/portal/users/changePassword" class="dropdown-item"><i class="fas fa-key"></i> Thay đổi mật khẩu</a></li>
+								<li><a href="/portal/users/logout" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</header>

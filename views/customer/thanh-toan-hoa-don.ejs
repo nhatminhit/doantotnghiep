@@ -1,0 +1,81 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+      <div class="col-md-12 phantrang text-right">
+        <ul>
+            <li><a href="/">Trang chủ</a> / </li>
+            <li><a href="">Đơn hàng</a> / </li>
+            <li>Thanh toán hóa đơn</li>
+        </ul>
+      </div>
+      <form action="/order/vnpay" method="post">
+        <div class="col-md-8">
+          <div class="delivery_address">
+            <div class="title"><i class="far fa-credit-card"></i> PHƯƠNG THỨC THANH TOÁN</div>
+            <div class="row" style="font-size: 13px">
+              <div class="col-md-12 pb-3">
+                <input type="radio" name="bankCode" value="" checked="true"/> 
+                <div class="payments"><img src="/images/background/vnpay.png"/> Cổng thanh toán VNPAYQR</div>
+              </div>
+              <div class="col-md-12 pb-3">
+                <input type="radio" name="bankCode" value="VNPAYQR" /> 
+                <div class="payments"><img src="/images/background/vnpay_qr.png"/> Thanh toán qua ứng dụng hỗ trợ VNPAYQR</div>
+              </div>
+              <div class="col-md-12 pb-3">
+                <input type="radio" name="bankCode" value="VNBANK" /> 
+                <div class="payments"><img src="/images/background/bank.png"/> Thanh toán qua ATM - Tài khoản ngân hàng nội địa </div>
+              </div>
+              <div class="col-md-12 pb-3">
+                <input type="radio" name="bankCode" value="INTCARD" /> 
+                  <div class="payments"> <img src="/images/background/quocte.png"/> Thanh toán qua thẻ quốc tế</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="delivery_address">
+            <div class="title"><i class="fas fa-file-invoice-dollar"></i> HÓA ĐƠN</div>
+            <div class="row" style="font-size: 13px">
+              <div class="col-md-12 pb-3">
+                <div class="col-md-4"><b>Số hóa đơn: </b> </div>
+                <div class="col-md-8">
+                  <b style="color: darkblue"><%= id%></b>
+                  <input type="text" name="orderId" value="<%= id%>" hidden/>
+                </div>
+              </div>
+              <div class="col-md-12 pb-3">
+                <div class="col-md-4"><b>Họ tên KH: </b> </div>
+                <div class="col-md-8"><%= user.name%></div>
+              </div> 
+              <div class="col-md-12 pb-3">
+                <div class="col-md-4"><b>Email: </b> </div>
+                <div class="col-md-8"><%= user.email%></div>
+              </div>
+              <div class="col-md-12 pb-3">
+                <div class="col-md-4"><b>Điện thoại: </b> </div>
+                <div class="col-md-8"><%= user.phone%></div>
+              </div>
+              <div class="col-md-12 pb-3">
+                <div class="col-md-4"><b>Tổng tiền: </b> </div>
+                <div class="col-md-8">
+                  <b style="color: darkred"><%= totalMoney%>đ</b>
+                  <input type="text" name="amount" value="<%= totalMoney%>" hidden/>
+                </div>
+              </div>
+              <div class="col-md-12 pb-3">
+                <div class="col-md-7"><a href=""><i class="fas fa-reply-all"></i> Trở về đơn hàng</a></div>
+                <div class="col-md-5">
+                  <button type="submit" class="btn btn-primary">Thanh toán</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 
+
+<%include footer %>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<link rel="shortcut icon" href="https://nhathuoclongchau.com.vn/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="MediaCenter, Template, eCommerce">
+<meta name="robots" content="all">
+<title><%= title%></title>
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="\assets\css\bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Customizable CSS -->
+<link rel="stylesheet" href="\assets\css\main.css">
+<link rel="stylesheet" href="\assets\css\main1.css">
+<link rel="stylesheet" href="\assets/css/responsive.css">
+<link rel="stylesheet" href="\assets\css\blue.css">
+<link rel="stylesheet" href="\assets\css\owl.carousel.css">
+<link rel="stylesheet" href="\assets\css\owl.transitions.css">
+<link rel="stylesheet" href="\assets\css\animate.min.css">
+<link rel="stylesheet" href="\assets\css\rateit.css">
+<link rel="stylesheet" href="\assets\css\bootstrap-select.min.css">
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<!-- Icons/Glyphs -->
+<link rel="stylesheet" href="\assets\css\font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+<!-- Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body class="cnt-home">
+<header class="header-style-1"> 
+  <div class="top-bar animate-dropdown">
+    <div class="container">
+      <div class="header-top-inner">
+        <div class="cnt-block">
+            <%if (user == undefined) {%>
+              <ul class="list-unstyled list-inline">
+                <li class="dropdown dropdown-small"> <a href="#" data-hover="dropdown" data-toggle="dropdown"><span class="value">Tài khoản </span><b class="caret"></b></a>
+                  <ul class="dropdown-menu dropdown-account">
+                    <li><a href="/users/login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
+                    <li><a href="/users/register"><i class="far fa-plus-square"></i> Đăng ký</a></li>
+                  </ul>
+                </li>
+              </ul>
+            <%} else {%>
+              <ul class="list-unstyled list-inline">
+                <li class="dropdown dropdown-small"> 
+                  <a href="#" class="dropdown-avatar" data-hover="dropdown" data-toggle="dropdown">
+                    <img class="home-avatar" src="<%= user.avatar%>" />
+                    <span class="value text-white"><%= user.name%></span><b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu dropdown-account">
+                    <li><a href="/users/myaccount"><i class="icon fa fa-user"></i> Tài khoản của tôi</a></li>
+                    <li><a href="/order/list"><i class="icon fa fa-shopping-cart"></i> Đơn mua</a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                  </ul>
+                </li>
+              </ul>  
+            <% }%>
+        </div>
+        <div class="cnt-account cnt-block" style="float: left;">
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="fas fa-phone-volume"></i> 096 152 5903</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> TP.Hà Nội</a></li>
+          </ul>
+        </div>
+        <div class="cnt-account cnt-block">
+          <ul class="list-unstyled">
+            <li><a href="/order/list"><i class="fas fa-clipboard-check"></i> Đơn hàng của tôi</a></li>
+            <li><a href="/shop/wishlist"><i class="icon fa fa-heart"></i> Sản phẩm yêu thích của tôi</a></li>
+            <li><a href="/support"><i class="fas fa-question-circle"></i> Hỗ trợ</a></li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <div class="main-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
+          <div class="logo"> <a href="/"> <img src="/logo_tab.png" style="width: 231px; margin-top: -21px" alt="logo"> </a> </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder"> 
+          <div class="search-area">
+            <form action="/search" method="get">
+              <div class="control-group">
+                <ul class="categories-filter animate-dropdown">
+                  <li class="dropdown px-3 font-weight-bold">Tìm kiếm</a></li>
+                </ul>
+                <input name="content" class="search-field" placeholder="Tìm kiếm theo tên sản phẩm...">
+                <button class="search-button" href="#"></button> </div>
+            </form>
+          </div>
+         </div>
+        
+        <%if (user == undefined) {%>
+          <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
+            <div class="dropdown dropdown-cart"> <a href="#" class="lnk-cart" data-toggle="dropdown">
+              <div class="items-cart-inner">
+                <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
+                <div class="basket-item-count"><span class="count">0</span></div>
+                <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="value">0đ</span> </span> </div>
+              </div>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="cart-item product-summary">
+                    <div class="row">
+                      <div class="col-md-12 text-center" style="font-size: 13px;">Bạn cần đăng nhập để xem giỏ hàng</div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <hr>
+                  <div class="clearfix cart-total">
+                    <div class="pull-right"> <span class="text">Tổng tiền:</span><span class='price'>0đ</span> </div>
+                    <div class="clearfix"></div>
+                    <a href="/users/login" class="btn btn-upper btn-primary btn-block m-t-20">Xem giỏ hàng</a> </div>        
+                </li>
+              </ul>            
+            </div>
+          </div>
+        <% } else {%>
+          <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
+            <div class="dropdown dropdown-cart"> <a href="#" class="lnk-cart" data-toggle="dropdown">
+              <div class="items-cart-inner">
+                <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
+                <div class="basket-item-count"><span class="count"><%= cart.length%></span></div>
+                <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="value"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(total)%></span> </span> </div>
+              </div>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="cart-item product-summary">
+                    <%if (cart.length > 0) {
+                      cart.forEach((item) => {%>
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <%
+                          for (i = 0; i < item.Product.ImageProducts.length; i++) {
+                            var image = item.Product.ImageProducts[0].image;}
+                        %>
+                        <div class="image"> <a href="/shop/detail/id=<%=item.Product.id%>"><img src="<%= image%>" alt=""></a> </div>
+                      </div>
+                      <div class="col-xs-7">
+                        <h3 class="name"><a href="/shop/detail/id=<%=item.Product.id%>"><%=item.Product.name.substring(0, 20)%>...</a></h3>
+                        <div class="price"></div>
+                        <%if (item.Product.oldPrice > 0) {%>
+                          <div class="price"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.oldPrice)%></div>
+                        <%} else {%>
+                          <div class="price"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.price)%></div>
+                        <%}%>
+                      </div>
+                      <div class="col-xs-1 action"> <a href="/cart/delete/id=<%=item.id%>"><i class="fa fa-trash"></i></a> </div>
+                    </div>
+                    <%})} else {%>
+                      <span class="text-right" style="font-size: 13px">Không có sản phẩm nào trong giỏ hàng</span>
+                    <%}%>
+                  </div>
+                  <div class="clearfix"></div>
+                  <hr>
+                  <div class="clearfix cart-total">
+                    <div class="pull-right"> <span class="text">Tổng tiền:</span><span class='price'><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(total)%></span> </div>
+                    <div class="clearfix"></div>
+                    <a href="/cart" class="btn btn-upper btn-primary btn-block m-t-20">Xem giỏ hàng</a> </div>        
+                </li>
+              </ul>            
+            </div>
+          </div>
+        <%}%>
+      </div>
+    </div>
+  </div>
+  
+  <div class="header-nav animate-dropdown">
+    <div class="container">
+      <div class="yamm navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
+       <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div class="nav-bg-class">
+          <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+            <div class="nav-outer">
+              <ul class="nav navbar-nav">
+                <li class="active dropdown yamm-fw"><a href="/"><i class="fas fa-home"></i> Trang chủ</a> </li>
+                <li class="yamm-fw"> <a href="/introduce"><i class="fas fa-id-card-alt"></i> Giới thiệu</a> </li>
+                <li class="dropdown"> <a href="/shop?page=1"><i class="fas fa-store"></i> Sản phẩm</a></li>
+                <li class="dropdown yamm mega-menu"> <a href="/users/myaccount"><i class="fas fa-user-circle"></i> Tài khoản</a></li>
+                <li class="dropdown mega-menu"><a href="/news?page=1"><i class="fas fa-newspaper"></i> Tin tức</a></li>
+                <li class="dropdown hidden-sm"> <a href="/contact"><i class="far fa-id-badge"></i> Liên hệ</a> </li>             
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div> 
+
+</header>

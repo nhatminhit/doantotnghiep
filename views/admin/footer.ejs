@@ -1,0 +1,310 @@
+    <script src="/admin/js/vendor-all.min.js"></script>
+	<script src="/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/admin/js/pcoded.min.js"></script>
+    <% if (title == "Dashboard"){%>
+    <script>
+        var ctxUser = document.getElementById('chart-user');
+        var charUser = new Chart(ctxUser, {
+            type: 'line',
+            data: {
+                labels: ['Tất cả', 'Admin', 'Khách hàng', 'Ghé thăm'],
+                datasets: [{
+                label: 'Tổng số người dùng',
+                data: ['<%= totalUser%>', '<%= countAdmin%>', '<%= countCustomer%>', '<%= countVisitor%>'],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                }]
+            },
+            options: {
+                animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: true
+                }
+                },
+                scales: {
+                y: { 
+                    min: 0,
+                    max: 100
+                    }
+                }
+            }
+        });
+
+        var ctxProduct = document.getElementById('chart-product');
+        var charProduct = new Chart(ctxProduct, {
+            type: 'line',
+            data: {
+                labels: ['Tất cả', 'Mới nhất', 'Giảm giá', 'Hot', 'Trẻ em', 'Người lớn', 'Người già'],
+                datasets: [{
+                label: 'Tổng số sản phẩm',
+                data: ['<%= totalProduct%>', '<%= countNewProduct%>', '<%= countSaleProduct%>', '<%= countHotProduct%>', '<%= countChildrenProduct%>', '<%= countAdultsProduct%>', '<%= countElderProduct%>'],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                }]
+            },
+            options: {
+                animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: true
+                }
+                },
+                scales: {
+                y: { 
+                    min: 0,
+                    max: 100
+                    }
+                }
+            }
+        });
+        
+        var ctxJob = document.getElementById('chart-job');
+        var chartJob = new Chart(ctxJob, {
+            type: 'line',
+            data: {
+                labels: ['Tất cả', 'Còn hạn', 'Hết hạn', 'Fulltime', 'Parttime'],
+                datasets: [{
+                label: 'Tổng số công việc',
+                data: ['<%= totalJob%>', '<%= countTime1Job%>', '<%= countTime2Job%>', '<%= countFulltimeJob%>', '<%= countPartimeJob%>'],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                }]
+            },
+            options: {
+                animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: true
+                }
+                },
+                scales: {
+                y: { 
+                    min: 0,
+                    max: 100
+                    }
+                }
+            }
+        });
+        
+        var ctxOrder = document.getElementById('chart-order');
+        var charOrder = new Chart(ctxOrder, {
+            type: 'line',
+            data: {
+                labels: ['Tất cả', 'Chờ xác nhận', 'Đang giao hàng', 'Đã giao hàng', 'Đã hủy', 'Chưa thanh toán', 'Đã thanh toán'],
+                datasets: [{
+                label: 'Tổng số đơn hàng',
+                data: ['<%= totalOrder%>', '<%= countConfirmOrder%>', '<%= countDeliveryOrder%>', '<%= countCompleteOrder%>', '<%= countCancelOrder%>', '<%= countUnpaidOrder%>', '<%= countPaidOrder%>'],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                }]
+            },
+            options: {
+                animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: true
+                }
+                },
+                scales: {
+                y: { 
+                    min: 0,
+                    max: 100
+                    }
+                }
+            }
+        });
+        
+        var ctxFeedback = document.getElementById('chart-feedback');
+        var charFeedback = new Chart(ctxFeedback, {
+            type: 'line',
+            data: {
+                labels: ['Tất cả', 'Đã duyệt', 'Chưa duyệt', 'Đã phản hồi', 'Chưa phản hồi'],
+                datasets: [{
+                label: 'Tổng số đánh giá sản phẩm',
+                data: ['<%= totalFeedbackProduct%>', '<%= countApprovedFeedback%>', '<%= countNoApprovedFeedback%>', '<%= countResponseFeedbackProduct%>', '<%= countNoResponseFeedbackProduct%>'],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                },
+                {
+                label: 'Tổng số bình luận tin tức',
+                data: ['<%= totalCommentNews%>', '<%= countApprovedNews%>', '<%= countNoApprovedNews%>', '<%= countResponseCommentNews%>', '<%= countNoResponseCommentNews%>'],
+                fill: false,
+                borderColor: 'darkred',
+                }]
+            },
+            options: {
+                animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: true
+                }
+                },
+                scales: {
+                y: { 
+                    min: 0,
+                    max: 100
+                    }
+                }
+            }
+        });
+        
+        var ctxRecruitment = document.getElementById('chart-recruitment');
+        var charRecruitment = new Chart(ctxRecruitment, {
+            type: 'line',
+            data: {
+                labels: ['Tất cả', 'Chưa duyệt', 'Được duyệt', 'Phỏng vấn', 'Trúng tuyển', 'Không đạt', 'Từ chối'],
+                datasets: [{
+                label: 'Tổng số ứng viên',
+                data: ['<%= totalRecruitment%>', '<%= countPendingRecruitment%>', '<%= countApprovedRecruitment%>', '<%= countInterviewRecruitment%>', '<%= countElectRecruitment%>', '<%= countNotAchievedRecruitment%>', '<%= countRejectRecruitment%>'],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                }]
+            },
+            options: {
+                animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: true
+                }
+                },
+                scales: {
+                y: { 
+                    min: 0,
+                    max: 100
+                    }
+                }
+            }
+        });
+    </script>
+    <%}%>
+	<script>
+    ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    ClassicEditor
+            .create( document.querySelector( '#editor1' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+		ClassicEditor
+            .create( document.querySelector( '#editor2' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+		ClassicEditor
+            .create( document.querySelector( '#editor3' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+		ClassicEditor
+            .create( document.querySelector( '#editor4' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+		ClassicEditor
+            .create( document.querySelector( '#editor5' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+		ClassicEditor
+            .create( document.querySelector( '#editor6' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+		ClassicEditor
+            .create( document.querySelector( '#editor7' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+		ClassicEditor
+            .create( document.querySelector( '#editor8' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+    <script>
+		var addBtn = document.querySelector('.add');
+		var groupProduct = document.querySelector('.group-product');
+
+		addBtn.addEventListener('click', function() {
+			const nameProduct = document.createElement('input');
+			nameProduct.type = "text";
+			nameProduct.name = "idProduct";
+			nameProduct.placeholder = "Nhập mã sản phẩm";
+			nameProduct.className = "type-input";
+            nameProduct.required = true;
+
+			const quantity = document.createElement('input');
+			quantity.type = "number";
+			quantity.name = "quantity";
+			quantity.placeholder = "Nhập số lượng";
+			quantity.className = "type-input";
+            quantity.value = 1;
+            quantity.min = 1;
+            quantity.required = true;
+
+			const btn = document.createElement('span');
+			btn.className = "btn btn-danger text-white delete";
+			btn.innerHTML = "<i class='fa fa-trash'></i>";
+
+			const groupProductChild = document.createElement('div');
+			groupProductChild.className = "group-product-child";
+
+			btn.addEventListener('click', function(){
+				this.parentElement.remove();
+			})
+
+			groupProduct.appendChild(groupProductChild);
+			groupProductChild.appendChild(nameProduct);
+			groupProductChild.appendChild(quantity);
+			groupProductChild.appendChild(btn);
+		});
+	</script>
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
+    <script>
+        function printData() {
+            // const table = document.getElementById('printTable').innerHTML;
+            // document.getElementById('body').innerHTML = table;
+            var tab = document.getElementById('printTable');
+            // var win = window.open('', '', 'height=700,width=700');
+            document.write(tab.outerHTML);
+            // window.document.close();
+            window.print();
+        }
+        
+    </script>
+    
+</body>
+
+</html>

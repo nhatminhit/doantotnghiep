@@ -1,0 +1,37 @@
+<%include header%>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="my-wishlist-page ttthanhcong box_shadow_border_radius">
+        <div class="row">
+            <div class="col-md-12 col-12 my-wishlist">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="4" class="heading-title">Thông báo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tbtrangthai">
+                                    <div class="anhtrangthai">
+                                        <img src="<%= status%>">
+                                    </div>
+                                    <div class="tentrangthai"><%= nameStatus%></div>
+                                    <div class="motatrangthai"><%= descriptionStatus%></div>
+                                    <div class="linktrangthai">
+                                        <a href="<%= linkStatus%>" style="font-size: 15px;" class="btn btn-success"><%= nameLinkStatus%> &#8594;</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>			
+        </div><!-- /.row -->
+    </div>
+  </div>
+</div>
+
+<%include footer%>

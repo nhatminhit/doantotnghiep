@@ -1,0 +1,65 @@
+<% include header %>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Chi tiết liên hệ</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item"><a href="/portal/contact/list">Danh sách liên hệ</a></li>
+											<li class="breadcrumb-item">Chi tiết liên hệ</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="content-block">
+								<div class="row">
+                                    <div class="col-md-3"><b>Mã liên hệ:</b> <%= detailContact.id%></div>
+                                    <div class="col-md-3"><b>Họ và tên:</b> <%= detailContact.name%></div>
+                                    <div class="col-md-6"><b>Email:</b> <%= detailContact.email%></div>
+                                    <div class="col-md-3 pt-2"><b>Số điện thoại:</b> <%= detailContact.phone%></div>
+									<div class="col-md-3 pt-2"><b>Trạng thái: </b>
+										<%if (detailContact.status == "Chưa xử lý") {%>
+											<span class="badge bg-warning text-white"><%= detailContact.status%></span>
+										<%} else if (detailContact.status == "Đã xử lý") {%>
+											<span class="badge bg-success text-white"><%= detailContact.status%></span>
+										<%}%>
+									</div>
+                                    <div class="col-sm-12 pt-2"><b>Ý kiến khách hàng: </b><%= detailContact.content%></div>
+                                    <div class="col-sm-12 pt-2"><b>Phản hồi của cửa hàng: </b>
+										<%if (detailContact.response == null) {%>
+											Chưa có phản hồi nào
+										<%} else {%>
+											<%- detailContact.response%>
+										<%}%>
+									</div>
+									<form action="/portal/contact/send" method="post" style="width: 100%">
+                                    <div class="col-sm-12 pt-2"><b>Gửi thư - </b><span class="text-success">đến email: <b><%= detailContact.email%></b></span>
+                                        <input type="text" name="id" value="<%= detailContact.id%>" hidden />
+                                        <input type="text" name="email" value="<%= detailContact.email%>" hidden />
+										<textarea name="response" class="type-textarea" id="editor" cols="30" rows="5" placeholder="Trả lời ý kiến của khách hàng..."></textarea>
+									</div>
+                                    <div class="col-md-12 pt-3 text-center">
+                                        <button type="submit" class="btn btn-info"><i class="far fa-paper-plane"></i> Gửi thư</button>
+										<a href="/portal/contact/list" class="btn btn-warning"><i class="fas fa-reply"></i> Trở về</a>
+                                    </div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%include footer %>

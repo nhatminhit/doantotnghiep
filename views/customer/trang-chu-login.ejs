@@ -1,0 +1,862 @@
+﻿<% include header%>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+      <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
+        <div class="side-menu animate-dropdown outer-bottom-xs box_shadow_border_radius">
+          <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> DANH MỤC SẢN PHẨM</div>
+          <nav class="yamm megamenu-horizontal">
+            <ul class="nav">
+              <%categories.forEach((item) => {%>
+              <li class="dropdown menu-item">
+                <a href="/category/id=<%=item.id%>?page=1"><img class="image-category" src="<%=item.image%>"/> <%= item.name%></a>
+              </li>
+              <%})%>
+            </ul>
+          </nav>
+        </div>
+    
+        <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Hot nhất</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (hot.length > 0) {
+              hot.forEach((item) => {%>
+            <div class="product" style="width: 215px;">
+              <div class="product-micro">
+                <div class="row product-micro-row">
+                  <div class="col col-xs-5">
+                    <div class="product-image">
+                      <div class="image" style="width: 120%"> 
+                        <a href="/shop/detail/id=<%=item.id%>"> 
+                          <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                          %>
+                          <img src="<%=image%>"/>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col2 col-xs-7">
+                    <div class="product-info">
+                      <%if(item.Category.name.length > 14) {%>
+                        <div class="product-info-cate"><%= item.Category.name.substring(0, 14)%>...</div>
+                      <%} else {%>
+                        <div class="product-info-cate"><%= item.Category.name%></div>
+                      <%}%>
+                      <h3 class="name"><a href="/shop/detail/id=<%=item.id%>"><%=item.name.substring(0,14)%>...</a></h3>
+                      <div class="product_rating" style="font-size: 10px;">
+                         <%include danh-gia-sao%>
+                      </div>
+                      <div class="product-price"> 
+                          <%if (item.oldPrice > 0) {%>
+                            <span class="price_"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></span>
+                            <span class="price" style="font-size: 10px"> <del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del> </span>
+                          <%} else {%>
+                            <span class="price_"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></span>
+                          <%}%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <%})} else {%>
+              <p>Không có sản phẩm nào được hiển thị</p>
+            <%}%>        
+          </div>
+        </div>
+
+        <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Tin tức mới nhất </h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (listNewsSort.length > 0) {
+              listNewsSort.forEach((item) => {%>
+            <div class="product khoi-news" style="width: 215px;">
+              <div class="row">
+                <div class="col-md-5 col-5">
+                  <div class="image-news">
+                    <a href="/news/detail/id=<%= item.id%>"><img src="<%= item.image%>"/></a>
+                  </div>
+                </div>
+                <div class="col-md-7 col-7">
+                  <div class="information-news">
+                    <%if (item.title.length < 40) {%>
+                      <div class="news-title"><a href="/news/detail/id=<%= item.id%>"><%= item.title%></a></div>
+                    <% } else {%>
+                      <div class="news-title"><a href="/news/detail/id=<%= item.id%>"><%= item.title.substring(0, 40)%>...</a></div>
+                    <% }%>
+                    <div class="news-infor"><i class="far fa-calendar-alt"></i> <%= item.createTime.substring(0,9)%></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%})} else {%>
+              <span class="text-center">Không có tin tức nào được đăng</span>
+            <%}%>             
+          </div>
+        </div>
+
+        <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small box_shadow_border_radius mt-5">
+          <h3 class="section-title">Đăng ký nhận tin tức</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <p>Nhập email để đón nhận tin tức mới nhất từ chúng tôi</p>
+            <form>
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email">
+              </div>
+              <button type="submit" class="btn btn-warning" style="font-size: 14px;">Đăng ký</button>
+            </form>
+          </div>
+        </div>
+        
+        <!-- <div class="home-banner"> <img src="assets\images\banners\LHS-banner.jpg" alt="Image"> </div> -->
+      </div>
+      
+      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
+        <div id="hero">
+          <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+            <div class="item" style="background-image: url(/avatar/banner1.jpg);">
+              
+            </div>
+            
+            <div class="item" style="background-image: url(/avatar/banner2.jpg);">
+              
+            </div>
+
+            <div class="item" style="background-image: url(/avatar/banner3.jpg);">
+            
+            
+          </div>
+        </div>
+        
+        <div class="information-add box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="delivery">
+                <img src="/images/background/free-delivery.png" style="width: 106px">
+                <div class="delivery-free">Giao hàng miễn phí</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="pay">
+                <img src="/images/background/secure-payment.png">
+                <div class="pay_">Thanh toán an toàn</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="shopping">
+                <img src="/images/background/shopping.png" style="width: 155px">
+                <div class="shopping_">Mua hàng tự tin</div>
+              </div>
+            </div>
+          </div>                  
+        </div>
+  
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp box_shadow_border_radius">
+          <div class="more-info-tab clearfix ">
+            <h3 class="new-product-title pull-left">Sản phẩm mới nhất <span class="badge badge-warning">new</span></h3>
+            <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
+              <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li>
+            </ul>
+          </div>
+          <div class="tab-content outer-top-xs">
+            <div class="tab-pane in active" id="all">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4" style="width: 800px">
+                  <%allProduct.forEach((item) => {%>
+                  <div class="item item-carousel">
+                    <div class="product_">
+                      <div class="product-img">
+                        <div class="img">
+                          <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                            <%if (item.type == null  || item.type == "") {%>
+                              <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                            <%} else {%>
+                              <div class="tag sale"><span><%= item.type%></span></div>
+                            <%}%> 
+                          </a>
+                          <div class="button-product">
+                            <% if (item.quantity > 0) {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                              <%if (user != null) {%>
+                                <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                              <%}%>
+                            <% } else {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                            <%}%>  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-information">
+                        <div class="product-cate"><%=item.Category.name%></div>
+                        <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                        <div class="product_rating" style="font-size: 10px;">
+                          <%include danh-gia-sao%>                        
+                        </div>
+                        <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                            <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                          <%}%>
+                        </div>
+                        <div class="product-other">
+                          <div class="product-like">
+                            <%if (user != undefined){
+                              if (favorite.includes(item.id)) {%>
+                              <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                            <%} else {%>
+                              <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                            <%}} else {%>
+                              <a href="/users/login"><i class="far fa-heart"></i></a>
+                            <%}%>
+                          </div>
+                          <div class="product-order">
+                            <%if (products_sold.includes(item.id)) {
+                              productsSold.forEach((item1) => {
+                                if (item.id == item1.product_id) {%>
+                                  Đã bán <%= item1.total%>
+                            <%}})} else {%>
+                              Đã bán 0
+                            <%}%>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <%})%>
+                </div>  
+              </div>  
+            </div>
+            
+            <div class="tab-pane" id="smartphone">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
+                  <%milk.forEach((item) => {%>
+                  <div class="item item-carousel">
+                    <div class="product_">
+                      <div class="product-img">
+                        <div class="img">
+                          <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                            <%if (item.type == null || item.type == "") {%>
+                              <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                            <%} else {%>
+                              <div class="tag sale"><span><%= item.type%></span></div>
+                            <%}%> 
+                          </a>
+                          <div class="button-product">
+                            <% if (item.quantity > 0) {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                              <%if (user != null) {%>
+                                <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                              <%}%>
+                            <% } else {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                            <%}%>  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-information">
+                        <div class="product-cate"><%=item.Category.name%></div>
+                        <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                        <div class="product_rating" style="font-size: 10px;">
+                          <%include danh-gia-sao%>
+                        </div>
+                        <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                            <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                          <%}%>
+                        </div>
+                        <div class="product-other">
+                          <div class="product-like">
+                            <%if (user != undefined){
+                              if (favorite.includes(item.id)) {%>
+                              <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                            <%} else {%>
+                              <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                            <%}} else {%>
+                              <a href="/users/login"><i class="far fa-heart"></i></a>
+                            <%}%>
+                          </div>
+                          <div class="product-order">
+                            <%if (products_sold.includes(item.id)) {
+                              productsSold.forEach((item1) => {
+                                if (item.id == item1.product_id) {%>
+                                  Đã bán <%= item1.total%>
+                            <%}})} else {%>
+                              Đã bán 0
+                            <%}%>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <%})%>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="laptop">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
+                  <%eye.forEach((item) => {%>
+                  <div class="item item-carousel">
+                    <div class="product_">
+                      <div class="product-img">
+                        <div class="img">
+                          <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                            <%if (item.type == null || item.type == "") {%>
+                              <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                            <%} else {%>
+                              <div class="tag sale"><span><%= item.type%></span></div>
+                            <%}%> 
+                          </a>
+                          <div class="button-product">
+                            <% if (item.quantity > 0) {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                              <%if (user != null) {%>
+                                <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                              <%}%>
+                            <% } else {%>
+                              <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                            <%}%>  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-information">
+                        <div class="product-cate"><%=item.Category.name%></div>
+                        <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                        <div class="product_rating" style="font-size: 10px;">
+                          <%include danh-gia-sao%>
+                        </div>
+                        <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                            <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                          <%}%>
+                        </div>
+                        <div class="product-other">
+                          <div class="product-like">
+                            <%if (user != undefined){
+                              if (favorite.includes(item.id)) {%>
+                              <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                            <%} else {%>
+                              <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                            <%}} else {%>
+                              <a href="/users/login"><i class="far fa-heart"></i></a>
+                            <%}%>
+                          </div>
+                          <div class="product-order">
+                            <%if (products_sold.includes(item.id)) {
+                              productsSold.forEach((item1) => {
+                                if (item.id == item1.product_id) {%>
+                                  Đã bán <%= item1.total%>
+                            <%}})} else {%>
+                              Đã bán 0
+                            <%}%>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <%})%>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="apple">
+              <div class="product-slider">
+                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
+                  <%if (bloodPressure.length > 0) {%>
+                    <%bloodPressure.forEach((item) => {%>
+                    <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null || item.type == "") {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                                <%if (user != null) {%>
+                                  <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                <%}%>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.Category.name%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                            <%include danh-gia-sao%>                           
+                          </div>
+                          <div class="product-money">
+                            <%if (item.oldPrice > 0) {%>
+                              <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                              <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                            <%} else {%>
+                              <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                            <%}%>
+                          </div>
+                          <div class="product-other">
+                            <div class="product-like">
+                              <%if (user != undefined){
+                                if (favorite.includes(item.id)) {%>
+                                <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                              <%} else {%>
+                                <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                              <%}} else {%>
+                                <a href="/users/login"><i class="far fa-heart"></i></a>
+                              <%}%>
+                            </div>
+                            <div class="product-order">
+                              <%if (products_sold.includes(item.id)) {
+                                productsSold.forEach((item1) => {
+                                  if (item.id == item1.product_id) {%>
+                                    Đã bán <%= item1.total%>
+                              <%}})} else {%>
+                                Đã bán 0
+                              <%}%>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%})%>
+                  <% } else {%>
+                    <p>Không có sản phẩm nào được hiển thị.</p>
+                  <% }%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/banner4.jpg" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <section class="section featured-product wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Sản phẩm giảm giá</h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+              <%allProduct.forEach((item) => {
+                if (item.oldPrice > 0) {
+              %>
+              <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                            <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null || item.type == "") {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                                <%if (user != null) {%>
+                                  <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                <%}%>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.Category.name%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                            <%include danh-gia-sao%>
+                          </div>
+                          <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                            <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                          <%}%>
+                          </div>
+                          <div class="product-other">
+                            <div class="product-like">
+                              <%if (user != undefined){
+                                if (favorite.includes(item.id)) {%>
+                                <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                              <%} else {%>
+                                <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                              <%}} else {%>
+                                <a href="/users/login"><i class="far fa-heart"></i></a>
+                              <%}%>
+                            </div>
+                            <div class="product-order">
+                              <%if (products_sold.includes(item.id)) {
+                                productsSold.forEach((item1) => {
+                                  if (item.id == item1.product_id) {%>
+                                    Đã bán <%= item1.total%>
+                              <%}})} else {%>
+                                Đã bán 0
+                              <%}%>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              <%}})%>
+          </div>
+        </section>
+      
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/banner5.jpg" height="195px" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/treem.jpg" width="100%" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section featured-product wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Sản phẩm trẻ em</h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+            <%if (children.length > 0) {%>
+                    <%children.forEach((item) => {%>
+                    <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                              <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null || item.type == "") {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                                <%if (user != null) {%>
+                                  <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                <%}%>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.Category.name%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                            <%include danh-gia-sao%>                            
+                          </div>
+                          <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                            <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                          <%}%>
+                          </div>
+                          <div class="product-other">
+                            <div class="product-like">
+                              <%if (user != undefined){
+                                if (favorite.includes(item.id)) {%>
+                                <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                              <%} else {%>
+                                <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                              <%}} else {%>
+                                <a href="/users/login"><i class="far fa-heart"></i></a>
+                              <%}%>
+                            </div>
+                            <div class="product-order">
+                              <%if (products_sold.includes(item.id)) {
+                                productsSold.forEach((item1) => {
+                                  if (item.id == item1.product_id) {%>
+                                    Đã bán <%= item1.total%>
+                              <%}})} else {%>
+                                Đã bán 0
+                              <%}%>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%})%>
+                  <% } else {%>
+                    <p>Không có sản phẩm nào được hiển thị.</p>
+                  <% }%>
+          </div>
+        </section>
+
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/truongthanh.jpg" width="100%" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section featured-product wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Sản phẩm người trưởng thành</h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+            <%if (adults.length > 0) {%>
+                    <%adults.forEach((item) => {%>
+                    <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                              <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null || item.type == "") {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                                <%if (user != null) {%>
+                                  <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                <%}%>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.Category.name%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                            <%include danh-gia-sao%>
+                          </div>
+                          <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                            <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                          <%}%>
+                          </div>
+                          <div class="product-other">
+                            <div class="product-like">
+                              <%if (user != undefined){
+                                if (favorite.includes(item.id)) {%>
+                                <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                              <%} else {%>
+                                <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                              <%}} else {%>
+                                <a href="/users/login"><i class="far fa-heart"></i></a>
+                              <%}%>
+                            </div>
+                            <div class="product-order">
+                              <%if (products_sold.includes(item.id)) {
+                                productsSold.forEach((item1) => {
+                                  if (item.id == item1.product_id) {%>
+                                    Đã bán <%= item1.total%>
+                              <%}})} else {%>
+                                Đã bán 0
+                              <%}%>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%})%>
+                  <% } else {%>
+                    <p>Không có sản phẩm nào được hiển thị.</p>
+                  <% }%>  
+          </div>
+        </section>
+
+        <div class="wide-banners wow fadeInUp outer-bottom-xs box_shadow_border_radius">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> 
+                  <img class="img-responsive" src="/avatar/nguoilontuoi.jpg" width="100%" alt=""> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section featured-product wow fadeInUp box_shadow_border_radius">
+          <h3 class="section-title">Sản phẩm người lớn tuổi</h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+               <%if (elder.length > 0) {%>
+                    <%elder.forEach((item) => {%>
+                    <div class="item item-carousel">
+                      <div class="product_">
+                        <div class="product-img">
+                          <div class="img">
+                            <a href="/shop/detail/id=<%=item.id%>">
+                              <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                            %>
+                            <img src="<%=image%>"/>
+                              <%if (item.type == null || item.type == "") {%>
+                                <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                              <%} else {%>
+                                <div class="tag sale"><span><%= item.type%></span></div>
+                              <%}%> 
+                            </a>
+                            <div class="button-product">
+                              <% if (item.quantity > 0) {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-success"><i class="far fa-eye"></i></a>
+                                <%if (user != null) {%>
+                                  <a href="/shop/addCart/id=<%= item.id%>" class="btn btn-primary"><i class="fas fa-cart-plus"></i></a>
+                                <%}%>
+                              <% } else {%>
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-danger">HẾT HÀNG</a>
+                              <%}%>  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-information">
+                          <div class="product-cate"><%=item.Category.name%></div>
+                          <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                          <div class="product_rating" style="font-size: 10px;">
+                          <%include danh-gia-sao%>
+                        </div>
+                        <div class="product-money">
+                          <%if (item.oldPrice > 0) {%>
+                            <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                            <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                          <%} else {%>
+                            <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                          <%}%>
+                        </div>
+                        <div class="product-other">
+                          <div class="product-like">
+                            <%if (user != undefined){
+                              if (favorite.includes(item.id)) {%>
+                              <a href="/shop/product/deleteFavorite?id=<%= item.id%>&page=product"><i class="fas fa-heart text-danger"></i></a>
+                            <%} else {%>
+                              <a href="/shop/product/favorite?id=<%=item.id%>"><i class="far fa-heart text-danger"></i></a>
+                            <%}} else {%>
+                              <a href="/users/login"><i class="far fa-heart"></i></a>
+                            <%}%>
+                          </div>
+                          <div class="product-order">
+                            <%if (products_sold.includes(item.id)) {
+                              productsSold.forEach((item1) => {
+                                if (item.id == item1.product_id) {%>
+                                  Đã bán <%= item1.total%>
+                            <%}})} else {%>
+                              Đã bán 0
+                            <%}%>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%})%>
+                  <% } else {%>
+                    <p>Không có sản phẩm nào được hiển thị.</p>
+                  <% }%>  
+          </div>
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div id="fb-root"></div>
+
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+<% include footer%>

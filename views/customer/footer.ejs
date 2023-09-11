@@ -1,0 +1,226 @@
+<div title="Về đầu trang" id="top-up">
+  <i class="fas fa-arrow-circle-up"></i></div>
+<footer class="foot wow fadeInUpBig">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 cot1">
+                <h3 class="tdfoot font-weight-bold">Thông tin shop</h3>
+                <ul>
+                  <li><a href="/">Trang chủ</a></li>
+                  <li><a href="/introduce">Giới thiệu</a></li>
+                  <li><a href="/shop?page=1">Sản phẩm</a></li>
+                  <li><a href="/cart">Giỏ hàng</a></li>
+                  <li><a href="/news">Tin tức</a></li>
+                  <li><a href="/contact">Liên hệ</a></li>
+                </ul>          
+            </div>
+            <div class="col-sm-2 cot1">
+              <h3 class="tdfoot font-weight-bold">Thanh toán</h3>
+              <ul>
+                <li><a href="">Tiền mặt</a></li>
+                <li><a href="">Ví VNPAY</a></li>
+                <li><a href="">Ngân hàng</a></li>
+              </ul>          
+          </div>
+          <div class="col-sm-5 cot2 mx-auto">
+                <div class="logo text-center">
+                   <h3 class="tdfoot font-weight-bold">Thông tin shop</h3>
+                   <img src="/logo_tab.png"/>
+                </div>
+                <div class="mangxh" style="font-size: 15px;">
+                    <p><b>Địa chỉ: </b>Thành phố Hà Nội</p>
+                    <p><b>Email: </b>cuahangthuocnhatminh@gmail.com</p>
+                    <p><b>Điện thoại: </b> 096.152.5903</p>
+                    <p><b>Facebook: </b>https://www.facebook.com/hoangnhatminhnd</p>
+                </div>
+          </div>
+          <div class="col-sm-3 cot3">
+                <div class="bando">
+                    <h3 class="tdfoot">Vị trí</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8982578844384!2d105.83283267492926!3d21.03675658061453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aba3e51b22b9%3A0x85839944f456f253!2zUXXhuqNuZyB0csaw4budbmcgQmEgxJDDrG5o!5e0!3m2!1svi!2s!4v1690345651426!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p>Ba Đình, Hà Nội, <br> Việt Nam.</p>
+                </div>
+          </div><hr>
+          <div class="col-sm-12 text-center pb-3">
+            © Bản quyền thuộc về <strong>Nhật Minh</strong> | Cung cấp bởi <strong>Nhật Minh</strong>
+          </div>
+        </div>
+    </div>
+</footer>
+
+<script src="\assets\js\jquery-1.11.1.min.js"></script> 
+<script src="\assets\js\bootstrap.min.js"></script> 
+<script src="\assets\js\bootstrap-hover-dropdown.min.js"></script> 
+<script src="\assets\js\owl.carousel.min.js"></script> 
+<script src="\assets\js\echo.min.js"></script> 
+<script src="\assets\js\jquery.easing-1.3.min.js"></script> 
+<script src="\assets\js\bootstrap-slider.min.js"></script> 
+<script src="\assets\js\jquery.rateit.min.js"></script> 
+<script type="text/javascript" src="\assets\js\lightbox.min.js"></script> 
+<script src="\assets\js\bootstrap-select.min.js"></script> 
+<script src="\assets\js\wow.min.js"></script> 
+<script src="\assets\js\scripts.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/test.js"></script>
+<script src="//cdn.jsdelivr.net/npm/share-buttons/dist/share-buttons.js"></script>
+<script>
+  ClassicEditor
+          .create( document.querySelector( '#editor' ) )
+          .catch( error => {
+              console.error( error );
+          } );
+</script>
+
+<!--Start of Fchat.vn-->
+<!--<script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=64538530e420b40aa72e678a" async="async"></script>&lt;!&ndash;End of Fchat.vn&ndash;&gt;-->
+<script>
+  // kéo xuống khoảng cách 500px thì xuất hiện nút Top-up
+  var offset = 500;
+  // thời gian di trượt 0.75s ( 1000 = 1s )
+  var duration = 500;
+  $(function(){
+  $(window).scroll(function () {
+  if ($(this).scrollTop() > offset)
+  $('#top-up').fadeIn(duration);else
+  $('#top-up').fadeOut(duration);
+  });
+  $('#top-up').click(function () {
+  $('body,html').animate({scrollTop: 0}, duration);
+  });
+  });
+</script>
+<script>
+    var buyProduct = document.getElementById('buy_product');
+    var slco = document.getElementById('soluongco');
+    var slmua = document.getElementById('soluongmua');
+    var error = document.getElementById('error');
+    slmua.addEventListener('change', function() {
+      if (parseInt(slmua.value) > parseInt(slco.value)) {
+        error.innerHTML = "Số lượng sản phẩm không đủ";
+        buyProduct.classList.add('disabled');
+      } else if (slmua.value <= 0) {
+        error.innerHTML = "Vui lòng nhập số lượng mua lớn hơn hoặc bằng 1";
+        buyProduct.classList.add('disabled');
+      } else {
+        error.innerHTML = "";
+        buyProduct.classList.remove('disabled');
+      }
+    })
+</script>
+<script>
+    var ghmua = document.getElementsByClassName('ghmua');
+    var ghco = document.getElementsByClassName('ghco');
+    var gherror = document.getElementsByClassName('gherror');
+    for (let i = 0; i < ghmua.length; i++) {
+      ghmua[i].onchange = function() {
+        for (let j = 0; j < ghmua.length; j++) {
+          if (i == j) {
+            console.log(typeof parseInt(ghmua[i].value), typeof parseInt(ghco[i].value))
+            if (parseInt(ghmua[i].value) > parseInt(ghco[i].value)) {
+              gherror[i].innerHTML = "Sản phẩm không đủ";
+            } else if (ghmua[i].value <= 0) {
+              gherror[i].innerHTML = "Số lượng sản phẩm > 0";
+            } else {
+              gherror[i].innerHTML = "";
+            }
+          }
+        }
+        
+      }
+    }
+</script>
+<script>
+  var email = document.getElementById('email');
+  var phone = document.getElementById('sodt');
+  var password = document.getElementById('matkhau');
+  var repeatPassword = document.getElementById('repeatmk');
+  var login = document.getElementById('login');
+  var register = document.getElementById('register');
+  var error_email = document.getElementById('error_register_email');
+  var error_phone = document.getElementById('error_login_phone');
+  var error_password = document.getElementById('error_login_password');
+  var error_repeatpw = document.getElementById('error_register_password');
+  email.addEventListener('keyup', function() {
+    var patternEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!patternEmail.test(email.value)) {
+      error_email.innerHTML = "Email không đúng định dạng";
+      error_email.style.color = "red";
+      register.classList.add('disabled');
+    } else if (email.value == "" || patternEmail.test(email.value)) {
+      error_email.innerHTML = "";
+      register.classList.remove('disabled');
+    }
+  })
+  phone.addEventListener('keyup', function () {
+    var patternPhone = /^[0-9]{10}$/;
+    if (!patternPhone.test(phone.value)) {
+      error_phone.innerHTML = "Số điện thoại gồm số và đủ 10 ký tự";
+      error_phone.style.color = "red";
+      login.classList.add('disabled');
+    } else if (phone.value == "" || patternPhone.test(phone.value)) {
+      error_phone.innerHTML = "";
+      login.classList.remove('disabled');
+    }
+  });
+  phone.addEventListener('keyup', function () {
+    var patternPhone = /^[0-9]{10}$/;
+    if (!patternPhone.test(phone.value)) {
+      error_phone.innerHTML = "Số điện thoại gồm số và đủ 10 ký tự";
+      error_phone.style.color = "red";
+      register.classList.add('disabled');
+    } else if (phone.value == "" || patternPhone.test(phone.value)) {
+      error_phone.innerHTML = "";
+      register.classList.remove('disabled');
+    }
+  });
+  password.addEventListener('keyup', function () {
+    var patternPassword = /^[a-zA-Z0-9]{6,}$/;
+    if (!patternPassword.test(password.value)) {
+      error_password.innerHTML = "Mật khẩu tối thiểu 6 ký tự";
+      error_password.style.color = "red";
+      login.classList.add('disabled');
+    } else if (password.value == "" || patternPassword.test(password.value)) {
+      error_password.innerHTML = "";
+      login.classList.remove('disabled');
+    }
+  })
+  password.addEventListener('keyup', function () {
+    var patternPassword = /^[a-zA-Z0-9]{6,}$/;
+    if (!patternPassword.test(password.value)) {
+      error_password.innerHTML = "Mật khẩu tối thiểu 6 ký tự";
+      error_password.style.color = "red";
+      register.classList.add('disabled');
+    } else if (password.value == "" || patternPassword.test(password.value)) {
+      error_password.innerHTML = "";
+      register.classList.remove('disabled');
+    }
+  })
+  repeatPassword.addEventListener('keyup', function () {
+    var patternPassword = /^[a-zA-Z0-9]{6,}$/;
+    if (!patternPassword.test(repeatPassword.value)) {
+      error_repeatpw.innerHTML = "Mật khẩu tối thiểu 6 ký tự";
+      error_repeatpw.style.color = "red";
+      register.classList.add('disabled');
+    } else if (password.value == "" || patternPassword.test(repeatPassword.value)) {
+      error_repeatpw.innerHTML = "";
+      register.classList.remove('disabled');
+    }
+  })
+</script>
+<script>
+  var nutbl = document.getElementById('buttonComment');
+  var content = document.getElementById('contentFeedback');
+  if (content.value == "") {
+    nutbl.classList.add('disabled');
+  }
+  content.addEventListener('keyup', function() {
+    if (content.value == "") {
+      nutbl.classList.add("disabled");
+    } else {
+      nutbl.classList.remove('disabled');
+    }
+  })
+</script>
+</body>
+</html>

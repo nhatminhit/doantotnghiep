@@ -1,0 +1,171 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+      <div class="col-md-12 phantrang text-left">
+        <ul>
+            <li><a href="/">Trang chủ</a> / </li>
+            <li>Tin tức</li>
+        </ul>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder dichuyenlen"> 
+      <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+        <div class="tab-content tab-content-table outer-top-xs box_shadow_border_radius" >
+          <h2 class="font-weight-bold">Tin tức</h2><hr>
+          <%if (listNews.length > 0) {
+            listNews.forEach((item) => {%>
+          <div class="news">
+            <div class="row">
+              <div class="col-md-3">
+                <a class="news-image" href="/news/detail/id=<%= item.id%>">
+                    <img src="<%= item.image%>">
+                </a>
+              </div>
+              <div class="col-md-9">
+                  <a class="news-title text-dark font-weight-bold" href="/news/detail/id=<%= item.id%>"><%= item.title%></a>
+                  <div class="news-information">
+                    <ul>
+                      <li><i class="far fa-user"></i> <%= item.creator%></li>
+                      <li><i class="far fa-eye"></i> <%= item.view%></li>
+                      <li><i class="far fa-calendar-alt"></i> <%= item.createTime%></li>
+                    </ul>
+                  </div>
+                  <div class="news-description text-justify"><%= item.description%></div>
+              </div>
+            </div>
+          </div>
+          <%})} else {%>
+            <span class="text-center">Không có công việc nào được đăng</span>
+          <%}%> 
+        </div>
+        <div class="col-md-12 pt-5">
+                        <div class="row">
+                            <% if(pages > 0) { %>
+                                <nav class="mx-auto">
+                                    <ul class="pagination" style="margin-top: auto;">
+                                 
+                                    <% if(current == 1) { %> 
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="/shop?page=1">First</a>
+                                        </li>
+                                    <% } else { %>
+                                        <li class="page-item">
+                                            <a class="page-link" href="/shop?page=1">First</a>
+                                        </li>
+                                    <% } %>
+        
+                                <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %> 
+                                    <% if(i !== 1) { %>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#">...</a>
+                                        </li>
+                                    <% } %>
+                                    <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
+                                        <% if(i == current) { %>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="/shop?page=<%= i %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                        <% } else { %>
+                                            <li class="page-item">
+                                                <a class="page-link" href="/shop?page=<%= i %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                        <% } %>
+                                        <% if (i == Number(current) + 2 && i < pages) { %>
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#">...</a>
+                                            </li>
+                                        <% } %>
+                                <% } %>
+        
+                                <% if(current == pages) { %> 
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Last</a>
+                                    </li>
+                                <% } else { %>
+                                    <li class="page-item">
+                                        <a class="page-link" href="/shop?page=<%= pages %>">Last</a>
+                                    </li>
+                                <% } %>
+                                </ul>
+                            </nav>
+                        <% } %>
+                        </div>
+        </div>
+     </div>
+     </div>
+    
+    <div class="col-md-3 sidebar dichuyenlen">
+        <div class="sidebar-module-container">
+            <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Nhiều lượt xem nhất </h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (listNewsView.length > 0) {
+              listNewsView.forEach((item) => {%>
+            <div class="product khoi-news" style="width: 215px;">
+              <div class="row">
+                <div class="col-md-5 col-5">
+                  <div class="image-news">
+                    <a href="/news/detail/id=<%= item.id%>"><img src="<%= item.image%>"/></a>
+                  </div>
+                </div>
+                <div class="col-md-7 col-7">
+                  <div class="information-news">
+                    <%if (item.title.length < 40) {%>
+                      <div class="news-title"><a href="/news/detail/id=<%= item.id%>"><%= item.title%></a></div>
+                    <% } else {%>
+                      <div class="news-title"><a href="/news/detail/id=<%= item.id%>"><%= item.title.substring(0, 40)%>...</a></div>
+                    <% }%>
+                    <div class="news-infor" style="font-size: 11px">
+                        <i class="far fa-calendar-alt"></i> <%= item.createTime.substring(0,9)%>
+                        <i class="far fa-eye"></i> <%= item.view%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%})} else {%>
+              <span class="text-center">Không có tin tức nào được đăng</span>
+            <%}%>             
+          </div>
+            </div>
+            <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5">
+          <h3 class="section-title">Tin tức hot nhất </h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (listNewsHot.length > 0) {
+              listNewsHot.forEach((item) => {%>
+            <div class="product khoi-news" style="width: 215px;">
+              <div class="row">
+                <div class="col-md-5 col-5">
+                  <div class="image-news">
+                    <a href="/news/detail/id=<%= item.id%>"><img src="<%= item.image%>"/></a>
+                  </div>
+                </div>
+                <div class="col-md-7 col-7">
+                  <div class="information-news">
+                    <%if (item.title.length < 40) {%>
+                      <div class="news-title"><a href="/news/detail/id=<%= item.id%>"><%= item.title%></a></div>
+                    <% } else {%>
+                      <div class="news-title"><a href="/news/detail/id=<%= item.id%>"><%= item.title.substring(0, 40)%>...</a></div>
+                    <% }%>
+                    <div class="news-infor"><i class="far fa-calendar-alt"></i> <%= item.createTime.substring(0,9)%></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%})} else {%>
+              <span class="text-center">Không có tin tức nào được đăng</span>
+            <%}%>             
+          </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+  </div>
+
+<% include footer %>

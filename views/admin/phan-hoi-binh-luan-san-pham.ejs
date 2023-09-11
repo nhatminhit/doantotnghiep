@@ -1,0 +1,155 @@
+<% include header %>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Phản hồi bình luận sản phẩm</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item"><a href="/portal/feedback/product/list">Danh sách bình luận sản phẩm</a></li>
+											<li class="breadcrumb-item">Phản hồi bình luận sản phẩm</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="content-block">
+								<div class="row">
+                                    <div class="col-md-4"><b>Mã đánh giá:</b> <%= detailFeedbackProduct.id%></div>
+                                    <div class="col-md-4"><b>Mã khách hàng:</b> <%= detailFeedbackProduct.User.id%></div>
+                                    <div class="col-md-4"><b>Họ tên khách hàng:</b> <%= detailFeedbackProduct.User.name%></div>
+                                    <div class="col-md-4 pt-2"><b>Số điện thoại:</b> <%= detailFeedbackProduct.User.phone%></div>
+                                    <div class="col-md-4 pt-2"><b>Email:</b> <%= detailFeedbackProduct.User.email%></div>
+                                    <div class="col-md-4 pt-2"><b>Ngày bình luận:</b> <%= detailFeedbackProduct.createTime%></div>
+									<div class="col-md-4 pt-2"><b>Mã sản phẩm: </b><%= detailFeedbackProduct.Product.id%></div>
+									<div class="col-md-8 pt-2"><b>Tên sản phẩm: </b><%= detailFeedbackProduct.Product.name%></div>
+                                    <div class="col-md-4 pt-2"><b>Trạng thái:</b>
+										<%if (detailFeedbackProduct.status == "Chưa phản hồi") {%>
+                                        	<span class="badge bg-warning text-white"><%= detailFeedbackProduct.status%></span>
+										<%} else if (detailFeedbackProduct.status == "Đã phản hồi") {%>
+                                        	<span class="badge bg-success text-white"><%= detailFeedbackProduct.status%></span>
+										<%}%>
+                                    </div>
+									<div class="col-md-4 pt-2">
+										<b>Đánh giá sao: </b>
+										<% const rating = Math.ceil(detailFeedbackProduct.rating)%>
+										<%if (rating == 1) {%>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+										<%} else if (rating == 2) {%>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+										<%} else if (rating == 3) {%>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+										<%}else if (rating == 4) {%>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+										<%} else if (rating == 5) {%>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+											<i class="fas fa-star" style="color: #FFD700;"></i>
+										<%} else {%>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+											<i class="fas fa-star" style="color: #b7b7b8;"></i>
+										<%}%>
+									</div>
+									<div class="col-md-4 pt-2">
+										<b>Duyệt đánh giá: </b>
+										<%if (detailFeedbackProduct.reviews == "Chưa duyệt") {%>
+											<a href="/portal/feedback/product/approve?id=<%= detailFeedbackProduct.id%>&page=detail"><i class="far fa-eye-slash"></i> Chưa duyệt</a>											
+										<%} else {%>
+											<a href="/portal/feedback/product/unapproval?id=<%= detailFeedbackProduct.id%>&page=detail"><i class="far fa-eye"></i> Đã duyệt</a>												
+										<%}%>
+									</div>
+                                    <hr>
+                                    <div class="col-sm-12 pt-2"><b>Bình luận khách hàng: </b><%- detailFeedbackProduct.content%></div>
+									<div class="col-md-12 pt-2"><b>Phản hồi của cửa hàng: </b>
+										<%if (listReplyFeedbackProduct.length > 0) {%>
+											<table class="table table-bordered">
+											<%listReplyFeedbackProduct.forEach((item, index) => {%>
+											<tr>
+												<td><%= index+1%></td>
+												<td><%= item.createTime%></td>
+												<td  class="style"><%- item.content%></td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#myModal<%= index%>"><i class="fas fa-edit"></i></a>
+													<a href="/portal/feedback/product/deleteReply/id=<%= item.id%>?comment=<%= detailFeedbackProduct.id%>&page=reply" onclick="return confirm('Bạn có chắc chắn muốn xóa phản hồi bình luận không?')"><i class="fa fa-trash"></i></a>
+													<div class="modal fade" id="myModal<%= index%>">
+														<div class="modal-dialog modal-dialog-centered modal-md">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h4 class="modal-title">Sửa phản hồi bình luận</h4>
+																	<button type="button" class="close" data-dismiss="modal">&times;</button>
+																</div>
+																<div class="modal-body ">
+																	<p class="text-left">Mã phản hồi bình luận: <span class="text-primary font-weight-bold"><%= item.id%></span></p>
+																	<form action="/portal/feedback/product/editReply" method="post">
+																		<input type="text" name="id" value="<%= item.id%>" hidden/> 
+																		<input type="text" name="commentId" value="<%= detailFeedbackProduct.id%>" hidden/> 
+																		<textarea name="content" id="editor<%= index+1%>"><%= item.content%></textarea>	
+																		<div class="text-center">
+																			<button type="submit" class="btn btn-info my-3">Cập nhật</button>
+																		</div>		
+																	</form>	
+																</div>
+																<div class="modal-footer text-center">
+																	<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+																</div>	
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<%})%>
+											</table>
+										<%} else {%>
+											Không có phản hồi nào.
+										<%}%>
+									</div>
+                                    <div class="col-sm-12 pt-2 font-weight-bold">Phản hồi: </div>
+									<form action="/portal/feedback/product/reply" method="post" style="width: 100%">
+										<div class="col-md-12 pt-1">
+											<input type="text" name="id" value="<%= detailFeedbackProduct.id%>" hidden/>
+											<textarea name="content" class="type-textarea" id="editor" placeholder="Trả lời bình luận khách hàng"></textarea>
+										</div>
+										<div class="col-md-12 pt-3 text-center">
+											<button type="submit" class="btn btn-info"><i class="far fa-comment-dots"></i> Phản hồi</button>
+											<a href="/portal/feedback/product/list" class="btn btn-warning"><i class="fas fa-reply"></i> Trở về</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<%include footer%>

@@ -1,0 +1,114 @@
+<% include header %>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Phản hồi bình luận tin tức</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item"><a href="/portal/comment/news/list">Danh sách bình luận tin tức</a></li>
+											<li class="breadcrumb-item">Phản hồi bình luận tin tức</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="content-block">
+								<div class="row">
+                                    <div class="col-md-4"><b>Mã bình luận:</b> <%= detailCommentNews.id%></div>
+                                    <div class="col-md-4"><b>Mã khách hàng:</b> <%= detailCommentNews.User.id%></div>
+                                    <div class="col-md-4"><b>Họ tên người BL:</b> <%= detailCommentNews.User.name%></div>
+                                    <div class="col-md-4 pt-2"><b>Số điện thoại:</b> <%= detailCommentNews.User.phone%></div>
+                                    <div class="col-md-4 pt-2"><b>Email:</b> <%= detailCommentNews.User.email%></div>
+                                    <div class="col-md-4 pt-2"><b>Ngày bình luận:</b> <%= detailCommentNews.createTime%></div>
+									<div class="col-md-4 pt-2"><b>Mã tin tức: </b><%= detailCommentNews.News.id%></div>
+									<div class="col-md-8 pt-2"><b>Tiêu đề tin tức: </b><%= detailCommentNews.News.title%></div>
+                                    <div class="col-md-4 pt-2"><b>Trạng thái:</b>
+										<%if (detailCommentNews.status == "Chưa phản hồi") {%>
+                                        	<span class="badge bg-warning text-white"><%= detailCommentNews.status%></span>
+										<%} else if (detailCommentNews.status == "Đã phản hồi") {%>
+                                        	<span class="badge bg-success text-white"><%= detailCommentNews.status%></span>
+										<%}%>
+                                    </div>
+									<div class="col-md-4 pt-2">
+										<b>Duyệt bình luận: </b>
+										<%if (detailCommentNews.reviews == "Chưa duyệt") {%>
+											<a href="/portal/comment/news/approve?id=<%= detailCommentNews.id%>&page=detail"><i class="far fa-eye-slash"></i> Chưa duyệt</a>											
+										<%} else {%>
+											<a href="/portal/comment/news/unapproval?id=<%= detailCommentNews.id%>&page=detail"><i class="far fa-eye"></i> Đã duyệt</a>												
+										<%}%>
+									</div>
+                                    <hr>
+                                    <div class="col-sm-12 pt-2"><b>Nội dung người bình luận: </b><%- detailCommentNews.content%></div>
+									<div class="col-md-12 pt-2"><b>Phản hồi bình luận: </b>
+										<%if (listRepliesNews.length > 0) {%>
+											<table class="table table-bordered">
+											<%listRepliesNews.forEach((item, index) => {%>
+											<tr>
+												<td><%= index+1%></td>
+												<td><%= item.createTime%></td>
+												<td class="style"><%- item.content%></td>
+												<td>
+													<a href="" data-toggle="modal" data-target="#myModal<%= index%>"><i class="fas fa-edit"></i></a>
+													<a href="/portal/comment/news/deleteReply/id=<%= item.id%>?comment=<%= detailCommentNews.id%>&page=reply" onclick="return confirm('Bạn có chắc chắn muốn xóa phản hồi bình luận không?')"><i class="fa fa-trash"></i></a>
+													<div class="modal fade" id="myModal<%= index%>">
+														<div class="modal-dialog modal-dialog-centered modal-md">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h4 class="modal-title">Sửa phản hồi bình luận</h4>
+																	<button type="button" class="close" data-dismiss="modal">&times;</button>
+																</div>
+																<div class="modal-body ">
+																	<p class="text-left">Mã phản hồi bình luận: <span class="text-primary font-weight-bold"><%= item.id%></span></p>
+																	<form action="/portal/comment/news/editReply" method="post">
+																		<input type="text" name="id" value="<%= item.id%>" hidden/> 
+																		<input type="text" name="commentId" value="<%= detailCommentNews.id%>" hidden/> 
+																		<textarea name="content" id="editor<%= index+1%>"><%= item.content%></textarea>	
+																		<div class="text-center">
+																			<button type="submit" class="btn btn-info my-3">Cập nhật</button>
+																		</div>		
+																	</form>	
+																</div>
+																<div class="modal-footer text-center">
+																	<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+																</div>	
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<%})%>
+											</table>
+										<%} else {%>
+											Không có phản hồi nào.
+										<%}%>
+									</div>
+                                    <div class="col-sm-12 pt-2 font-weight-bold">Phản hồi: </div>
+									<form action="/portal/comment/news/reply" method="post" style="width: 100%">
+										<div class="col-md-12 pt-1">
+											<input type="text" name="id" value="<%= detailCommentNews.id%>" hidden/>
+											<textarea name="content" class="type-textarea" id="editor" placeholder="Trả lời bình luận khách hàng"></textarea>
+										</div>
+										<div class="col-md-12 pt-3 text-center">
+											<button type="submit" class="btn btn-info"><i class="far fa-comment-dots"></i> Phản hồi</button>
+											<a href="/portal/comment/news/list" class="btn btn-warning"><i class="fas fa-reply"></i> Trở về</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<%include footer%>

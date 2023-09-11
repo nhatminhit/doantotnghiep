@@ -1,0 +1,163 @@
+<% include header %>
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+        <div class="col-md-12 phantrang">
+            <ul>
+                <li><a href="">Trang chủ</a> / </li>
+                <li>Hồ sơ cá nhân</li>
+            </ul>
+        </div>
+      <!-- ============================================== SIDEBAR ============================================== -->
+      <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp dichuyenlen3 box_shadow_border_radius blue_border">
+            <div class="tab-content outer-top-xs" style="font-size: 14px;">
+                <div class="thongtinchungkh mt-3 pt-3">
+                    <div class="thongtinanh">
+                        <img src="<%= user.avatar%>">
+                    </div>
+                    <div class="thongtintk">
+                        <span class="tenkhang"><%= user.name%></span>
+                        <a href="/users/myprofile" class="suahoso"><i class="fas fa-user-edit"></i> Sửa hồ sơ</a>
+                    </div>
+                </div>
+                <div class="list_taikhoan" >
+                  <ul>
+                    <li><a href="/"><i class="fas fa-reply-all"></i> Quay lại Shop</a></li>
+                    <li><a href="/users/myprofile"><i class="far fa-user" aria-hidden="true"></i> Cập nhật tài khoản</a></li>
+                    <li><a href="/order/list"><i class="far fa-clipboard" aria-hidden="true"></i> Đơn hàng</a></li>
+                    <li><a href="/users/changePassword"><i class="fas fa-key"></i> Thay đổi mật khẩu</a></li>
+                    <li><a href="/shop/wishlist"><i class="far fa-heart"></i> Sản phẩm yêu thích</a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+     
+      <div class="col-xs-12 col-sm-12 col-md-6 homebanner-holder"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp thelen box_shadow_border_radius blue_border">
+          <div class="more-info-tab clearfix ">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="new-product-title pull-left">Hồ sơ cá nhân</h3> <br>
+                </div>
+                <div class="col-md-12">
+                    <span>Quản lý thông tin hồ sơ để bảo mật tài khoản</span>
+                </div>
+            </div>
+          </div>
+          <div class="tab-content outer-top-xs" >
+            <p style="color: red"><%= error1%></p>
+            <p style="color: green"><%= success%></p>
+            <form action="/users/updateProfile" method="POST">
+                <table>
+                    <tr>
+                        <td width="1000px" class="o1">Tên tài khoản</td>
+                        <td class="o2"><%=user.username%></td>
+                    </tr>
+                    <tr>
+                        <td class="o1">Tên khách hàng</td>
+                        <td class="o2"><%= user.name%>
+                          <a href="" id="name"><span class="badge badge-pill badge-success">Thay đổi</span></a>
+                          <div id="oname" style="width: 370px;">
+                            <input type="text" name="name" class="input-register" value="<%= user.name%>">
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="o1">Email</td>
+                        <td class="o2"><%= user.email%>
+                            <a href="" id="email"><span class="badge badge-pill badge-success">Thay đổi</span></a>
+                            <div id="oemail" style="width: 370px;">
+                                <input type="text" class="input-register" name="email" value="<%=user.email%>">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="o1">Điện thoại</td>
+                        <td class="o2"><%= user.phone%>
+                            <a href="" id="sdt"><span class="badge badge-pill badge-success">Thay đổi</span></a>
+                            <div id="osdt">
+                                <input type="text" class="input-register" name="phone" value="<%= user.phone%>">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="o1">Ngày sinh</td>
+                        <td class="o2"><%= user.birthday%>
+                          <a href="" id="birthday"><span class="badge badge-pill badge-success">Thay đổi</span></a>
+                          <div id="obirthday">
+                            <input type="date" name="birthday" class="tenkh them_tenkh" value="<%= user.birthday.split("/").reverse().join("-")%>">
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="o1">Giới tính</td>
+                        <td class="o2"><%= user.gender%>
+                          <a href="" id="gender"><span class="badge badge-pill badge-success">Thay đổi</span></a>
+                          <div id="ogender">
+                            <select class="gioitinh" name="gender" id="">
+                              <option value="Nam" <%if (user.gender == "Nam") {%> checked <%}%>>Nam</option>
+                              <option value="Nữ" <%if (user.gender == "Nữ") {%> checked <%}%>>Nữ</option>
+                              <option value="Khác" <%if (user.gender == "Khác") {%> checked <%}%>>Khác</option>
+                            </select>
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="o1">Địa chỉ</td>
+                        <td class="o2"><%if (!user.address) {%> <%= error%> <%} else {%> <%= user.address%> <%}%>
+                            <a href="" id="diachi"><span class="badge badge-pill badge-success">Thay đổi</span></a>
+                            <div id="odiachi">
+                                <input type="text" class="input-register" value="<%= user.address%>" name="address" placeholder="Nhập địa chỉ">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="text-center">
+                  <input type="submit" class="btn btn-primary" style="margin-bottom: 10px;" value="Cập nhật" />
+                </div>
+            </form>           
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 homebanner-holder"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp thelen box_shadow_border_radius blue_border">
+          <div class="more-info-tab clearfix ">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="new-product-title pull-left">Ảnh đại diện</h3> <br>
+                </div>
+                <div class="col-md-12">
+                    <span>Cập nhật ảnh đại diện tại đây.</span>
+                </div>
+            </div>
+          </div>
+          <div class="tab-content outer-top-xs" >
+            <p style="color: green"><%= success2%></p>
+            <form action="/users/uploadAvatar" method="POST" enctype="multipart/form-data">
+                <div class="anhdaidientk">
+                    <img src="" alt="">
+                    <div class="form-group">
+                      <label class="custom-file">
+                        <input type="file" name="avatar" id="" placeholder="" class="custom-file-input" aria-describedby="fileHelpId">
+                        <span class="custom-file-control">
+                            <img src="<%= user.avatar%>" alt="">
+                        </span>
+                      </label>
+                    </div>
+                    <div class="dinhdang mb-3">Định dạng:.JPEG, .PNG</div>
+                </div>
+                <div class="text-center">
+                  <input type="submit" class="btn btn-primary" style="margin-bottom: 10px;" value="Cập nhật" />
+                </div>
+            </form>           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%include footer%>

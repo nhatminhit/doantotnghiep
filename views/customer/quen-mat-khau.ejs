@@ -1,0 +1,64 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12 phantrang text-left pb-3">
+            <ul>
+                <li><a href="">Trang chủ</a> / </li>
+                <li>Khôi phục mật khẩu</li>
+            </ul>
+        </div>
+        <div class="col-lg-8 justify-content-lg-center mx-auto background-register">
+            <div class="col-lg-6">
+                <div class="background-image-register" style="height: 500px">
+                    <img src="/images/background/dangky-dangnhap.png" />
+                    <div class="register-detail">
+                        <div class="register-detail-1">QUYỀN LỢI KHÁCH HÀNG</div>
+                        <div class="register-detail-2">
+                            <i class="far fa-check-circle" style="color: #3b69f1;"></i> Có nhiều sản phẩm uy tín và chất lượng.
+                        </div>
+                        <div class="register-detail-2">
+                            <i class="far fa-check-circle" style="color: #3b69f1;"></i> Mua hàng khắp thế giới cực dễ dàng, nhanh chóng.
+                        </div>
+                        <div class="register-detail-2">
+                            <i class="far fa-check-circle" style="color: #3b69f1;"></i> Theo dõi chi tiết đơn hàng, địa chỉ thanh toán dễ dàng
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="/users/passwordRecovery" method="POST">
+                <div class="col-lg-6">
+                    <div class="register-information">
+                        <div class="register-title">
+                            <div class="col-md-12 pb-3"><b>Khôi phục mật khẩu</b></div>
+                        </div>
+                        <div class="register-form">
+                            <div class="pt-3" style="color: red"><%= error1%></div>
+                            <div class="register-password">
+                              <div>Tên đăng nhập <span style="color: red">*</span></div>
+                              <input type="text" class="input-register" name="username" placeholder="Nhập tên đăng nhập" required/>
+                            </div>
+                            <div class="register-email">
+                                <div>Email <span style="color: red">*</span></div>
+                                <input type="email" class="input-register" name="email" placeholder="Nhập địa chỉ email" required/>
+                            </div>
+                            <div class="register-button py-4">
+                                <button type="submit" class="btn btn-primary">Khôi phục mật khẩu</button>
+                            </div>
+                            <div class="register-description text-center">
+                                <div>Đi đến đang đăng nhập <a href="/users/login">đăng nhập</a></div>
+                                <div>Nếu bạn chưa có tài khoản, hãy <a href="/users/register">đăng ký</a></div>
+                                <small>Cửa hàng cam kết bảo mật và sẽ không bao giờ đăng
+                                    hay chia sẻ thông tin mà chưa có được sự đồng ý của bạn.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+<% include footer %>

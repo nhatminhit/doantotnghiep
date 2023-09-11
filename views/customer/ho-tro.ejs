@@ -1,0 +1,42 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="col-md-12 phantrang text-left pb-3">
+        <ul>
+            <li><a href="/">Trang chủ</a> / </li>
+            <li>Hỗ trợ</li>
+        </ul>
+    </div>
+    <div class="my-wishlist-page box_shadow_border_radius">
+        <div class="row">
+            <div class="col-md-12 my-wishlist">
+                <div style="font-weight: bold; font-size: 18px; padding-bottom: 10px;">
+                    Hỗ trợ khách hàng
+                </div>
+                <div class="row">
+                  <nav class="col-sm-3 col-4" id="myScrollspy">
+                    <ul class="nav nav-pills flex-column">
+                      <%listSupport.forEach((item) => {%>
+                      <li class="nav-item pb-3">
+                        <a class="nav-link active" href="#section<%= item.id%>"><%= item.title%></a>
+                      </li>
+                      <%})%>
+                    </ul>
+                  </nav>
+                  <div class="col-sm-9 col-8">
+                    <%listSupport.forEach((item) => {%>
+                    <div id="section<%= item.id%>">
+                      <h1><%= item.title%></h1>
+                      <p><%- item.content%></p>
+                    </div>
+                    <%})%>
+                  </div>
+                </div>
+            </div>			
+        </div>
+    </div>
+  </div>
+</div>
+
+<% include footer %>

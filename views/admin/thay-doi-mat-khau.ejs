@@ -1,0 +1,79 @@
+<% include header %>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Thay đổi mật khẩu</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item">Thay đổi mật khẩu</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="detail-order">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="content-block">
+											<div class="font-weight-bold">Ảnh đại diện</div>
+											<form>
+												<div class="anhdaidientk">
+													<div class="form-group">
+													  <label class="custom-file">
+														<input type="file" name="" id="" placeholder="" class="custom-file-input" aria-describedby="fileHelpId">
+														<span class="custom-file-control">
+															<img src="<%=user.avatar%>" alt="">
+														</span>
+													  </label>
+													</div>
+												</div>
+											</form>   
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="content-block">
+											<form action="/portal/users/changePassword" method="post">
+												<div class="row">
+													<span class="text-danger ml-3"><%= error1%></span>
+													<span class="text-danger ml-3"><%= error2%></span>
+													<span class="text-success ml-3"><%= success%></span>
+
+													<div class="col-md-12 pt-3">
+														<label class="font-weight-bold">Mật khẩu hiện tại <span class="text-danger">*</span></label>
+														<input type="text" class="type-input" name="currentPassword" placeholder="Nhập họ tên..." required/>
+													</div>
+													<div class="col-md-12 pt-3">
+														<label class="font-weight-bold">Mật khẩu mới <span class="text-danger">*</span></label>
+														<input type="text" class="type-input" name="newPassword" placeholder="Nhập tên tài khoản..." required/>
+													</div>
+													<div class="col-md-12 pt-3">
+														<label class="font-weight-bold">Nhập lại mật khẩu mới <span class="text-danger">*</span></label>
+														<input type="text" class="type-input" name="repeatPassword" placeholder="Nhập email..." required/>
+													</div>
+													<div class="col-md-12 py-3 text-center">
+														<button type="submit" class="btn btn-info"><i class="far fa-save"></i> Lưu lại</button>
+														<button type="reset" class="btn btn-danger"><i class="far fa-trash-alt"></i> Hủy bỏ</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<% include footer %>

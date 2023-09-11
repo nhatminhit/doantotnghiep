@@ -1,0 +1,1048 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+        <div class="col-md-12 phantrang text-left">
+            <ul>
+                <li><a href="/">Trang chủ</a> / </li>
+                <li><a href="/shop?page=1">Cửa hàng</a> / </li>
+                <li><%=detailProduct.name%></li>
+            </ul>
+        </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 homebanner-holder"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp box_shadow_border_radius dichuyenlen1">
+          <div class="tab-content outer-top-xs" >
+            <div class="row wow fadeInUp">
+              <div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
+                <div class="product-item-holder size-big single-product-gallery small-gallery">
+                  <div id="owl-single-product">
+                      <%detailProduct.ImageProducts.forEach((item, index) => {%>
+                      <div class="single-product-gallery-item" id="slide<%=index%>">
+                          <a data-lightbox="image-1" data-title="Gallery" href="<%=item.image%>">
+                              <img class="img-responsive" alt="" src="\assets\images\blank.gif" data-echo="<%=item.image%>">
+                          </a>
+                      </div>
+                      <%})%>                               
+                  </div>
+
+                <div class="single-product-gallery-thumbs gallery-thumbs">
+                    <div id="owl-single-product-thumbnails">
+                      <%detailProduct.ImageProducts.forEach((item, index) => {%>
+                        <div class="item">
+                            <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="<%=index%>" href="#slide<%=index%>">
+                                <img class="img-responsive" width="85" alt="" src="\assets\images\blank.gif" data-echo="<%=item.image%>">
+                            </a>
+                        </div>  
+                        <%})%>           
+                    </div>
+                </div>
+              </div>
+              <div class="col-12 pb-3">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="chiase">
+                            Chia sẻ: 
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost/shop/detail/id=<%=detailProduct.id%>" class="messenger"><img src="/images/background/linkedin.png" alt=""></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/shop/detail/id=<%=detailProduct.id%>" class="facebook"><img src="/images/background/facebook-2870.png" alt=""></a>
+                            <a href="https://web.skype.com/share?url=http://localhost/shop/detail/id=<%=detailProduct.id%>&source=button" class="instagram"><img src="/images/background/skype.png" alt=""></i></a>
+                            <a href="https://twitter.com/intent/tweet?url=http://localhost/shop/detail/id=<%=detailProduct.id%>" class="twitter"><img src="/images/background/twitter-logo-2429.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="thichsp">
+                            <%if (favoriteProduct > 0) {%>
+                              <a href="/shop/product/deleteFavorite?id=<%= detailProduct.id%>&page=detail"><i class="fas fa-heart"></i></a>
+                            <%} else {%>
+                              <a href="/shop/product/favorite?id=<%=detailProduct.id%>"><i class="far fa-heart"></i></a>
+                            <%}%>
+                            <div class="soluongthich">
+                                Đã thích (<%= countFavoriteProduct%>)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 pt-5">
+                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Liên hệ số điện thoại <strong>096.152.5903</strong> để được hỗ trợ.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div><!-- /.gallery-holder -->        			
+         <div class='col-sm-6 col-md-7'>
+          <div class="thongtinchitietsp">
+            <div class="hangdienthoai pb-3">
+              <strong>Thương hiệu: </strong> <a href="/shop/product/criteria?trademark=<%=detailProduct.trademark%>%>"><%=detailProduct.trademark%></a>
+            </div>
+            <div class="chitiet_tensp">
+                <h3><%=detailProduct.name%></h3>
+            </div>
+            <div class="rating_product pb-3">
+              <% const rating = Math.ceil(averageRating.rating)%>
+              <%if (rating == 1) {%>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+              <%} else if (rating == 2) {%>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+              <%} else if (rating == 3) {%>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+              <%}else if (rating == 4) {%>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+              <%} else if (rating == 5) {%>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+              <%} else {%>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                <i class="fas fa-star" style="color: #b7b7b8;"></i>
+              <%}%>
+            </div>
+            <div class="hangdienthoai pb-3">
+                <b>Nhà sản xuất:</b> <a href="/shop/product/criteria?producer=<%=detailProduct.Producer.id%>"><%=detailProduct.Producer.name%></a>
+            </div>
+            <div class="chitiet_solieu">
+                <div class="row">
+                  <table>
+                    <tr>
+                      <td width="200px" class="pl-4">Ngày tạo: <%=detailProduct.dateCreated%></td>
+                      <td width="150px"><%= countFeedbackProduct%> đánh giá</td>
+                      <td width="150px"><%= countProduct%> lượt mua</td>
+                      <td width="150px"><%= detailProduct.view%> lượt xem</td>
+                    </tr>
+                  </table>
+
+                </div>
+            </div>
+            <div class="chitiet_giatien">
+                <%if (detailProduct.oldPrice > 0) {%>
+                  <div class="giamgia"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailProduct.oldPrice)%></del></div>
+                  <div class="giatienchitiet"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailProduct.price)%></div>
+                <%} else {%>
+                  <div class="giatienchitiet"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailProduct.price)%></div>
+                <%}%>
+            </div>
+            <div class="chitiet_vanchuyen">
+               <div class="row">
+                    <div class="col-md-3 col-sm-12 pt-1 font-weight-bold">Đơn vị bán</div>
+                    <div class="col-md-9 col-sm-12 chitietvc">
+                        <div class="dv1"><%= detailProduct.unit%></div>
+                    </div>
+               </div>
+            </div>
+            <div class="congdung">
+              <div class="row">
+                <div class="col-md-3 col-sm-12 font-weight-bold">Danh mục: </div>
+                <div class="col-md-9 col-sm-12 congdung"><a href=""><%= detailProduct.Category.name%></a></div>
+              </div>
+            </div>
+            <div class="congdung py-3">
+              <div class="row">
+                <div class="col-md-3 col-sm-12 font-weight-bold">Dạng bào chế: </div>
+                <%if (detailProduct.dosageForms) {%>
+                  <div class="col-md-9 col-sm-12 congdung"><%= detailProduct.dosageForms%></div>    
+                <%} else {%>
+                  <div class="col-md-9 col-sm-12 congdung">Đang cập nhật...</div>
+                <%}%> 
+              </div>
+            </div>
+            <div class="congdung pb-3">
+              <div class="row">
+                <div class="col-md-3 col-sm-12 font-weight-bold">Quy cách: </div>
+                <%if (detailProduct.specification) {%>
+                  <div class="col-md-9 col-sm-12 congdung"><%= detailProduct.specification%></div>    
+                <%} else {%>
+                  <div class="col-md-9 col-sm-12 congdung">Đang cập nhật...</div>
+                <%}%> 
+              </div>
+            </div>
+            <div class="congdung">
+              <div class="row">
+                <div class="col-md-3 col-sm-12 font-weight-bold">Công dụng: </div>
+                <div class="col-md-9 col-sm-12 congdung"><%-detailProduct.uses%></div>
+              </div>
+            </div>
+            <div class="chitiet_soluong pt-3">
+                <div class="row">
+                     <div class="col-md-3 col-sm-3 pt-2 font-weight-bold">Số lượng</div>
+                     <div class="col-9 pt-2">
+                    <form action="/cart/addProductCart" method="POST">
+                        <input type="text" name="productId" value="<%=detailProduct.id%>" hidden/>
+                        <div class="mr-3" style="width: 60px; float: left;"> 
+                            <input id="soluongmua" class="input-register" min="1" value="1" type="number" name="numberCart">
+                        </div>
+                        <input type="text" id="soluongco" class="input-register" value="<%=detailProduct.quantity%>" hidden>
+                        <div class="soluongcon"><%=detailProduct.quantity%> sản phẩm có sẵn</div>
+                        <span class="text-danger" id="error"></span>
+                     </div>
+                </div>
+             </div>
+             <div class="chitiet_nut mt-4">
+                 <div class="themgiohang">
+                    <%if (detailProduct.quantity > 0) {%>
+                      <button type="submit" class="btn btn-primary" id="buy_product"><i class="fa fa-cart-plus"></i> Chọn mua sản phẩm</button>
+                    <%} else {%>
+                      <h1 style="color: #0363cd; text-align: center;"><strong>Hết hàng</strong></h1>
+                    <%}%>
+                    </form>
+                 </div>
+             </div>
+             <div class="chinhsachmuahang pb-5">
+                <ul>
+                    <li class="text-center">
+                      <img src="/images/background/doi-tra-hang.png" width="60px" alt=""/>
+                      <div><b>Đổi trả trong 30 ngày<br></b> kể từ ngày mua hàng</div>
+                    </li>
+                    <li class="text-center">
+                      <img src="/images/background/like.png" class="mb-3" width="50px" alt=""/>
+                      <div><b>Miễn phí 100%<br></b> đổi thực phẩm chức năng</div>
+                    </li>
+                    <li class="text-center">
+                      <img src="/images/background/free-doi-tra.png" width="60px" alt=""/>
+                      <div><b>Miễn phí vận chuyển<br></b> cho hóa đơn trên 500.000đ</div>
+                    </li>
+                </ul>
+             </div>
+        </div>
+         </div>
+       </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-9">
+            <!-- <div class="col-xs-12 col-sm-12 col-md-12 homebanner-holder">  -->
+            <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp themorong box_shadow_border_radius dichuyenlen2">
+                <div class="more-info-tab clearfix">
+                  <div class="row">
+                      <div class="col-md-12 col-sm-12 hienthidsicon text-left">
+                          <ul>
+                              <li class="tablinks active tab1" data-hienthi="hienthio">Mô tả chi tiết</li>
+                              <li class="tablinks tab1" data-hienthi="hienthids">Thông tin</i></li>                         
+                          </ul>                        
+                      </div> 
+                </div>
+                <div class="tab-content outer-top-xs" >
+                  <div class="tab-pane tabcontent" id="hienthio">
+                    <div class="product-slider" style="font-size: 14px">
+                      <%- detailProduct.description%>
+                    </div>  
+                  </div>           
+                </div>
+                <div class="tab-content outer-top-xs" >
+                  <div class="tab-pane tabcontent" id="hienthids">
+                    <div class="product-slider">
+                        <table class="table table-bordered table-hover table-striped" style="font-size: 14px;">
+                          <tbody class="detailProduct">
+                            <tr>
+                              <td width="150px" class="font-weight-bold">Dạng bào chế:</td>
+                              <%if (detailProduct.dosageForms) {%>
+                                <td><%-detailProduct.dosageForms%></td>  
+                              <%} else {%>
+                                <td>Đang cập nhật...</td>  
+                              <%}%>
+                            </tr>
+                            <tr>
+                              <td width="150px" class="font-weight-bold">Hạn sử dụng:</td>
+                              <%if (detailProduct.expiry) {%>
+                                <td><%-detailProduct.expiry%></td>  
+                              <%} else {%>
+                                <td>Đang cập nhật...</td>  
+                              <%}%>
+                            </tr>
+                            <tr>
+                              <td class="font-weight-bold">Hỗ trợ:</td>
+                              <%if (detailProduct.support) {%>
+                                <td><%-detailProduct.support%></td>  
+                              <%} else {%>
+                                <td>Đang cập nhật...</td>  
+                              <%}%>
+                            </tr>
+                            <tr>
+                              <td class="font-weight-bold">Thành phần:</td>
+                              <%if (detailProduct.ingredient) {%>
+                                <td><%-detailProduct.ingredient%></td>  
+                              <%} else {%>
+                                <td>Đang cập nhật...</td>  
+                              <%}%>
+                            </tr>
+                            <tr>
+                              <td class="font-weight-bold">Liều dùng:</td>
+                              <%if (detailProduct.dosage) {%>
+                                <td><%-detailProduct.dosage%></td>  
+                              <%} else {%>
+                                <td>Đang cập nhật...</td>  
+                              <%}%>
+                            </tr>
+                            <tr>
+                              <td class="font-weight-bold">Tác dụng phụ:</td>
+                              <%if (detailProduct.sideEffects) {%>
+                                <td><%-detailProduct.sideEffects%></td>  
+                              <%} else {%>
+                                <td>Đang cập nhật...</td>  
+                              <%}%>
+                            </tr>
+                            <tr>
+                              <td class="font-weight-bold">Lưu ý:</td>
+                              <%if (detailProduct.note) {%>
+                                <td><%-detailProduct.note%></td>  
+                              <%} else {%>
+                                <td>Đang cập nhật...</td>  
+                              <%}%>
+                            </tr>
+                            <tr>
+                              <td class="font-weight-bold">Bảo quản:</td>
+                              <%if (detailProduct.preserve) {%>
+                                <td><%-detailProduct.preserve%></td>  
+                              <%} else {%>
+                                <td>Đang cập nhật...</td>  
+                              <%}%>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>  
+                  </div>           
+                </div>
+              </div>
+            <!-- </div> -->
+            </div>
+            
+            <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp dorongcodinh box_shadow_border_radius morong_responsive morong_responsive2">
+              <div class="more-info-tab clearfix ">
+                  <h3 class="new-product-title pull-left">Đánh giá sản phẩm</h3>
+              </div>
+              <div class="tab-content outer-top-xs" style="font-size: 14px;">
+                <div class="binhluantintuc">
+                    <div class="binhluan">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <div class="feedback-rating"><%= Math.ceil(averageRating.rating)%> trên 5</div>
+                          <div class="text-center">
+                          <% const ratingproduct = Math.ceil(averageRating.rating)%>
+                          <%if (ratingproduct == 1) {%>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%} else if (ratingproduct == 2) {%>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%} else if (ratingproduct == 3) {%>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}else if (ratingproduct == 4) {%>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%} else if (ratingproduct == 5) {%>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                          <%} else {%>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                          <%}%>
+                          </div>
+                        </div>
+                        <div class="col-md-10">
+                          <ul class="nav nav-pills">
+                            <li class="nav-item">
+                              <a class="nav-link active" data-toggle="pill" href="#home">Tất cả (<%= comment.length%>)</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" data-toggle="pill" href="#5sao">5 sao (<%= feedback5Star.length%>)</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" data-toggle="pill" href="#4sao">4 sao (<%= feedback4Star.length%>)</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" data-toggle="pill" href="#3sao">3 sao (<%= feedback3Star.length%>)</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" data-toggle="pill" href="#2sao">2 sao (<%= feedback2Star.length%>)</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" data-toggle="pill" href="#1sao">1 sao (<%= feedback1Star.length%>)</a>
+                            </li>
+                          </ul>
+                          <!-- Tab panes -->
+                        </div>
+                      </div>
+                      <div class="tab-content mt-3" style="padding-left: 0px; width: 100%;">
+                        <div class="tab-pane active" id="home">
+                            <% if (comment.length > 0) {%>
+                              <%comment.forEach((item) => {%>
+                              <div class="col-md-12 mb-4 comment-product">
+                                <div class="row">
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="<%= item.User.avatar%>">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-11" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href=""><%= item.User.username%></a>
+                                        <span style="font-size: 11px;"><%=item.createTime%></span>
+                                        <div>
+                                          <%if (item.rating == 1) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 2) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 3) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}else if (item.rating == 4) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 5) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                          <%} else {%>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}%>
+                                          </div>
+                                      </div> 
+                                      <div class="loibinhluan"><%=item.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <% if (item.Replies.length > 0) {
+                                  item.Replies.forEach((item1) => {%>
+                                <div class="row pt-1">
+                                  <div class="col-md-1"></div>
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="/avatar/anhdaidien.jpg">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-10" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href="">Cửa hàng</a> - <i><%=item1.createTime%></i></div> 
+                                      <div class="loibinhluan"><%-item1.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <%})}%>
+                              </div>
+                              <%})%>
+                              <%} else {%>
+                                <p>Không có đánh giá nào về "<%=detailProduct.name%>"</p>
+                              <%}%>
+                        </div>
+                        <div class="tab-pane fade" id="5sao">
+                          <% if (feedback5Star.length > 0) {%>
+                              <%feedback5Star.forEach((item) => {%>
+                              <div class="col-md-12 mb-4 comment-product">
+                                <div class="row">
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="<%= item.User.avatar%>">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-11" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href=""><%= item.User.username%></a>
+                                        <span style="font-size: 11px;"><%=item.createTime%></span>
+                                        <div>
+                                          <%if (item.rating == 1) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 2) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 3) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}else if (item.rating == 4) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 5) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                          <%} else {%>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}%>
+                                          </div>
+                                      </div> 
+                                      <div class="loibinhluan"><%=item.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <% if (item.Replies.length > 0) {
+                                  item.Replies.forEach((item1) => {%>
+                                <div class="row pt-1">
+                                  <div class="col-md-1"></div>
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="/avatar/anhdaidien.jpg">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-10" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href="">Cửa hàng</a> - <i><%=item1.createTime%></i></div> 
+                                      <div class="loibinhluan"><%-item1.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <%})}%>
+                              </div>
+                              <%})%>
+                              <%} else {%>
+                                <p>Không có đánh giá 5 sao nào về "<%=detailProduct.name%>"</p>
+                              <%}%>
+                        </div>
+                        <div class="tab-pane fade" id="4sao">
+                          <% if (feedback4Star.length > 0) {%>
+                              <%feedback4Star.forEach((item) => {%>
+                              <div class="col-md-12 mb-4 comment-product">
+                                <div class="row">
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="<%= item.User.avatar%>">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-11" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href=""><%= item.User.username%></a>
+                                        <span style="font-size: 11px;"><%=item.createTime%></span>
+                                        <div>
+                                          <%if (item.rating == 1) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 2) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 3) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}else if (item.rating == 4) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 5) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                          <%} else {%>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}%>
+                                          </div>
+                                      </div> 
+                                      <div class="loibinhluan"><%=item.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <% if (item.Replies.length > 0) {
+                                  item.Replies.forEach((item1) => {%>
+                                <div class="row pt-1">
+                                  <div class="col-md-1"></div>
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="/avatar/anhdaidien.jpg">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-10" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href="">Cửa hàng</a> - <i><%=item1.createTime%></i></div> 
+                                      <div class="loibinhluan"><%-item1.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <%})}%>
+                              </div>
+                              <%})%>
+                              <%} else {%>
+                                <p>Không có đánh giá 4 sao nào về "<%=detailProduct.name%>"</p>
+                              <%}%>
+                        </div>
+                        <div class="tab-pane fade" id="3sao">
+                          <% if (feedback3Star.length > 0) {%>
+                              <%feedback3Star.forEach((item) => {%>
+                              <div class="col-md-12 mb-4 comment-product">
+                                <div class="row">
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="<%= item.User.avatar%>">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-11" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href=""><%= item.User.username%></a>
+                                        <span style="font-size: 11px;"><%=item.createTime%></span>
+                                        <div>
+                                          <%if (item.rating == 1) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 2) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 3) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}else if (item.rating == 4) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 5) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                          <%} else {%>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}%>
+                                          </div>
+                                      </div> 
+                                      <div class="loibinhluan"><%=item.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <% if (item.Replies.length > 0) {
+                                  item.Replies.forEach((item1) => {%>
+                                <div class="row pt-1">
+                                  <div class="col-md-1"></div>
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="/avatar/anhdaidien.jpg">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-10" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href="">Cửa hàng</a> - <i><%=item1.createTime%></i></div> 
+                                      <div class="loibinhluan"><%-item1.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <%})}%>
+                              </div>
+                              <%})%>
+                              <%} else {%>
+                                <p>Không có đánh giá 3 sao nào về "<%=detailProduct.name%>"</p>
+                              <%}%>
+                        </div>
+                        <div class="tab-pane fade" id="2sao">
+                          <% if (feedback2Star.length > 0) {%>
+                              <%feedback2Star.forEach((item) => {%>
+                              <div class="col-md-12 mb-4 comment-product">
+                                <div class="row">
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="<%= item.User.avatar%>">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-11" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href=""><%= item.User.username%></a>
+                                        <span style="font-size: 11px;"><%=item.createTime%></span>
+                                        <div>
+                                          <%if (item.rating == 1) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 2) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 3) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}else if (item.rating == 4) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 5) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                          <%} else {%>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}%>
+                                          </div>
+                                      </div> 
+                                      <div class="loibinhluan"><%=item.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <% if (item.Replies.length > 0) {
+                                  item.Replies.forEach((item1) => {%>
+                                <div class="row pt-1">
+                                  <div class="col-md-1"></div>
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="/avatar/anhdaidien.jpg">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-10" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href="">Cửa hàng</a> - <i><%=item1.createTime%></i></div> 
+                                      <div class="loibinhluan"><%-item1.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <%})}%>
+                              </div>
+                              <%})%>
+                              <%} else {%>
+                                <p>Không có đánh giá 2 sao nào về "<%=detailProduct.name%>"</p>
+                              <%}%>  
+                        </div>
+                        <div class="tab-pane fade" id="1sao">
+                          <% if (feedback1Star.length > 0) {%>
+                              <%feedback1Star.forEach((item) => {%>
+                              <div class="col-md-12 mb-4 comment-product">
+                                <div class="row">
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="<%= item.User.avatar%>">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-11" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href=""><%= item.User.username%></a>
+                                        <span style="font-size: 11px;"><%=item.createTime%></span>
+                                        <div>
+                                          <%if (item.rating == 1) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 2) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 3) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}else if (item.rating == 4) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%} else if (item.rating == 5) {%>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                            <i class="fas fa-star" style="color: #FFD700;"></i>
+                                          <%} else {%>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                            <i class="fas fa-star" style="color: #b7b7b8;"></i>
+                                          <%}%>
+                                          </div>
+                                      </div> 
+                                      <div class="loibinhluan"><%=item.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <% if (item.Replies.length > 0) {
+                                  item.Replies.forEach((item1) => {%>
+                                <div class="row pt-1">
+                                  <div class="col-md-1"></div>
+                                  <div class="col-md-1">
+                                    <div class="binhluan_anh">
+                                      <img src="/avatar/anhdaidien.jpg">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-10" style="margin-left: -20px">
+                                    <div class="noidung_binhluan">
+                                      <div class="tennguoibinhluan"><a href="">Cửa hàng</a> - <i><%=item1.createTime%></i></div> 
+                                      <div class="loibinhluan"><%-item1.content%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <%})}%>
+                              </div>
+                              <%})%>
+                              <%} else {%>
+                                <p>Không có đánh sao 1 sao nào về "<%=detailProduct.name%>"</p>
+                              <%}%>  
+                        </div>
+                    </div>
+                    </div>
+                    <h3>Đánh giá</h3>
+                    <div class="formbinhluan">
+                        <form action="/shop/comment" method="POST" class="mt-3">
+                          <label for="">Đánh giá sao:<span style="color: red"> *</span></label>
+                            <div class="col-md-12">
+                              <div id="rating">
+                                <input type="radio" id="star5" name="rating" value="5" />
+                                <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                            
+                                <input type="radio" id="star4" name="rating" value="4" />
+                                <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                            
+                                <input type="radio" id="star3" name="rating" value="3" />
+                                <label class = "full" for="star3" title="Meh - 3 stars"></label>
+                            
+                                <input type="radio" id="star2" name="rating" value="2" />
+                                <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                            
+                                <input type="radio" id="star1" name="rating" value="1" />
+                                <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                              </div>
+                            </div>
+                            <div class="form-group pr-4">
+                              <label for="">Bình luận<span style="color: red"> *</span></label>
+                              <input type="text" name="productId" value="<%= detailProduct.id%>" hidden/>
+                              <textarea class="motakh chieurong" name="content" id="contentFeedback" rows="5" placeholder="Hãy viết bình luận ở đây" required></textarea>
+                            </div>     
+                              <div class="form-group text-center pb-3">
+                                <button type="submit" class="btn btn-success nutbl" id="buttonComment" onclick="return alert('Bạn đã đánh giá sản phẩm thành công')">Đánh giá</button>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+          <section class="section featured-product wow fadeInUp dorongcodinh box_shadow_border_radius">
+            <h3 class="section-title">Sản phẩm liên quan</h3>
+            <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+              <%if (relatedProduct.length > 0) {%>
+                      <%relatedProduct.forEach((item) => {
+                        if (item.id != detailProduct.id) {%>
+                      <div class="item item-carousel">
+                        <div class="product_">
+                          <div class="product-img">
+                            <div class="img">
+                              <a href="/shop/detail/id=<%=item.id%>">
+                                <%
+                              for (i = 0; i < item.ImageProducts.length; i++) {
+                                var image = item.ImageProducts[0].image;
+                              }
+                              %>
+                              <img src="<%=image%>"/>
+                                <%if (item.type == null || item.type == "") {%>
+                                  <div class="tag sale" style="background: #fdd92200"><span></span></div>
+                                <%} else {%>
+                                  <div class="tag sale"><span><%= item.type%></span></div>
+                                <%}%> 
+                              </a>
+                              <div class="button-product">
+                                <a href="/shop/detail/id=<%=item.id%>" class="chitiet btn-lg btn btn-uppercase btn-primary"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="" class="yeuthich btn-lg btn btn-uppercase btn-primary"><i class="far fa-heart"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="product-information">
+                            <div class="product-cate"><%=item.Category.name%></div>
+                            <div class="product-name"><a href="/shop/detail/id=<%=item.id%>"><%= item.name.substring(0, 35)%>...</a></div>
+                            <div class="product_rating" style="font-size: 10px;">
+                                <%include danh-gia-sao%>
+                            </div>
+                            <div class="product-money">
+                              <%if (item.oldPrice > 0) {%>
+                                <div class="product-chinh"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.oldPrice)%></div>
+                                <div class="product-giam"><del><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></del></div>
+                              <%} else {%>
+                                <div class="product-chinh" style="margin-left: 60px;"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                              <%}%>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <%}})%>
+                    <% } else {%>
+                      <p>Không có sản phẩm nào được hiển thị.</p>
+                    <% }%>
+            </div>
+          </section>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3">
+            <div class="col-xs-12 col-sm-12 col-md-12 homebanner-holder"> 
+              <div class="sidebar-widget product-tag wow fadeInUp box_shadow_border_radius mb-5" style="width: 245px;">
+          <h3 class="section-title">Ưu đãi lớn</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <%if (allProduct.length > 0) {
+            allProduct.forEach((item) => {%>
+            <div class="product" style="width: 215px;">
+              <div class="product-micro">
+                <div class="row product-micro-row">
+                  <div class="col col-xs-5">
+                    <div class="product-image">
+                      <div class="image" style="width: 120%"> 
+                        <a href="/shop/detail/id=<%=item.id%>"> 
+                          <%
+                            for (i = 0; i < item.ImageProducts.length; i++) {
+                              var image = item.ImageProducts[0].image;
+                            }
+                          %>
+                          <img src="<%=image%>"/>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col2 col-xs-7">
+                    <div class="product-info">
+                      <%if(item.Category.name.length > 14) {%>
+                        <div class="product-info-cate"><%= item.Category.name.substring(0, 14)%>...</div>
+                      <%} else {%>
+                        <div class="product-info-cate"><%= item.Category.name%></div>
+                      <%}%>
+                      <h3 class="name"><a href="/shop/detail/id=<%=item.id%>"><%=item.name.substring(0,14)%>...</a></h3>
+                      <div class="product_rating" style="font-size: 10px;">
+                          <%include danh-gia-sao%>
+                      </div>
+                      <div class="product-price"> 
+                          <%if (item.oldPrice > 0) {%>
+                            <span class="price_"><%= item.oldPrice%>đ</span>
+                            <span class="price" style="font-size: 10px"> <del><%= item.price%>đ</del> </span>
+                          <%} else {%>
+                            <span class="price_"><%= item.price%>đ</span>
+                          <%}%>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <%})} else {%>
+              <p>Không có sản phẩm nào được hiển thị</p>
+            <%}%>        
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>    
+  </div>
+</div>
+
+<% include footer %>

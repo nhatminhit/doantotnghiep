@@ -1,0 +1,42 @@
+<%if (title == "Đơn hàng") {%>
+<%if (item.payments == "cash") {
+    if (item.status == "Chờ xác nhận" && item.statusPayment == "Chưa thanh toán") {%>
+      <a href="/order/cancel?id=<%= item.id%>" class="btn btn-danger">Hủy đơn hàng</a> 
+    <%} else if ((item.status == "Đã xác nhận" || item.status == "Đang giao hàng") && item.statusPayment == "Chưa thanh toán") {%>
+      <a href="" class="btn btn-info">Chưa thanh toán</a>
+    <%} else if (item.status == "Đã giao hàng" && item.statusPayment == "Đã thanh toán") {%>
+      <a href="" class="btn btn-success">Đã thanh toán</a>
+<%}} else {%>
+    <%if (item.status == "Chờ xác nhận" && item.statusPayment == "Chưa thanh toán") {%>
+      <a href="/order/payment/id=<%= item.id%>&totalMoney=<%=item.totalMoney%>" class="btn btn-info">Thanh toán</a>
+      <a href="/order/cancel?id=<%= item.id%>" class="btn btn-danger">Hủy đơn hàng</a> 
+    <%} else if ((item.status == "Chờ xác nhận" || item.status == "Đã xác nhận") && item.statusPayment == "Đã thanh toán") {%>
+      
+      <form action="/order/cancel" method="POST" style="float: left; margin-left: 110px;">
+        <input type="text" name="orderId" value="<%= item.id%>" hidden/>
+        <input type="text" name="amount" value="<%= item.totalMoney%>" hidden />
+        <button type="submit" class="btn btn-danger">Hủy đơn hàng</button>
+      </form>
+    <%} else if (item.status == "Đang giao hàng" && item.statusPayment == "Đã thanh toán") {%>
+      <a href="/order/received?id=<%= item.id%>" class="btn btn-primary">Đã nhận hàng</a>
+    <%} else if (item.status == "Đã giao hàng" && item.statusPayment == "Đã thanh toán") {%>
+      <a href="" class="btn btn-primary">Đã nhận hàng</a>
+<%}}} else if (title == "Chi tiết đơn hàng") {%>
+    <%if (detailOrder.payments == "cash") {
+    if (detailOrder.status == "Chờ xác nhận" && detailOrder.statusPayment == "Chưa thanh toán") {%>
+      <a href="/order/cancel?id=<%= detailOrder.id%>" class="btn btn-danger">Hủy đơn hàng</a> 
+    <%} else if ((detailOrder.status == "Đã xác nhận" || detailOrder.status == "Đang giao hàng") && detailOrder.statusPayment == "Chưa thanh toán") {%>
+      <a href="" class="btn btn-info">Chưa thanh toán</a>
+    <%} else if (detailOrder.status == "Đã giao hàng" && detailOrder.statusPayment == "Đã thanh toán") {%>
+      <a href="" class="btn btn-success">Đã thanh toán</a>
+<%}} else {%>
+    <%if (detailOrder.status == "Chờ xác nhận" && detailOrder.statusPayment == "Chưa thanh toán") {%>
+      <a href="/order/cancel?id=<%= detailOrder.id%>" class="btn btn-danger">Hủy đơn hàng</a> 
+      <a href="/order/payment/id=<%= detailOrder.id%>&totalMoney=<%=detailOrder.totalMoney%>" class="btn btn-info">Thanh toán</a>
+    <%} else if ((detailOrder.status == "Chờ xác nhận" || detailOrder.status == "Đã xác nhận") && detailOrder.statusPayment == "Đã thanh toán") {%>
+      <a href="" class="btn btn-primary">Đã nhận hàng</a>
+    <%} else if (detailOrder.status == "Đang giao hàng" && detailOrder.statusPayment == "Đã thanh toán") {%>
+      <a href="/order/received?id=<%= detailOrder.id%>" class="btn btn-primary">Đã nhận hàng</a>
+    <%} else if (detailOrder.status == "Đã giao hàng" && detailOrder.statusPayment == "Đã thanh toán") {%>
+      <a href="" class="btn btn-primary">Đã nhận hàng</a>
+<%}}}%>

@@ -1,0 +1,48 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="col-md-12 phantrang text-left pb-3">
+        <ul>
+            <li><a href="/">Trang chủ</a> / </li>
+            <li>Liên hệ</li>
+        </ul>
+    </div>
+    <div class="my-wishlist-page box_shadow_border_radius">
+        <div class="row">
+            <div class="col-md-12 my-wishlist">
+                <div style="font-weight: bold; font-size: 18px; padding-bottom: 10px;">
+                    Liên hệ với chúng tôi
+                </div>
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59587.94583110336!2d105.80194393646207!3d21.022816135774285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zSMOgIE7hu5lpLCBIb8OgbiBLaeG6v20sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1678444549052!5m2!1svi!2sus" class="map" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+                  <div class="col-md-6 col-12 pl-5">
+                      <form action="/contact" method="post">
+                          <div class="mota-lienhe">
+                              Chúng tôi mong muốn lắng nghe ý kiến của quý khách. Vui lòng gửi mọi yêu cầu thắc mắc theo thông tin bên dưới, chúng tôi sẽ liên lạc với bạn sớm nhất có thể.
+                          </div>
+                          <div class="lienhe">
+                              <label>Họ và tên <span style="color: red;">*</span></label>
+                              <input type="text" class="input-register" name="name" placeholder="Nhập họ và tên" required>
+                              <label>Email <span style="color: red;">*</span></label>
+                              <input type="text" class="input-register" name="email" placeholder="Nhập email" required>
+                              <label>Số điện thoại: <span style="color: red;">*</span></label>
+                              <input type="text" class="input-register" name="phone" placeholder="Nhập số điện thoại" required>
+                              <label>Nội dung <span style="color: red;">*</span></label>
+                              <textarea class="motakh lhe" name="content" rows="3" placeholder="Nhập nội dung" required></textarea>
+                          </div>
+                          <div class="nutlienhe">
+                              <button type="submit" class="btn btn-primary" style="width: 100px; margin: auto;">Gửi</button>
+                          </div>
+                      </form>
+                  </div>
+                </div>
+            </div>			
+        </div><!-- /.row -->
+    </div>
+  </div>
+</div>
+
+<% include footer %>

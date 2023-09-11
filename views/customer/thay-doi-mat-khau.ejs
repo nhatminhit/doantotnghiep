@@ -1,0 +1,163 @@
+<%include header%>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+        <div class="col-md-12 phantrang text-left pb-3">
+            <ul>
+                <li><a href="/">Trang chủ</a> / </li>
+                <li>Thay đổi mật khẩu</li>
+            </ul>
+        </div>
+      <!-- ============================================== SIDEBAR ============================================== -->
+      <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp dichuyenlen3 box_shadow_border_radius blue_border">
+            <div class="tab-content outer-top-xs" style="font-size: 14px;">
+                <div class="thongtinchungkh mt-3 pt-3">
+                    <div class="thongtinanh">
+                        <img src="<%= user.avatar%>">
+                    </div>
+                    <div class="thongtintk">
+                        <span class="tenkhang"><%= user.name%></span>
+                        <a href="/users/myprofile" class="suahoso"><i class="fas fa-user-edit"></i> Sửa hồ sơ</a>
+                    </div>
+                </div>
+                <div class="list_taikhoan" >
+                  <ul>
+                    <li><a href="/"><i class="fas fa-reply-all"></i> Quay lại Shop</a></li>
+                    <li><a href="/users/myprofile"><i class="far fa-user" aria-hidden="true"></i> Cập nhật tài khoản</a></li>
+                    <li><a href="/order/list"><i class="far fa-clipboard" aria-hidden="true"></i> Đơn hàng</a></li>
+                    <li><a href="/users/changePassword"><i class="fas fa-key"></i> Thay đổi mật khẩu</a></li>
+                    <li><a href="/shop/wishlist"><i class="far fa-heart"></i> Sản phẩm yêu thích</a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+     
+      <div class="col-xs-12 col-sm-12 col-md-6 homebanner-holder"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp thelen box_shadow_border_radius blue_border">
+          <div class="more-info-tab clearfix ">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="new-product-title pull-left">Thay đổi mật khẩu</h3> <br>
+                </div>
+            </div>
+          </div>
+          <div class="tab-content outer-top-xs" >
+            <span style="color: red"><%= error1%></span>
+            <span style="color: red"><%= error2%></span>
+            <span style="color: red"><%= error3%></span>
+            <span style="color: green"><%= success%></span>
+
+            <form action="/users/updatePassword" method="POST">
+                <table>
+                    <tr>
+                        <td class="o1" style="width: 120px;">Mật khẩu hiện tại</td>
+                        <td class="o2" style="width: 372px"><input type="text" name="currentPassword" class="input-register" value="" placeholder="Nhập mật khẩu hiện tại" required></td>
+                    </tr>
+                    <tr>
+                        <td class="o1" style="width: 120px;">Mật khẩu mới</td>
+                        <td class="o2"><input type="text" name="newPassword" class="input-register" value="" placeholder="Nhập mật khẩu mới" required></td>
+                    </tr>
+                    <tr>
+                        <td class="o1" style="width: 120px;">Nhập lại mật khẩu</td>
+                        <td class="o2" ><input type="text" name="repeatPassword" class="input-register" value="" placeholder="Nhập lại mật khẩu" required></td>
+                    </tr>
+                </table>
+                <div class="text-center">
+                  <input type="submit" class="btn btn-primary" style="margin-bottom: 10px;" value="Lưu mật khẩu" />
+                </div>
+            </form>           
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 homebanner-holder"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp thelen keothe box_shadow_border_radius blue_border">
+          <div class="more-info-tab clearfix ">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="new-product-title pull-left">Ảnh đại diện</h3> <br>
+                </div>
+                <div class="col-md-12">
+                    <span>Cập nhật ảnh đại diện tại đây.</span>
+                </div>
+            </div>
+          </div>
+          <div class="tab-content outer-top-xs" style="height: 175px;">
+            <form>
+                <div class="anhdaidientk">
+                    <div class="form-group">
+                      <label class="custom-file">
+                        <input type="file" name="" id="" placeholder="" class="custom-file-input" aria-describedby="fileHelpId">
+                        <span class="custom-file-control">
+                            <img src="<%= user.avatar%>" alt="">
+                        </span>
+                      </label>
+                    </div>
+                </div>
+            </form>           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="nhasanxuat">
+          <div class="slider canle">
+            <div class="slide-track">
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slides">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div> -->
+
+<%include footer%>

@@ -1,0 +1,513 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+      <div class="col-md-12 phantrang text-left">
+        <ul>
+            <li><a href="/">Trang chủ</a> / </li>
+            <li>Đơn hàng</li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 sidebar dichuyenlen"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp top-responsive box_shadow_border_radius blue_border">
+            <div class="tab-content outer-top-xs" style="font-size: 14px;">
+                <div class="thongtinchungkh mt-3 pt-3">
+                    <div class="thongtinanh">
+                        <img src="<%= user.avatar%>">
+                    </div>
+                    <div class="thongtintk">
+                        <span class="tenkhang"><%= user.name%></span>
+                        <a href="/users/myprofile" class="suahoso"><i class="fas fa-user-edit"></i> Sửa hồ sơ</a>
+                    </div>
+                </div>
+                <div class="list_taikhoan" >
+                  <ul>
+                    <li><a href="/"><i class="fas fa-reply-all"></i> Quay lại Shop</a></li>
+                    <li><a href="/users/myprofile"><i class="far fa-user" aria-hidden="true"></i> Cập nhật tài khoản</a></li>
+                    <li><a href="/order/list"><i class="far fa-clipboard" aria-hidden="true"></i> Đơn hàng</a></li>
+                    <li><a href="/users/changePassword"><i class="fas fa-key"></i> Thay đổi mật khẩu</a></li>
+                    <li><a href="/shop/wishlist"><i class="far fa-heart"></i> Sản phẩm yêu thích</a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder dichuyenlen"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp top-responsive box_shadow_border_radius">
+          <div class="tab-content outer-top-xs top_responsive2 py-3" style="font-size: 14px;">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                  <a href="#all" class="nav-link active font-weight-bold text-primary" data-toggle="tab">
+                    <i class="fas fa-border-all"></i> Tất cả
+                    <span class="badge badge-pill badge-primary"><%= totalOrder%></span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#confirm" class="nav-link font-weight-bold text-warning" data-toggle="tab">
+                    <i class="far fa-clock"></i> Chờ xác nhận
+                    <span class="badge badge-pill badge-warning"><%= countConfirmOrder%></span>
+                  </a> 
+              </li>
+              <li class="nav-item">
+                <a href="#confirmed" class="nav-link font-weight-bold" style="color: purple" data-toggle="tab">
+                  <i class="far fa-check-square"></i> Đã xác nhận
+                  <span class="badge badge-pill" style="background: purple"><%= countConfirmedOrder%></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#delivering" class="nav-link font-weight-bold text-info" data-toggle="tab">
+                    <i class="fas fa-shipping-fast"></i> Đang giao
+                    <span class="badge badge-pill badge-info"><%= countDeliveryOrder%></span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a href="#complete" class="nav-link font-weight-bold text-success" data-toggle="tab">
+                  <i class="far fa-thumbs-up"></i> Hoàn thành
+                  <span class="badge badge-pill badge-success"><%= countCompleteOrder%></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#cancelled" class="nav-link font-weight-bold text-danger" data-toggle="tab">
+                  <i class="far fa-window-close"></i> Đã hủy
+                  <span class="badge badge-pill badge-danger"><%= countCancelledOrder%></span>
+                </a>
+              </li>
+          </ul>
+          <div class="tab-content">
+              <div class="tab-pane fade show active" id="all">
+                <%if (listOrder.length > 0) {
+                  listOrder.forEach((item) => {%>
+                <div class="donhang donhang1 my-4">
+                  <div class="ttdonhang1">
+                     <div class="row">
+                         <div class="col-md-5 col-7">
+                             <div class="madonhang">Mã đơn hàng: <%= item.id%></div>
+                             <div class="thoigiandonhang">Đã đặt vào <%= item.createTime%></div>
+                         </div>
+                         <div class="col-md-7 col-5 text-right">
+                              <span class="badge badge-pill badge-success trangthai"><%= item.status%></span>
+                         </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang2">
+                      <table class="table"> 
+                          <tbody>
+                            <%item.OrderDetails.forEach((item1) => {%>
+                              <tr>
+                                  <td scope="row" style="width: 100px;" class="text-center">
+                                    <%
+                                    item1.Product.ImageProducts.sort(function(a, b) {
+                                      var left = a.id;
+                                      var right = b.id;
+                                      return left === right ? 0 : left > right ? 1 : -1;
+                                    });
+                                    image = item1.Product.ImageProducts[0].image;
+                                    %>
+                                    <img src="<%=image%>" alt="" width="50px">
+                                  </td>
+                                  <td style="width: 600px;" >
+                                    <%if (item1.Product.name.length < 70) {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name%></div>
+                                    <%} else {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name.substring(0,70)%>...</div>
+                                    <%}%>
+                                      <div class="soluongspdh"><b class="text-secondary">Số lượng: </b> <%= item1.quantity%></div>
+                                  </td>
+                                  <td>
+                                    <div class="col-3 font-weight-bold" style="margin-top: 3px; color: rgb(255, 89, 0);"><%=new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item1.price)%></div>
+                                  </td>
+                              </tr>
+                              <%})%>
+                          </tbody>
+                      </table>
+                  </div><hr>
+                  <div class="ttdonhang3">
+                     <div class="row">
+                      <div class="col-md-9 col-5 text-right">
+                        <span class="tongtien"><i class="fas fa-shekel-sign"></i> Tổng tiền: </span>
+                      </div>
+                      <div class="col-md-3 col-5 mb-4 text-right">
+                          <span class="sotongtien"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.totalMoney)%></span>
+                      </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang1">
+                      <div class="row">
+                          <div class="col-md-5 col-sm-12">
+                              <div class="chuydonhang">Bạn hài lòng với sản phẩm đã nhận? Nếu có, chọn "Đã nhận được hàng" nha.</div>   
+                          </div>
+                          <div class="col-md-1"></div>
+                          <div class="col-md-6 text-right">
+                            <%include trang-thai-don-hang%>
+                            <a href="/order/detail/id=<%=item.id%>" class="btn btn-warning">Xem đơn hàng</a>
+                          </div>
+                          
+                      </div>
+                   </div>    
+                </div>
+                <%})} else {%>
+                  <span style="text-align:center">Không có đơn hàng nào</span>
+                <%}%>
+              </div>
+              <div class="tab-pane fade" id="confirm">
+                <%if (confirmOrder.length > 0) {
+                  confirmOrder.forEach((item) => {%>
+                <div class="donhang donhang1 my-4">
+                  <div class="ttdonhang1">
+                     <div class="row">
+                         <div class="col-md-5 col-7">
+                             <div class="madonhang">Mã đơn hàng: <%= item.id%></div>
+                             <div class="thoigiandonhang">Đã đặt vào <%= item.createTime%></div>
+                         </div>
+                         <div class="col-md-7 col-5 text-right">
+                              <span class="badge badge-pill badge-success trangthai"><%= item.status%></span>
+                         </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang2">
+                      <table class="table"> 
+                          <tbody>
+                            <%item.OrderDetails.forEach((item1) => {%>
+                              <tr>
+                                  <td scope="row" style="width: 100px;" class="text-center">
+                                    <%
+                                    for (i = 0; i < item1.Product.ImageProducts.length; i++) {
+                                      var image = item1.Product.ImageProducts[0].image;}
+                                    %>
+                                    <img src="<%=image%>" alt="" width="50px">
+                                  </td>
+                                  <td style="width: 600px;" >
+                                    <%if (item1.Product.name.length < 70) {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name%></div>
+                                    <%} else {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name.substring(0,70)%>...</div>
+                                    <%}%>
+                                      <div class="soluongspdh"><b class="text-secondary">Số lượng: </b><%= item1.quantity%></div>
+                                  </td>
+                                  <td>
+                                    <div class="col-3 text-center font-weight-bold" style="margin-top: 3px; color: rgb(255, 89, 0);"><%=new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item1.price)%></div>
+                                  </td>
+                              </tr>
+                              <%})%>
+                          </tbody>
+                      </table>
+                  </div><hr>
+                  <div class="ttdonhang3">
+                     <div class="row">
+                      <div class="col-md-9 col-5 text-right">
+                        <span class="tongtien"><i class="fas fa-shekel-sign"></i> Tổng tiền: </span>
+                      </div>
+                      <div class="col-md-3 col-5 mb-4 text-right">
+                          <span class="sotongtien"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.totalMoney)%></span>
+                      </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang1">
+                      <div class="row">
+                          <div class="col-md-5 col-sm-12">
+                              <div class="chuydonhang">Bạn hài lòng với sản phẩm đã nhận? Nếu có, chọn "Đã nhận được hàng" nha.</div>   
+                          </div>
+                          <div class="col-md-1"></div>
+                          <div class="col-md-6 text-right">
+                            <%include trang-thai-don-hang%>
+                            <a href="/order/detail/id=<%=item.id%>" class="btn btn-warning">Xem đơn hàng</a>
+                          </div>
+                      </div>
+                   </div>    
+                </div>
+                <%})} else {%>
+                  <span style="text-align:center">Không có đơn hàng nào</span>
+                <%}%>
+              </div>
+              <div class="tab-pane fade" id="confirmed">
+                <%if (confirmedOrder.length > 0) {
+                  confirmedOrder.forEach((item) => {%>
+                <div class="donhang donhang1 my-4">
+                  <div class="ttdonhang1">
+                     <div class="row">
+                         <div class="col-md-5 col-7">
+                             <div class="madonhang">Mã đơn hàng: <%= item.id%></div>
+                             <div class="thoigiandonhang">Đã đặt vào <%= item.createTime%></div>
+                         </div>
+                         <div class="col-md-7 col-5 text-right">
+                              <span class="badge badge-pill badge-success trangthai"><%= item.status%></span>
+                         </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang2">
+                      <table class="table"> 
+                          <tbody>
+                            <%item.OrderDetails.forEach((item1) => {%>
+                              <tr>
+                                  <td scope="row" style="width: 100px;" class="text-center">
+                                    <%
+                                    for (i = 0; i < item1.Product.ImageProducts.length; i++) {
+                                      var image = item1.Product.ImageProducts[0].image;}
+                                    %>
+                                    <img src="<%=image%>" alt="" width="50px">
+                                  </td>
+                                  <td style="width: 600px;" >
+                                    <%if (item1.Product.name.length < 70) {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name%></div>
+                                    <%} else {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name.substring(0,70)%>...</div>
+                                    <%}%>
+                                      <div class="soluongspdh"><b class="text-secondary">Số lượng: </b><%= item1.quantity%></div>
+                                  </td>
+                                  <td>
+                                      <div class="col-3 text-center font-weight-bold" style="margin-top: 3px; color: rgb(255, 89, 0);"><%=new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item1.price)%></div>
+                                  </td>
+                              </tr>
+                              <%})%>
+                          </tbody>
+                      </table>
+                  </div><hr>
+                  <div class="ttdonhang3">
+                     <div class="row">
+                      <div class="col-md-9 col-5 text-right">
+                        <span class="tongtien"><i class="fas fa-shekel-sign"></i> Tổng tiền: </span>
+                      </div>
+                      <div class="col-md-3 col-5 mb-4 text-right">
+                          <span class="sotongtien"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.totalMoney)%></span>
+                      </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang1">
+                      <div class="row">
+                          <div class="col-md-5 col-sm-12">
+                              <div class="chuydonhang">Bạn hài lòng với sản phẩm đã nhận? Nếu có, chọn "Đã nhận được hàng" nha.</div>   
+                          </div>
+                          <div class="col-md-1"></div>
+                          <div class="col-md-6 text-right">
+                            <%include trang-thai-don-hang%>
+                            <a href="/order/detail/id=<%=item.id%>" class="btn btn-warning">Xem đơn hàng</a>
+                          </div>
+                      </div>
+                   </div>    
+                </div>
+                <%})} else {%>
+                  <span style="text-align:center">Không có đơn hàng nào</span>
+                <%}%>
+              </div>
+              <div class="tab-pane fade" id="delivering">
+                <%if (deliveringOrder.length > 0) {
+                  deliveringOrder.forEach((item) => {%>
+                <div class="donhang donhang1 my-4">
+                  <div class="ttdonhang1">
+                     <div class="row">
+                         <div class="col-md-5 col-7">
+                             <div class="madonhang">Mã đơn hàng: <%= item.id%></div>
+                             <div class="thoigiandonhang">Đã đặt vào <%= item.createTime%></div>
+                         </div>
+                         <div class="col-md-7 col-5 text-right">
+                              <span class="badge badge-pill badge-success trangthai"><%= item.status%></span>
+                         </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang2">
+                      <table class="table"> 
+                          <tbody>
+                            <%item.OrderDetails.forEach((item1) => {%>
+                              <tr>
+                                  <td scope="row" style="width: 100px;" class="text-center">
+                                    <%
+                                    for (i = 0; i < item1.Product.ImageProducts.length; i++) {
+                                      var image = item1.Product.ImageProducts[0].image;}
+                                    %>
+                                    <img src="<%=image%>" alt="" width="50px">
+                                  </td>
+                                  <td style="width: 600px;" >
+                                    <%if (item1.Product.name.length < 70) {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name%></div>
+                                    <%} else {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name.substring(0,70)%>...</div>
+                                    <%}%>
+                                      <div class="soluongspdh"><b class="text-secondary">Số lượng: </b><%= item1.quantity%></div>
+                                  </td>
+                                  <td>
+                                      <div class="col-3 text-center font-weight-bold" style="margin-top: 3px; color: rgb(255, 89, 0);"><%=new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item1.price)%></div>
+                                  </td>
+                              </tr>
+                              <%})%>
+                          </tbody>
+                      </table>
+                  </div><hr>
+                  <div class="ttdonhang3">
+                     <div class="row">
+                      <div class="col-md-9 col-5 text-right">
+                        <span class="tongtien"><i class="fas fa-shekel-sign"></i> Tổng tiền: </span>
+                      </div>
+                      <div class="col-md-3 col-5 mb-4 text-right">
+                          <span class="sotongtien"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.totalMoney)%></span>
+                      </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang1">
+                      <div class="row">
+                          <div class="col-md-5 col-sm-12">
+                              <div class="chuydonhang">Bạn hài lòng với sản phẩm đã nhận? Nếu có, chọn "Đã nhận được hàng" nha.</div>   
+                          </div>
+                          <div class="col-md-1"></div>
+                          <div class="col-md-6 text-right">
+                            <%include trang-thai-don-hang%>
+                            <a href="/order/detail/id=<%=item.id%>" class="btn btn-warning">Xem đơn hàng</a>
+                          </div>
+                      </div>
+                   </div>    
+                </div>
+                <%})} else {%>
+                  <span style="text-align:center">Không có đơn hàng nào</span>
+                <%}%>
+              </div>
+              <div class="tab-pane fade" id="complete">
+                <%if (completeOrder.length > 0) {
+                  completeOrder.forEach((item) => {%>
+                <div class="donhang donhang1 my-4">
+                  <div class="ttdonhang1">
+                     <div class="row">
+                         <div class="col-md-5 col-7">
+                             <div class="madonhang">Mã đơn hàng: <%= item.id%></div>
+                             <div class="thoigiandonhang">Đã đặt vào <%= item.createTime%></div>
+                         </div>
+                         <div class="col-md-7 col-5 text-right">
+                              <span class="badge badge-pill badge-success trangthai"><%= item.status%></span>
+                         </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang2">
+                      <table class="table"> 
+                          <tbody>
+                            <%item.OrderDetails.forEach((item1) => {%>
+                              <tr>
+                                  <td scope="row" style="width: 100px;" class="text-center">
+                                    <%
+                                    for (i = 0; i < item1.Product.ImageProducts.length; i++) {
+                                      var image = item1.Product.ImageProducts[0].image;}
+                                    %>
+                                    <img src="<%=image%>" alt="" width="50px">
+                                  </td>
+                                  <td style="width: 600px;" >
+                                    <%if (item1.Product.name.length < 70) {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name%></div>
+                                    <%} else {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name.substring(0,70)%>...</div>
+                                    <%}%>
+                                      <div class="soluongspdh"><b class="text-secondary">Số lượng: </b><%= item1.quantity%></div>
+                                  </td>
+                                  <td>
+                                      <div class="col-3 text-center font-weight-bold" style="margin-top: 3px; color: rgb(255, 89, 0);"><%=new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item1.price)%></div>
+                                  </td>
+                              </tr>
+                              <%})%>
+                          </tbody>
+                      </table>
+                  </div><hr>
+                  <div class="ttdonhang3">
+                     <div class="row">
+                      <div class="col-md-9 col-5 text-right">
+                        <span class="tongtien"><i class="fas fa-shekel-sign"></i> Tổng tiền: </span>
+                      </div>
+                      <div class="col-md-3 col-5 mb-4 text-right">
+                          <span class="sotongtien"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.totalMoney)%></span>
+                      </div>
+                     </div>
+                  </div>
+                  <div class="ttdonhang1">
+                      <div class="row">
+                          <div class="col-md-5 col-sm-12">
+                              <div class="chuydonhang">Bạn hài lòng với sản phẩm đã nhận? Nếu có, chọn "Đã nhận được hàng" nha.</div>   
+                          </div>
+                          <div class="col-md-1"></div>
+                          <div class="col-md-6 text-right">
+                            <%include trang-thai-don-hang%>
+                            <a href="/order/detail/id=<%=item.id%>" class="btn btn-warning">Xem đơn hàng</a>
+                          </div>
+                      </div>
+                   </div>    
+                </div>
+                <%})} else {%>
+                  <span style="text-align:center">Không có đơn hàng nào</span>
+                <%}%>
+              </div>
+              <div class="tab-pane fade" id="cancelled">
+                <%if (cancelledOrder.length > 0) {
+                    cancelledOrder.forEach((item) => {%>
+                  <div class="donhang donhang1 my-4">
+                    <div class="ttdonhang1">
+                      <div class="row">
+                          <div class="col-md-5 col-7">
+                              <div class="madonhang">Mã đơn hàng: <%= item.id%></div>
+                              <div class="thoigiandonhang">Đã đặt vào <%= item.createTime%></div>
+                          </div>
+                          <div class="col-md-7 col-5 text-right">
+                                <span class="badge badge-pill badge-success trangthai"><%= item.status%></span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="ttdonhang2">
+                        <table class="table"> 
+                            <tbody>
+                              <%item.OrderDetails.forEach((item1) => {%>
+                                <tr>
+                                    <td scope="row" style="width: 100px;" class="text-center">
+                                      <%
+                                      for (i = 0; i < item1.Product.ImageProducts.length; i++) {
+                                        var image = item1.Product.ImageProducts[0].image;}
+                                      %>
+                                      <img src="<%=image%>" alt="" width="50px">
+                                    </td>
+                                    <td style="width: 600px;" >
+                                      <%if (item1.Product.name.length < 70) {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name%></div>
+                                    <%} else {%>
+                                      <div class="tenspdonhang"><%= item1.Product.name.substring(0,70)%>...</div>
+                                    <%}%>
+                                        <div class="soluongspdh"><b class="text-secondary">Số lượng: </b><%= item1.quantity%></div>
+                                    </td>
+                                    <td>
+                                        <div class="col-3 text-center font-weight-bold" style="margin-top: 3px; color: rgb(255, 89, 0);"><%=new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item1.price)%></div>
+                                    </td>
+                                </tr>
+                                <%})%>
+                            </tbody>
+                        </table>
+                    </div><hr>
+                    <div class="ttdonhang3">
+                      <div class="row">
+                        <div class="col-md-9 col-5 text-right">
+                          <span class="tongtien"><i class="fas fa-shekel-sign"></i> Tổng tiền: </span>
+                        </div>
+                        <div class="col-md-3 col-5 mb-4 text-right">
+                            <span class="sotongtien"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.totalMoney)%></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ttdonhang1">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12">
+                                <div class="chuydonhang">Bạn hài lòng với sản phẩm đã nhận? Nếu có, chọn "Đã nhận được hàng" nha.</div>   
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-6 text-right">
+                              <%include trang-thai-don-hang%>
+                              <a href="/order/detail/id=<%=item.id%>" class="btn btn-warning">Xem đơn hàng</a>
+                            </div>
+                        </div>
+                    </div>    
+                  </div>
+                  <%})} else {%>
+                    <span style="text-align:center">Không có đơn hàng nào</span>
+                  <%}%>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% include footer %>

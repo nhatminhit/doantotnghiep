@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <!-- Favicon icon -->
+	<!-- <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon"> -->
+	<!-- fontawesome icon -->
+	<link rel="stylesheet" href="/admin/fonts/fontawesome/css/fontawesome-all.min.css">
+	<!-- animation css -->
+	<link rel="stylesheet" href="/admin/plugins/animation/css/animate.min.css">
+
+	<!-- vendor css -->
+	<link rel="stylesheet" href="/admin/css/style.css">
+    <link rel="stylesheet" href="/admin/css/main.css">
+</head>
+<body class="nen-dang-nhap">
+    <div class="container" style="height: 100%">
+        <div class="row" style="height: 100%">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="margin: auto">
+                <form action="/portal/users/forgotPassword" method="POST">
+                    <div class="form-dang-nhap">
+                        <div class="title">Khôi phục mật khẩu</div>
+                        <div class="pt-3" style="color: red"><%= error1%></div>
+                        <label class="font-weight-bold">Email</label>
+                        <input type="email" class="type-input" name="email" placeholder="Nhập email" />
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-info mt-3 font-weight-bold" style="width: 100%">Khôi phục mật khẩu</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+    <script src="/admin/js/vendor-all.min.js"></script>
+	<script src="/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/admin/js/pcoded.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<% include header %>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Danh sách sản phẩm</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item"><a href="/portal/product/list">Quản lý sản phẩm</a></li>
+											<li class="breadcrumb-item">Danh sách sản phẩm</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="content-block">
+                                <form action="/portal/product/add" method="post" enctype="multipart/form-data">
+									<div class="row">
+										<div class="col-md-12 font-italic">
+											(<span class="text-danger">*</span>) Bắt buộc phải điền đầy đủ thông tin sản phẩm.
+										</div>
+										<div class="col-md-9 pt-3">
+											<label class="font-weight-bold">Tên sản phẩm <span class="text-danger">*</span></label>
+											<input type="text" class="type-input" name="name" placeholder="Nhập tên sản phẩm mới..." required/>
+										</div>
+										<div class="col-md-3 pt-3">
+											<label class="font-weight-bold">Ngày tạo <span class="text-danger">*</span></label>
+											<input type="text" class="type-input" name="dateCreated" value="<%= dateCreated%>" required/>
+										</div>
+										<div class="col-md-3 pt-3">
+											<label class="font-weight-bold">Số lượng <span class="text-danger">*</span></label>
+											<input type="number" class="type-input" name="quantity" placeholder="Nhập số lượng" required/>
+										</div>
+										<div class="col-md-3 pt-3">
+											<label class="font-weight-bold">Giá gốc <span class="text-danger">*</span></label>
+											<input type="text" class="type-input" name="price" placeholder="Nhập giá" required/>
+										</div>
+										<div class="col-md-3 pt-3">
+											<label class="font-weight-bold">Giá khuyến mãi </label>
+											<input type="text" class="type-input" name="oldPrice" placeholder="Nhập giá khuyến mãi"/>
+										</div>
+										<div class="col-md-3 pt-3">
+											<label class="font-weight-bold">Đơn vị <span class="text-danger">*</span></label>
+											<input type="text" class="type-input" name="unit" placeholder="Nhập đơn vị" required/>
+										</div>
+										<div class="col-md-6 pt-3">
+											<label class="font-weight-bold">Loại </label><br>
+											<ul class="product-type">
+												<li><input type="radio" name="type" value="" checked />All</li>
+												<li><input type="radio" name="type" value="new" /> New</li>
+												<li><input type="radio" name="type" value="hot" /> Hot</li>
+												<li><input type="radio" name="type" value="sale" /> Sale</li>
+											</ul>
+										</div>
+										<div class="col-md-6 pt-3">
+											<label class="font-weight-bold">Đối tượng </label><br>
+											<ul class="product-object">
+												<li><input type="radio" name="object" value="1" checked /> All</li>
+												<li><input type="radio" name="object" value="2" /> Trẻ em</li>
+												<li><input type="radio" name="object" value="3" /> Người trưởng thành</li>
+												<li><input type="radio" name="object" value="4"/> Người lớn tuổi</li>
+											</ul>			
+										</div>
+										<div class="col-md-3">
+											<label class="font-weight-bold">Thương hiệu </label>
+											<input type="text" class="type-input" name="trademark" placeholder="Nhập thương hiệu"/>
+										</div>
+										<div class="col-md-3">
+											<label class="font-weight-bold">Dạng bào chế </label>
+											<input type="text" class="type-input" name="dosageForms" placeholder="Nhập dạn bào chế"/>
+										</div>
+										<div class="col-md-3">
+											<label class="font-weight-bold">Quy cách </label>
+											<input type="text" class="type-input" name="specification" placeholder="Nhập quy cách"/>
+										</div>
+										<div class="col-md-3">
+											<label class="font-weight-bold">Hạn sử dụng </label>
+											<input type="text" class="type-input" name="expiry" placeholder="Nhập hạn sử dụng"/>
+										</div>
+										<div class="col-md-6 pt-3">
+											<label class="font-weight-bold">Danh mục sản phẩm <span class="text-danger">*</span></label>
+											<select name="category" class="type-select" required>
+												<option value="0">Chọn danh mục sản phẩm</option>
+												<%getCategory.forEach((item) => {%>
+													<option value="<%= item.id%>"><%= item.name%></option>
+												<%})%>
+											</select>
+										</div>
+										<div class="col-md-6 pt-3">
+											<label class="font-weight-bold">Nhà sản xuất <span class="text-danger">*</span></label>
+											<select name="producer" class="type-select" required>
+												<option value="0">Chọn nhà sản xuất sản phẩm</option>
+												<%getProducer.forEach((item) => {%>
+													<option value="<%= item.id%>"><%= item.name%></option>
+												<%})%>
+											</select>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Hình ảnh </label>
+											<input type="file" class="type-input" name="image" multiple placeholder="Chọn hình ảnh theo thứ tự"/>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Công dụng <span class="text-danger">*</span></label>
+											<textarea class="type-input" name="uses" id="editor1" placeholder="Nhập công dụng sản phẩm..."></textarea>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Mô tả <span class="text-danger">*</span></label>
+											<textarea class="type-input" name="description" id="editor2" placeholder="Nhập mô tả sản phẩm..."></textarea>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Hỗ trợ</label>
+											<textarea class="type-input" name="support" id="editor3" placeholder="Nhập hỗ trợ sản phẩm..."></textarea>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Thành phần</label>
+											<textarea class="type-input" name="ingredient" id="editor4" placeholder="Nhập thành phần sản phẩm..."></textarea>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Cách dùng</label>
+											<textarea class="type-input" name="dosage" id="editor5" placeholder="Nhập cách dùng sản phẩm..."></textarea>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Tác dụng phụ</label>
+											<textarea class="type-input" name="sideEffects" id="editor6" placeholder="Nhập tác dụng phụ sản phẩm...">Chưa có thông tin về tác dụng phụ của sản phẩm.</textarea>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Lưu ý</label>
+											<textarea class="type-input" name="note" id="editor7" placeholder="Nhập lưu ý sản phẩm..."></textarea>
+										</div>
+										<div class="col-md-12 pt-3">
+											<label class="font-weight-bold">Bảo quản</label>
+											<textarea class="type-input" name="preserve" id="editor8" placeholder="Nhập bảo quản sản phẩm..."></textarea>
+										</div>
+										<div class="col-md-12 py-3 text-center">
+											<button type="submit" class="btn btn-info"><i class="far fa-save"></i> Lưu lại</button>
+											<button type="reset" class="btn btn-danger"><i class="far fa-trash-alt"></i> Hủy bỏ</button>
+											<a href="/portal/product/list" class="btn btn-warning"><i class="fas fa-reply"></i> Trở về</a>
+										</div>
+									</div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<%include footer%>

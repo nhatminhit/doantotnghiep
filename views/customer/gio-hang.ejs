@@ -1,0 +1,129 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="row"> 
+        <div class="col-md-12 phantrang text-left">
+            <ul>
+                <li><a href="/">Trang chủ</a> / </li>
+                <li>Giỏ hàng</li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder dichuyenlen"> 
+            <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+              <div class="tab-content tab-content-table outer-top-xs box_shadow_border_radius" >
+                <table class="table text-center table-hover">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá tiền</th>
+                            <th>Số lượng</th>
+                            <th>Tổng tiền</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form action="/cart/update" method="POST">
+                        <%if (cartList.length >0 ) {
+                          cartList.forEach((item) =>{%>
+                        <tr class="giohang_table">
+                            <td>  
+                              <%
+                              for (i = 0; i < item.Product.ImageProducts.length; i++) {
+                                var image = item.Product.ImageProducts[0].image;}
+                              %>
+                              <img src="<%= image%>" class="giohanganh">
+                            </td>
+                            <td class="tengiohang">
+                              <input type="number" name="cartId" value="<%= item.id%>" hidden />
+                              <input type="number" name="productId" value="<%= item.Product.id%>" hidden/>
+                              <%=item.Product.name.substring(0, 35)%>...
+                            </td>
+                            <%if (item.Product.oldPrice > 0) {%>
+                              <td><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.oldPrice)%><br>
+                                  <del class="text-danger"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.price)%></del>
+                              </td>
+                            <%} else {%>
+                              <td><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.price)%></td>
+                            <%}%>
+                            <td>
+                                <div class="mx-auto" style="width: 60px;">
+                                    <input type="number" class="input-register ghmua" value="<%= item.quantity%>" name="quantity">
+                                    <input type="number" value="<%= item.Product.quantity%>" name="" class="ghco" hidden>
+                                </div>
+                                <div class="gherror text-danger pt-2"></div>
+                            </td>
+                            <%if (item.Product.oldPrice > 0) {%>
+                              <td><b><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.oldPrice * item.quantity)%></b></td>
+                            <%} else {%>
+                              <td><b><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.Product.price * item.quantity)%></b></td>
+                            <%}%>
+                            <td><a href="/cart/delete/id=<%=item.id%>" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm không?')"><i class="fas fa-trash-alt"></i></a></td>
+                        </tr>
+                        <%})} else {%>
+                          <tr>
+                            <td colspan="6" style="text-align: center">Không có sản phẩm nào trong giỏ hàng.</td>
+                          </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+                <hr>
+
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                          <div class="my-3">
+                              <a href="/shop?page=1" class="btn btn-warning">Tiếp tục mua sắm &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12 text-right">
+                          <div class="my-3">
+                                <%if (cartList.length > 0) {%>
+                                  <input type="submit" class="btn btn-primary" id="capnhat" value="Cập nhật số lượng"/>
+                                  <a href="/cart/deleteAll" class="btn btn-danger ml-3" onclick="return confirm('Bạn có chắc chắn muốn xóa toàn bộ sản phẩm trong giỏ hàng không?')">Xóa giỏ hàng</a>
+                                <%} else {%>
+                                  <input type="submit" class="btn btn-primary disabled" id="capnhat" value="Cập nhật số lượng"/>
+                                  <a href="" class="btn btn-danger ml-3" onclick="return confirm('Giỏ hàng không có sản phẩm nào để xóa!')">Xóa giỏ hàng</a>
+                                <%}%>
+                          </div>
+                          <div class="my-3">
+                          </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+              </div>
+           </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 homebanner-holder dichuyenlen"> 
+            <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+              <div class="tab-content tab-content-table outer-top-xs box_shadow_border_radius" >
+                  <h3 class="font-weight-bold">Cộng giỏ hàng</h3>
+                  <table class="table table-hover">
+                    <tr class="font-weight-bold">
+                      <td>Tạm tính: </td>
+                      <td><%=new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)%></td>
+                    </tr>
+                    <tr class="font-weight-bold text-danger">
+                      <td>Tổng tiền: </td>
+                      <td><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice)%></td>
+                    </tr>
+                  </table>
+                  <div class="btn-payments">
+                    <%if (cartList.length > 0) {%>
+                      <a href="/order" class="btn btn-success" style="width: 100%">Mua hàng</a>
+                    <%} else {%>
+                      <a href="/order" class="btn btn-success disabled" style="width: 100%">Mua hàng</a>
+                    <%}%>
+                  </div>
+              </div>
+           </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<% include footer %>

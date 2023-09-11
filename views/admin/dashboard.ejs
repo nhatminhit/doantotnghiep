@@ -1,0 +1,361 @@
+<% include header%>
+	
+	<div class="pcoded-main-container">
+		<div class="pcoded-wrapper">
+			<div class="pcoded-content">
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-header-title">
+								<div class="row align-items-center">
+									<div class="col-md-5 header-title">
+										<h4>Dashboard</h4>
+									</div>
+									<div class="col-md-7 text-right">
+										<ul class="breadcrumb">
+											<li class="breadcrumb-item"><a href="/portal"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+											<li class="breadcrumb-item">Dashboard</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						
+							<div class="row">
+								<div class="col-xl-3 col-md-6">
+									<div class="card prod-p-card bg-c-red border-radius-block">
+										<div class="card-body">
+											<div class="row align-items-center m-b-25">
+												<div class="col">
+													<h6 class="m-b-5 text-white" style="font-size: 15px">Tổng khách hàng</h6>
+													<h3 class="m-b-0 text-white"><%= countCustomer%></h3>
+												</div>
+												<div class="col-auto">
+													<i class="fas fa-user text-c-red"></i>
+												</div>
+											</div>
+											<p class="m-b-0 text-white" style="font-size: 10px; margin-top: -10px;">
+												Tổng số khách hàng được quản lý
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-md-6">
+									<div class="card prod-p-card bg-c-blue border-radius-block">
+										<div class="card-body">
+											<div class="row align-items-center m-b-25">
+												<div class="col">
+													<h6 class="m-b-5 text-white" style="font-size: 15px">Tổng số sản phẩm</h6>
+													<h3 class="m-b-0 text-white"><%= totalProduct%></h3>
+												</div>
+												<div class="col-auto">
+													<i class="fas fa-gift text-c-blue"></i>
+												</div>
+											</div>
+											<p class="m-b-0 text-white" style="font-size: 10px; margin-top: -10px;">Tổng số sản phẩm được quản lý</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-md-6">
+									<div class="card prod-p-card bg-c-green border-radius-block">
+										<div class="card-body">
+											<div class="row align-items-center m-b-25">
+												<div class="col">
+													<h6 class="m-b-5 text-white" style="font-size: 15px">Tổng số đơn hàng</h6>
+													<h3 class="m-b-0 text-white"><%= totalOrder%></h3>
+												</div>
+												<div class="col-auto">
+													<i class="fas fa-clipboard-list text-c-green"></i>
+												</div>
+											</div>
+											<p class="m-b-0 text-white" style="font-size: 10px; margin-top: -10px;">Tổng số đơn hàng được quản lý</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-3 col-md-6">
+									<div class="card prod-p-card bg-c-yellow border-radius-block">
+										<div class="card-body">
+											<div class="row align-items-center m-b-25">
+												<div class="col">
+													<h6 class="m-b-5 text-white" style="font-size: 15px">Sắp hết hàng</h6>
+													<h3 class="m-b-0 text-white"><%= countOutOfStock%></h3>
+												</div>
+												<div class="col-auto">
+													<i class="fas fa-bell text-c-yellow"></i>
+												</div>
+											</div>
+											<p class="m-b-0 text-white" style="font-size: 10px; margin-top: -10px;">Số sản phẩm cảnh báo hết cần nhập thêm</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="card table-card">
+												<div class="card-header">
+													<h5>Bảng thống kê người dùng</h5>
+												</div>
+												<div class="card-body">
+													<div class="table-responsive">
+														<canvas id="chart-user"></canvas>
+														<!-- <table class="table table-bordered table-sm px-3">
+															<tr>
+																<th>Dữ liệu</th>
+																<th>Số liệu thống kê</th>
+															</tr>
+															<tr>
+																<td>Tổng số người dùng</td>
+																<td><%= totalUser%></td>
+															</tr>
+															<tr>
+																<td>Số lượng admin</td>
+																<td><%= countAdmin%></td>
+															</tr>
+															<tr>
+																<td>Số lượng nhân viên</td>
+																<td><%= countEmployee%></td>
+															</tr>
+															<tr>
+																<td>Số lượng khách hàng</td>
+																<td><%= countCustomer%></td>
+															</tr>															
+															<tr>
+																<td>Số lượng ghé thăm</td>
+																<td><%= countVisitor%></td>
+															</tr>
+														</table> -->
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="card table-card">
+												<div class="card-header">
+													<h5>Bảng thống kê đơn hàng</h5>
+												</div>
+												<div class="card-body">
+													<div class="table-responsive">
+														<canvas id="chart-order"></canvas>
+														<!-- <table class="table table-bordered table-sm px-3">
+															<tr>
+																<th>Dữ liệu</th>
+																<th>Số liệu thống kê</th>
+															</tr>
+															<tr>
+																<td>Tổng số đơn hàng</td>
+																<td><%= totalOrder%></td>
+															</tr>
+															<tr>
+																<td>Đơn hàng chờ xác nhận</td>
+																<td><%= countConfirmOrder%></td>
+															</tr>
+															<tr>
+																<td>Đơn hàng đã xác nhận</td>
+																<td><%= countConfirmedOrder%></td>
+															</tr>
+															<tr>
+																<td>Đơn hàng đang giao hàng</td>
+																<td><%= countDeliveryOrder%></td>
+															</tr>
+															<tr>
+																<td>Đơn hàng đã giao hàng</td>
+																<td><%= countCompleteOrder%></td>
+															</tr>
+															<tr>
+																<td>Đơn hàng đã hủy</td>
+																<td><%= countCancelOrder%></td>
+															</tr>
+															<tr>
+																<td>Đơn hàng chưa thanh toán</td>
+																<td><%= countUnpaidOrder%></td>
+															</tr>
+															<tr>
+																<td>Đơn hàng đã thanh toán</td>
+																<td><%= countPaidOrder%></td>
+															</tr>
+														</table> -->
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="card table-card">
+												<div class="card-header">
+													<h5>Bảng thống kê đánh giá, bình luận</h5>
+												</div>
+												<div class="card-body">
+													<div class="table-responsive">
+														<canvas id="chart-feedback"></canvas>
+														<!-- <table class="table table-bordered table-sm px-3">
+															<tr>
+																<th rowspan="2">Dữ liệu</th>
+																<th colspan="2">Số liệu thống kê</th>
+															</tr>
+															<tr>
+																<td>Sản phẩm</td>
+																<td>Tin tức</td>
+															</tr>
+															<tr>
+																<td>Tổng bình luận</td>
+																<td><%= totalFeedbackProduct%></td>
+																<td><%= totalCommentNews%></td>
+															</tr>
+															<tr>
+																<td>Bình luận chưa xử lý</td>
+																<td><%= countNoResponseFeedbackProduct%></td>
+																<td><%= countNoResponseCommentNews%></td>
+															</tr>
+															<tr>
+																<td>Bình luận đã xử lý</td>
+																<td><%= countResponseFeedbackProduct%></td>
+																<td><%= countResponseCommentNews%></td>
+															</tr>
+														</table> -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="card table-card">
+												<div class="card-header">
+													<h5>Bảng thống kê sản phẩm</h5>
+												</div>
+												<div class="card-body">
+													<div class="table-responsive">
+														<canvas id="chart-product"></canvas>
+														<!-- <table class="table table-bordered table-sm px-3">
+															<tr>
+																<th>Dữ liệu</th>
+																<th>Số liệu thống kê</th>
+															</tr>
+															<tr>
+																<td>Tổng số sản phẩm</td>
+																<td><%= totalProduct%></td>
+															</tr>
+															<tr>
+																<td>Sản phẩm mới nhất</td>
+																<td><%= countNewProduct%></td>
+															</tr>
+															<tr>
+																<td>Sản phẩm giảm giá</td>
+																<td><%= countSaleProduct%></td>
+															</tr>
+															<tr>
+																<td>Sản phẩm hot nhất</td>
+																<td><%= countHotProduct%></td>
+															</tr>
+															<tr>
+																<td>Sản phẩm trẻ em</td>
+																<td><%= countChildrenProduct%></td>
+															</tr>
+															<tr>
+																<td>Sản phẩm người trưởng thành</td>
+																<td><%= countAdultsProduct%></td>
+															</tr>
+															<tr>
+																<td>Sản phẩm người cao tuổi</td>
+																<td><%= countElderProduct%></td>
+															</tr>
+														</table> -->
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="card table-card">
+												<div class="card-header">
+													<h5>Bảng thống kê công việc tuyển dụng</h5>
+												</div>
+												<div class="card-body">
+													<div class="table-responsive">
+														<canvas id="chart-job"></canvas>
+														<!-- <table class="table table-bordered table-sm px-3">
+															<tr>
+																<th>Dữ liệu</th>
+																<th>Số liệu thống kê</th>
+															</tr>
+															<tr>
+																<td>Tổng số công việc</td>
+																<td><%= totalJob%></td>
+															</tr>
+															<tr>
+																<td>Công việc còn hạn</td>
+																<td><%= countTime1Job%></td>
+															</tr>
+															<tr>
+																<td>Công việc hết hạn</td>
+																<td><%= countTime2Job%></td>
+															</tr>
+															<tr>
+																<td>Số lượng công việc toàn thời gian</td>
+																<td><%= countFulltimeJob%></td>
+															</tr>
+															<tr>
+																<td>Số lượng công việc bán thời gian</td>
+																<td><%= countPartimeJob%></td>
+															</tr>
+														</table> -->
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="card table-card">
+												<div class="card-header">
+													<h5>Bảng thống kê ứng viên</h5>
+												</div>
+												<div class="card-body">
+													<div class="table-responsive">
+														<canvas id="chart-recruitment"></canvas>
+														<!-- <table class="table table-bordered table-sm px-3">
+															<tr>
+																<th>Dữ liệu</th>
+																<th>Số liệu thống kê</th>
+															</tr>
+															<tr>
+																<td>Tổng CV ứng tuyển</td>
+																<td><%= totalRecruitment%></td>
+															</tr>
+															<tr>
+																<td>Số lượng ứng viên chưa duyệt</td>
+																<td><%= countPendingRecruitment%></td>
+															</tr>
+															<tr>
+																<td>Số lượng ứng viên được duyệt</td>
+																<td><%= countApprovedRecruitment%></td>
+															</tr>
+															<tr>
+																<td>Số lượng ứng viên phỏng vấn</td>
+																<td><%= countInterviewRecruitment%></td>
+															</tr>
+															<tr>
+																<td>Số lượng trúng tuyển</td>
+																<td><%= countElectRecruitment%></td>
+															</tr>
+															<tr>
+																<td>Số lượng không đạt yêu cầu</td>
+																<td><%= countNotAchievedRecruitment%></td>
+															</tr>
+															<tr>
+																<td>Số lượng ứng viên từ chối</td>
+																<td><%= countRejectRecruitment%></td>
+															</tr>
+														</table> -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<% include footer %>

@@ -1,0 +1,185 @@
+<% include header %>
+
+<div class="body-content outer-top-xs" id="top-banner-and-menu">
+  <div class="container">
+    <div class="col-md-12 phantrang">
+      <ul>
+          <li><a href="/">Trang chủ</a> / </li>
+          <li>Chi tiết đơn hàng</li>
+      </ul>
+    </div>
+    <div class="row"> 
+      <div class="col-xs-12 col-sm-12 col-md-3 sidebar dichuyenlen"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp box_shadow_border_radius blue_border">
+            <div class="tab-content outer-top-xs" style="font-size: 14px;">
+                <div class="thongtinchungkh mt-3 pt-3">
+                    <div class="thongtinanh">
+                        <img src="<%=user.avatar%>">
+                    </div>
+                    <div class="thongtintk">
+                        <span class="tenkhang"><%=user.name%></span>
+                        <a href="/users/myprofile" class="suahoso"><i class="fas fa-user-edit"></i> Sửa hồ sơ</a>
+                    </div>
+                </div>
+                <div class="list_taikhoan" >
+                  <ul>
+                    <li><a href="/"><i class="fas fa-reply-all"></i> Quay lại Shop</a></li>
+                    <li><a href="/users/myprofile"><i class="far fa-user" aria-hidden="true"></i> Cập nhật tài khoản</a></li>
+                    <li><a href="/order/list"><i class="far fa-clipboard" aria-hidden="true"></i> Đơn hàng</a></li>
+                    <li><a href="/users/changePassword"><i class="fas fa-key"></i> Thay đổi mật khẩu</a></li>
+                    <li><a href="/shop/wishlist"><i class="far fa-heart"></i> Sản phẩm yêu thích</a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder dichuyenlen"> 
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp bokhoangtrong box_shadow_border_radius blue_border">
+          <div class="tab-content outer-top-xs" style="font-size: 14px;">
+            <div class="donhang my-4">
+                <div class="ttdonhang1">
+                   <div class="row my-2">
+                       <div class="col-md-3 col-sm-12">
+                           <a href="/order/list" class="linktrolai"><i class="fas fa-reply"></i> Trở lại</a>
+                       </div>
+                       <div class="col-md-9 col-sm-12 text-right">
+                           <span class="madonhang">Mã đơn hàng: <%= detailOrder.id%></span> |
+                           <span class="thoigiandonhang">Đã đặt vào <%=detailOrder.createTime%></span>
+                       </div>
+                   </div><hr>
+                </div>
+                <div class="ttdonhangnut">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12">
+                            <div class="chuydonhang">Bạn hãy theo dõi thông tin chi tiết đơn hàng.</div>   
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-6 col-sm-12 text-right mb-3">
+                          <%include trang-thai-don-hang%>
+                        </div>
+                    </div>
+                 </div><hr>
+                 <div class="ttdonhang1">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12">
+                           <h5 class="ttnhanhang">Thông tin nhận hàng</h5>
+                           <div class="thongtinkh">
+                               <div class="tt_tenkh"><i class="fa fa-user" aria-hidden="true"></i> <%= detailOrder.User.name%></div>
+                               <div class="tt_dienthoai"><i class="fa fa-phone" aria-hidden="true"></i> <%= detailOrder.User.phone%></div>
+                               <div class="tt_diachi"><i class="fas fa-map-marker-alt"></i> <%= detailOrder.User.address%></div>
+                               <div class="tt_email"><i class="fa fa-envelope" aria-hidden="true"></i> <%= detailOrder.User.email%></div>
+                               <%if (detailOrder.status == "Chưa xác nhận") {%>
+                                <a href="/users/myprofile" class="thaydoitt"><i class="far fa-edit"></i> Thay đổi</a>
+                              <%}%>
+                           </div>
+                        </div>
+                        <div class="col-md-7 col-sm-12">
+                            <div class="ttvanchuyen text-right">
+                                <%if (detailOrder.ship != null) {%>
+                                <div class="tennhavc"><i class="fas fa-shipping-fast"></i> <%= detailOrder.ship%></div>
+                                <div class="mavanchuyen"><%= detailOrder.shipCode%></div>
+                                <%} else {%>
+                                  <div class="tennhavc">Đang cập nhật...</div>
+                                <%}%>
+                            </div>
+                            <div class="bangttvanchuyen">
+                                <table>
+                                  <%getTransport.forEach((item1) => {%>
+                                    <tr>
+                                        <td style="width: 20px; padding: 4px 0px"><i class="fas fa-bullhorn"></i></td>
+                                        <td style="width: 130px; padding: 4px 0px"><%= item1.createTime%></td>
+                                        <td style="padding: 4px 0px"><%= item1.status%></td>
+                                    </tr>
+                                  <%})%>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                <div class="ttdonhang2 pt-3">
+                    <table class="table table-hover"> 
+                        <tbody>
+                          <%detailOrder.OrderDetails.forEach((item) => {%>
+                            <tr style="height: 30px;">
+                                <td scope="row" style="width: 100px; padding: 10px;" class="text-center">
+                                  <%
+                                  for (i = 0; i < item.Product.ImageProducts.length; i++) {
+                                    var image = item.Product.ImageProducts[0].image;}
+                                  %>
+                                  <img src="<%= image%>" alt="" width="50px">
+                                </td>
+                                <td style="width: 600px;">
+                                    <%if (item.Product.name.length < 78) {%>
+                                      <div class="tenspdonhang"><%= item.Product.name%></div>
+                                    <%} else {%>
+                                      <div class="tenspdonhang"><%= item.Product.name.substring(0,78)%>...</div>
+                                    <%}%>
+                                    <div class="soluongspdh"><b class="font-weight-bold text-secondary">Số lượng:</b> <%= item.quantity%></div>
+                                </td>
+                                <td>
+                                    <div class="col-3 text-center font-weight-bold" style="margin-top: 3px; color: rgb(255, 89, 0);"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)%></div>
+                                </td>
+                            </tr>
+                          <%})%>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ttdonhang3">
+                   <div class="row ttdonhang4">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="text-right tt_thanhtoan" width="570px">Tổng tiền hàng: </td>
+                                    <td class="text-right font-weight-bold"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailOrder.totalMoney - detailOrder.shipFee)%></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right tt_thanhtoan">Phí vận chuyển: </td>
+                                    <% if (detailOrder.shipFee > 0) {%>
+                                      <td class="text-right"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailOrder.shipFee)%></td>
+                                    <%} else {%>
+                                      <td class="text-right text-success">Miễn phí</td>
+                                    <%}%>
+                                </tr>
+                                <tr>
+                                    <td class="text-right tt_thanhtoan">Tổng số tiền: </td>
+                                    <td class="text-right sotongtien"><%= new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(detailOrder.totalMoney)%></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right tt_thanhtoan">Trạng thái thanh toán: </td>
+                                    <td class="text-right">
+                                      <%if(detailOrder.statusPayment == "Đã thanh toán") {%>
+                                        <span class="badge badge-success"><%= detailOrder.statusPayment%></span>
+                                      <%} else if (detailOrder.statusPayment == "Chưa thanh toán") {%>
+                                        <span class="badge badge-warning"><%= detailOrder.statusPayment%></span>
+                                      <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right tt_thanhtoan">Phương thức thanh toán: </td>
+                                    <%if (detailOrder.payments == "cash") {%>
+                                      <td class="text-right">Tiền mặt</td>
+                                    <%} else if (detailOrder.payments == "VNPAY") {%>
+                                      <td class="text-right">Cổng thanh toán VNPAYQR</td>
+                                    <%}else if (detailOrder.payments == "VNPAYQR"){%>
+                                      <td class=text-right>Ứng dụng hỗ trợ VNPAYQR</td>
+                                    <%} else if (detailOrder.payments == "VNBANK") {%>
+                                      <td class="text-right">Tài khoản ngân hàng nội địa</td>
+                                    <%} else if (detailOrder.payments == "INTCARD") {%>
+                                      <td class="text-right">Thẻ quốc tế</td>
+                                    <%}%>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container --> 
+</div>
+
+<% include footer %>
