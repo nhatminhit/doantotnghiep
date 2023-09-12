@@ -923,7 +923,12 @@
                               <textarea class="motakh chieurong" name="content" id="contentFeedback" rows="5" placeholder="Hãy viết bình luận ở đây" required></textarea>
                             </div>     
                               <div class="form-group text-center pb-3">
-                                <button type="submit" class="btn btn-success nutbl" id="buttonComment" onclick="return alert('Bạn đã đánh giá sản phẩm thành công')">Đánh giá</button>
+                                <button type="submit" class="btn btn-success nutbl" id="buttonComment" 
+                                <%if (user !== undefined) {%>onclick="return alert('Bạn đã đánh giá sản phẩm thành công')" <%} else {%>
+                                  onclick="return alert('Bạn chưa đăng nhập vào cửa hàng.')"
+                                  <%}%>
+                                >
+                                Đánh giá</button>
                               </div>
                         </form>
                     </div>

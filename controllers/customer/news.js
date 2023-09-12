@@ -134,7 +134,7 @@ exports.commentNews = async (req, res, next) => {
         const createUser = await User.create({
             name: name,
             email: email,
-            role: '3',
+            role_id: '3',
             avatar: '/avatar/anhdaidien.jpg'
         });
         userId = createUser.id;
