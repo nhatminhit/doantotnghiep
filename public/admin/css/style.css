@@ -1110,7 +1110,7 @@ pre[class*=language-]:before {
 }
 
 .text-primary {
-    color: #3949AB !important;
+    color: white !important;
 }
 
 .b-primary {
@@ -2602,6 +2602,7 @@ pre[class*=language-]:before {
 .pcoded-navbar .navbar-content,
   .pcoded-navbar .navbar-wrapper {
     width: 100%;
+    background-color: #263544;
     height: 100%;
 }
 
@@ -3324,11 +3325,11 @@ pre[class*=language-]:before {
 }
 
 .pcoded-navbar.menu-light .pcoded-submenu {
-    background: #fbfbfb;
+    background: #263544;
 }
 
 .pcoded-navbar.menu-light a {
-    color: #1b1c1d;
+    color: white;
 }
 
 .pcoded-navbar.menu-light.navbar-collapsed .pcoded-menu-caption:after {
@@ -3344,8 +3345,8 @@ pre[class*=language-]:before {
 }
 
 .pcoded-navbar.menu-light .pcoded-inner-navbar > li.active > a, .pcoded-navbar.menu-light .pcoded-inner-navbar > li.pcoded-trigger > a {
-    background: #f1f1f1;
-    color: #111;
+    background: #1d2531;
+    color: white;
 }
 
 .pcoded-navbar.menu-light.theme-horizontal .pcoded-inner-navbar > li.active a, .pcoded-navbar.menu-light.theme-horizontal .pcoded-inner-navbar > li.pcoded-trigger a, .pcoded-navbar.menu-light.theme-horizontal .pcoded-inner-navbar > li:hover a {
@@ -3955,7 +3956,7 @@ pre[class*=language-]:before {
 .pcoded-navbar.brand-blue .header-logo,
 .pcoded-navbar[class*="navbar-"].brand-blue .header-logo {
     /* background: linear-gradient(45deg, #3949AB, #2962FF); */
-    background: white;
+    background: #263544;
     height: 100px;
 }
 
