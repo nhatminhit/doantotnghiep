@@ -246,7 +246,7 @@ exports.updateStatusOrder = async (req, res, next) => {
         let vnp_TransactionDate = createDate;
         let vnp_Amount = req.body.amount*100;
         let vnp_TransactionType = "02";
-        let vnp_CreateBy = "Cửa hàng TPCN Văn Quân";
+        let vnp_CreateBy = "Cửa hàng thuốc Nhật Minh";
     
         let vnp_RequestId = moment(date).format('HHmmss');
         let vnp_Version = '2.1.0';
