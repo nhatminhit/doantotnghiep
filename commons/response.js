@@ -19,11 +19,11 @@ module.exports.DESCRIPTION_PAYMENT_SUCCESS = "Bạn hãy vào trang đơn hàng 
 module.exports.DESCRIPTION_REGISTER_SUCCESS = "Bạn đã đăng ký tài khoản thành công. Hãy click vào đăng nhập để đăng nhập vào hệ thống nhé";
 module.exports.DESCRIPTION_PAYMENT_FAILED = "Giao dịch thanh toán đã thất bại. Vui lòng thanh toán lại đơn hàng."
 
-module.exports.LINK_STATUS_SUCCESS_PAYMENT = "";
+module.exports.LINK_STATUS_SUCCESS_PAYMENT = "/order/list";
 module.exports.LINK_STATUS_SUCCESS_REGISTER = "/users/login";
 
-module.exports.LINK_STATUS_FAILED_PAYMENT = "";
+module.exports.LINK_STATUS_FAILED_PAYMENT = "/order/list";
 
-module.exports.NAME_LINK_SUCCESS_PAYMENT = "";
+module.exports.NAME_LINK_SUCCESS_PAYMENT = "Theo dõi đơn hàng";
 module.exports.NAME_LINK_SUCCESS_REGISTER = "Đăng nhập";
-module.exports.NAME_LINK_FAILED_PAYMENT = "";
+module.exports.NAME_LINK_FAILED_PAYMENT = "Vào đơn hàng và thanh toán";
