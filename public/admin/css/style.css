@@ -1058,7 +1058,12 @@ pre[class*=language-]:before {
 .bg-c-green {
     background: linear-gradient(45deg, #2ca961, #2ed88a) !important;
 }
-
+.bg-c-blue-blue {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,54,1) 35%, rgba(0,212,255,1) 100%);
+}
+.padding-unset {
+    padding: unset!important;
+}
 .text-c-green {
     color: #2ca961;
 }

@@ -16,6 +16,11 @@ exports.dashboard = async (req, res, next) => {
     const countVisitor = await support.countUser(constant.ROLE.VISITOR);
     const totalProduct = await Product.count();
     const totalOrder = await Order.count();
+    const totalMoneySum = await Order.sum('totalMoney');
+    const formattedTotalMoneySum = totalMoneySum.toLocaleString('en-US', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+    });
     const countOutOfStock = await Product.count({where: {quantity: {[Op.lte] : 10}}})
     const totalUser = await User.count();
     const countNewProduct = await support.countProduct(constant.PRODUCT_TYPE.NEW);
@@ -53,15 +58,16 @@ exports.dashboard = async (req, res, next) => {
     const countElectRecruitment = await support.countStatusRecruitment(constant.STATUS_RECRUITMENT.ELECT);
     const countNotAchievedRecruitment = await support.countStatusRecruitment(constant.STATUS_RECRUITMENT.NOT_ACHIEVED);
     const countRejectRecruitment = await support.countStatusRecruitment(constant.STATUS_RECRUITMENT.REJECT);
-
     res.render('admin/dashboard', {
         title: "Dashboard",
         user: req.session.user,
         countCustomer: countCustomer,
         totalProduct: totalProduct,
         totalOrder: totalOrder,
+        totalMoneySum: totalMoneySum,
         countOutOfStock: countOutOfStock,
         totalUser: totalUser,
+        formattedTotalMoneySum: formattedTotalMoneySum,
         countAdmin: countAdmin,
         countEmployee: countEmployee,
         countVisitor: countVisitor,
